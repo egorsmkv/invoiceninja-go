@@ -10,7 +10,7 @@ var _ MappedNullable = &BulkInvoicesRequest{}
 // BulkInvoicesRequest struct for BulkInvoicesRequest
 type BulkInvoicesRequest struct {
 	// The email type to be sent, when bulk emailing invoices
-	EmailType *Enum `json:"email_type,omitempty"`
+	EmailType *string `json:"email_type,omitempty"`
 	// The action to be performed, options include:   - `bulk_download`     Bulk download an array of invoice PDFs (These are sent to the admin via email.)   - `download`     Download a single PDF. (Returns a single PDF object)   - `bulk_print`     Merges an array of Invoice PDFs for easy one click printing.   - `auto_bill`     Attempts to automatically bill the invoices with the payment method on file.   - `clone_to_invoice`     Returns a clone of the invoice.   - `clone_to_quote`     Returns a quote cloned using the properties of the given invoice.   - `mark_paid`     Marks an array of invoices as paid.   - `mark_sent`     Marks an array of invoices as sent.   - `restore`     Restores an array of invoices   - `delete`     Deletes an array of invoices   - `archive`     Archives an array of invoices   - `cancel`     Cancels an array of invoices   - `email`     Emails an array of invoices   - `send_email`     Emails an array of invoices. Requires additional properties to be sent. `email_type`
 	Action *string  `json:"action,omitempty"`
 	Ids    []string `json:"ids,omitempty"`
@@ -34,9 +34,9 @@ func NewBulkInvoicesRequestWithDefaults() *BulkInvoicesRequest {
 }
 
 // GetEmailType returns the EmailType field value if set, zero value otherwise.
-func (o *BulkInvoicesRequest) GetEmailType() Enum {
+func (o *BulkInvoicesRequest) GetEmailType() string {
 	if o == nil || IsNil(o.EmailType) {
-		var ret Enum
+		var ret string
 		return ret
 	}
 	return *o.EmailType
@@ -44,7 +44,7 @@ func (o *BulkInvoicesRequest) GetEmailType() Enum {
 
 // GetEmailTypeOk returns a tuple with the EmailType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BulkInvoicesRequest) GetEmailTypeOk() (*Enum, bool) {
+func (o *BulkInvoicesRequest) GetEmailTypeOk() (*string, bool) {
 	if o == nil || IsNil(o.EmailType) {
 		return nil, false
 	}
@@ -60,8 +60,8 @@ func (o *BulkInvoicesRequest) HasEmailType() bool {
 	return false
 }
 
-// SetEmailType gets a reference to the given Enum and assigns it to the EmailType field.
-func (o *BulkInvoicesRequest) SetEmailType(v Enum) {
+// SetEmailType gets a reference to the given string and assigns it to the EmailType field.
+func (o *BulkInvoicesRequest) SetEmailType(v string) {
 	o.EmailType = &v
 }
 
