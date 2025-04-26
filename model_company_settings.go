@@ -1500,7 +1500,7 @@ func (o *CompanySettings) HasTranslations() bool {
 	return false
 }
 
-// SetTranslations gets a reference to the given map[string]interface{} and assigns it to the Translations field.
+// SetTranslations gets a reference to the given map[string]any and assigns it to the Translations field.
 func (o *CompanySettings) SetTranslations(v map[string]any) {
 	o.Translations = v
 }

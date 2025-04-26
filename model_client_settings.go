@@ -3570,7 +3570,7 @@ func (o *ClientSettings) HasCompanyLogo() bool {
 	return false
 }
 
-// SetCompanyLogo gets a reference to the given map[string]interface{} and assigns it to the CompanyLogo field.
+// SetCompanyLogo gets a reference to the given map[string]any and assigns it to the CompanyLogo field.
 func (o *ClientSettings) SetCompanyLogo(v map[string]any) {
 	o.CompanyLogo = v
 }

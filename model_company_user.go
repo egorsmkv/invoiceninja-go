@@ -107,7 +107,7 @@ func (o *CompanyUser) HasSettings() bool {
 	return false
 }
 
-// SetSettings gets a reference to the given map[string]interface{} and assigns it to the Settings field.
+// SetSettings gets a reference to the given map[string]any and assigns it to the Settings field.
 func (o *CompanyUser) SetSettings(v map[string]any) {
 	o.Settings = v
 }
@@ -139,7 +139,7 @@ func (o *CompanyUser) HasReactSettings() bool {
 	return false
 }
 
-// SetReactSettings gets a reference to the given map[string]interface{} and assigns it to the ReactSettings field.
+// SetReactSettings gets a reference to the given map[string]any and assigns it to the ReactSettings field.
 func (o *CompanyUser) SetReactSettings(v map[string]any) {
 	o.ReactSettings = v
 }

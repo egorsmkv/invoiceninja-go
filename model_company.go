@@ -684,7 +684,7 @@ func (o *Company) HasCustomFields() bool {
 	return false
 }
 
-// SetCustomFields gets a reference to the given map[string]interface{} and assigns it to the CustomFields field.
+// SetCustomFields gets a reference to the given map[string]any and assigns it to the CustomFields field.
 func (o *Company) SetCustomFields(v map[string]any) {
 	o.CustomFields = v
 }
@@ -909,7 +909,7 @@ func (o *Company) HasCustomSurchargeTaxes4() bool {
 	return false
 }
 
-// SetCustomSurchargeTaxes4 gets a reference to the given interface{} and assigns it to the CustomSurchargeTaxes4 field.
+// SetCustomSurchargeTaxes4 gets a reference to the given any and assigns it to the CustomSurchargeTaxes4 field.
 func (o *Company) SetCustomSurchargeTaxes4(v any) {
 	o.CustomSurchargeTaxes4 = v
 }
@@ -1869,7 +1869,7 @@ func (o *Company) HasClientRegistrationFields() bool {
 	return false
 }
 
-// SetClientRegistrationFields gets a reference to the given map[string]interface{} and assigns it to the ClientRegistrationFields field.
+// SetClientRegistrationFields gets a reference to the given map[string]any and assigns it to the ClientRegistrationFields field.
 func (o *Company) SetClientRegistrationFields(v map[string]any) {
 	o.ClientRegistrationFields = v
 }
@@ -2445,7 +2445,7 @@ func (o *Company) HasTaxData() bool {
 	return false
 }
 
-// SetTaxData gets a reference to the given map[string]interface{} and assigns it to the TaxData field.
+// SetTaxData gets a reference to the given map[string]any and assigns it to the TaxData field.
 func (o *Company) SetTaxData(v map[string]any) {
 	o.TaxData = v
 }
@@ -2541,7 +2541,7 @@ func (o *Company) HasOriginTaxData() bool {
 	return false
 }
 
-// SetOriginTaxData gets a reference to the given map[string]interface{} and assigns it to the OriginTaxData field.
+// SetOriginTaxData gets a reference to the given map[string]any and assigns it to the OriginTaxData field.
 func (o *Company) SetOriginTaxData(v map[string]any) {
 	o.OriginTaxData = v
 }
@@ -3064,7 +3064,7 @@ func (o *Company) HasEInvoice() bool {
 	return false
 }
 
-// SetEInvoice gets a reference to the given map[string]interface{} and assigns it to the EInvoice field.
+// SetEInvoice gets a reference to the given map[string]any and assigns it to the EInvoice field.
 func (o *Company) SetEInvoice(v map[string]any) {
 	o.EInvoice = v
 }

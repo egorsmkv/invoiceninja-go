@@ -227,7 +227,7 @@ func (o *Pagination) HasLinks() bool {
 	return false
 }
 
-// SetLinks gets a reference to the given map[string]interface{} and assigns it to the Links field.
+// SetLinks gets a reference to the given map[string]any and assigns it to the Links field.
 func (o *Pagination) SetLinks(v map[string]any) {
 	o.Links = v
 }

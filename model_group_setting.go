@@ -159,7 +159,7 @@ func (o *GroupSetting) HasSettings() bool {
 	return false
 }
 
-// SetSettings gets a reference to the given map[string]interface{} and assigns it to the Settings field.
+// SetSettings gets a reference to the given map[string]any and assigns it to the Settings field.
 func (o *GroupSetting) SetSettings(v map[string]any) {
 	o.Settings = v
 }

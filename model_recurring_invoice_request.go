@@ -803,7 +803,7 @@ func (o *RecurringInvoiceRequest) HasLineItems() bool {
 	return false
 }
 
-// SetLineItems gets a reference to the given map[string]interface{} and assigns it to the LineItems field.
+// SetLineItems gets a reference to the given map[string]any and assigns it to the LineItems field.
 func (o *RecurringInvoiceRequest) SetLineItems(v map[string]any) {
 	o.LineItems = v
 }

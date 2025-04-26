@@ -265,7 +265,7 @@ func (o *SystemLog) HasLog() bool {
 	return false
 }
 
-// SetLog gets a reference to the given map[string]interface{} and assigns it to the Log field.
+// SetLog gets a reference to the given map[string]any and assigns it to the Log field.
 func (o *SystemLog) SetLog(v map[string]any) {
 	o.Log = v
 }
