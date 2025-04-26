@@ -8,43 +8,6 @@ import (
 // PaymentType The payment type used to complete this payment
 type PaymentType string
 
-// List of PaymentType
-const (
-	_1  PaymentType = "1"
-	_2  PaymentType = "2"
-	_3  PaymentType = "3"
-	_4  PaymentType = "4"
-	_5  PaymentType = "5"
-	_6  PaymentType = "6"
-	_7  PaymentType = "7"
-	_8  PaymentType = "8"
-	_9  PaymentType = "9"
-	_10 PaymentType = "10"
-	_11 PaymentType = "11"
-	_12 PaymentType = "12"
-	_13 PaymentType = "13"
-	_14 PaymentType = "14"
-	_15 PaymentType = "15"
-	_16 PaymentType = "16"
-	_17 PaymentType = "17"
-	_18 PaymentType = "18"
-	_19 PaymentType = "19"
-	_20 PaymentType = "20"
-	_21 PaymentType = "21"
-	_22 PaymentType = "22"
-	_23 PaymentType = "23"
-	_24 PaymentType = "24"
-	_25 PaymentType = "25"
-	_26 PaymentType = "26"
-	_27 PaymentType = "27"
-	_28 PaymentType = "28"
-	_29 PaymentType = "29"
-	_30 PaymentType = "30"
-	_31 PaymentType = "31"
-	_32 PaymentType = "32"
-	_33 PaymentType = "33"
-)
-
 // All allowed values of PaymentType enum
 var AllowedPaymentTypeEnumValues = []PaymentType{
 	"1",
