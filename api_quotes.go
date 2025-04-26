@@ -1,14 +1,3 @@
-/*
-Invoice Ninja API Reference.
-
----   ![Invoice Ninja](https://invoicing.co/images/new_logo.png)   ## Introduction   Welcome to the Invoice Ninja API documentation, your comprehensive guide to integrating Invoice Ninja's powerful features into your applications. Whether you're building a custom client, automating workflows, or integrating with other systems, our API provides the tools you need to streamline your invoicing and billing processes.   ### What is Invoice Ninja?   Invoice Ninja is a robust source-available platform designed to simplify invoicing, billing, and payment management for freelancers, small businesses, and enterprises alike. With a user-friendly interface, customizable templates, and a suite of powerful features, Invoice Ninja empowers businesses to create professional invoices, track expenses, manage clients, and get paid faster.   ### Why use the Invoice Ninja API?   The Invoice Ninja API allows developers to extend the functionality of Invoice Ninja by programmatically accessing and manipulating data within their Invoice Ninja accounts. With the API, you can automate repetitive tasks, integrate with third-party services, and build custom solutions tailored to your specific business needs.   ### Getting Started   To get started with the Invoice Ninja API, you'll need an active Invoice Ninja account (or your own self hosted installation) and API credentials. If you haven't already done so, sign up for an account at Invoice Ninja and generate your API keys from the settings section.    Once you have your API credentials, you can start exploring the API endpoints, authentication methods, request and response formats, and more using the documentation provided here.   ### Explore the Documentation     This documentation is organized into sections to help you navigate and understand the various aspects of the Invoice Ninja API:    - Authentication: Learn how to authenticate your requests to the API using API tokens.   - Endpoints: Explore the available API endpoints for managing invoices, clients, payments, expenses, and more.   - Request and Response Formats: Understand the structure of API requests and responses, including parameters, headers, and payloads.   - Error Handling: Learn about error codes, status messages, and best practices for handling errors gracefully.   - Code Examples: Find code examples and tutorials to help you get started with integrating the Invoice Ninja API into your applications.         ### Need Help?         If you have any questions, encounter any issues, or need assistance with using the Invoice Ninja API, don't hesitate to reach out to our support team or join our community forums. We're here to help you succeed with Invoice Ninja and make the most of our API.        Let's start building together!   ### Endpoints      <div style=\"background-color: #2D394E; color: #fff padding: 20px; border-radius: 5px; border: 4px solid #212A3B; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\">       <p style=\"padding:10px; color: #DBDBDB;\"\">Production: https://invoicing.co</p>       <p style=\"padding:10px; color: #DBDBDB;\">Demo: https://demo.invoiceninja.com</p>   </div>    ### Client Libraries    PHP SDK can be found [here](https://github.com/invoiceninja/sdk-php)   ### Authentication:    Invoice Ninja uses API tokens to authenticate requests. You can view and manage your API keys in Settings > Account Management > Integrations > API tokens    API requests must be made over HTTPS. Calls made to HTTP will fail.   ### Errors:    Invoice Ninja uses standard HTTP response codes to indicate the success or failure of a request. below is a table of standard status codes and responses    | Status Code | Explanation                                                                 |   |-------------|-----------------------------------------------------------------------------|   | 200         | OK: The request has succeeded. The information returned with the response is dependent on the method used in the request. |   | 301         | Moved Permanently: This and all future requests should be directed to the given URI. |   | 303         | See Other: The response to the request can be found under another URI using the GET method. |   | 400         | Bad Request: The server cannot or will not process the request due to an apparent client error. |   | 401         | Unauthorized: Similar to 403 Forbidden, but specifically for use when authentication is required and has failed or has not yet been provided. |   | 403         | Forbidden: The request was valid, but the server is refusing action. |   | 404         | Not Found: The requested resource could not be found but may be available in the future. |   | 405         | Method Not Allowed: A request method is not supported for the requested resource. |   | 409         | Conflict: Indicates that the request could not be processed because of conflict in the request. |   | 422         | Unprocessable Entity: The request was well-formed but was unable to be followed due to semantic errors. |   | 429         | Too Many Requests: The user has sent too many requests in a given amount of time (\"rate limiting\"). |   | 500         | Internal Server Error: A generic error message, given when an unexpected condition was encountered and no more specific message is suitable. |   ### Pagination    When using index routes to retrieve lists of data, by default we limit the number of records returned to 20. You can using standard pagination to paginate results, ie: ?per_page=50 
-
-API version: 5.11.48
-Contact: contact@invoiceninja.com
-*/
-
-// Code generated by OpenAPI Generator (https://openapi-generator.tech); DO NOT EDIT.
-
 package openapi
 
 import (
@@ -17,21 +6,21 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"os"
 	"strings"
 )
-
 
 // QuotesAPIService QuotesAPI service
 type QuotesAPIService service
 
 type ApiActionQuoteRequest struct {
-	ctx context.Context
-	ApiService *QuotesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *QuotesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	action string
-	include *string
+	id             string
+	action         string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -61,43 +50,45 @@ ActionQuote Performs a custom action on an Quote
 
 Performs a custom action on an Quote.
 
-    The current range of actions are as follows
-    - clone_to_quote
-    - history
-    - delivery_note
-    - mark_paid
-    - download
-    - archive
-    - delete
-    - convert
-    - convert_to_invoice
-    - email
+	   The current range of actions are as follows
+	   - clone_to_quote
+	   - history
+	   - delivery_note
+	   - mark_paid
+	   - download
+	   - archive
+	   - delete
+	   - convert
+	   - convert_to_invoice
+	   - email
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The Quote Hashed ID
- @param action The action string to be performed
- @return ApiActionQuoteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Quote Hashed ID
+	@param action The action string to be performed
+	@return ApiActionQuoteRequest
 
 Deprecated
 */
 func (a *QuotesAPIService) ActionQuote(ctx context.Context, id string, action string) ApiActionQuoteRequest {
 	return ApiActionQuoteRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
-		action: action,
+		ctx:        ctx,
+		id:         id,
+		action:     action,
 	}
 }
 
 // Execute executes the request
-//  @return Quote
+//
+//	@return Quote
+//
 // Deprecated
 func (a *QuotesAPIService) ActionQuoteExecute(r ApiActionQuoteRequest) (*Quote, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Quote
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Quote
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "QuotesAPIService.ActionQuote")
@@ -184,8 +175,8 @@ func (a *QuotesAPIService) ActionQuoteExecute(r ApiActionQuoteRequest) (*Quote, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -195,8 +186,8 @@ func (a *QuotesAPIService) ActionQuoteExecute(r ApiActionQuoteRequest) (*Quote, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -206,8 +197,8 @@ func (a *QuotesAPIService) ActionQuoteExecute(r ApiActionQuoteRequest) (*Quote, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -217,18 +208,18 @@ func (a *QuotesAPIService) ActionQuoteExecute(r ApiActionQuoteRequest) (*Quote, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -245,12 +236,12 @@ func (a *QuotesAPIService) ActionQuoteExecute(r ApiActionQuoteRequest) (*Quote, 
 }
 
 type ApiBulkQuotesRequest struct {
-	ctx context.Context
-	ApiService *QuotesAPIService
-	xAPITOKEN *string
-	xRequestedWith *string
+	ctx               context.Context
+	ApiService        *QuotesAPIService
+	xAPITOKEN         *string
+	xRequestedWith    *string
 	bulkQuotesRequest *BulkQuotesRequest
-	index *string
+	index             *string
 }
 
 // The API token to be used for authentication
@@ -271,7 +262,7 @@ func (r ApiBulkQuotesRequest) BulkQuotesRequest(bulkQuotesRequest BulkQuotesRequ
 	return r
 }
 
-// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60; 
+// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60;
 func (r ApiBulkQuotesRequest) Index(index string) ApiBulkQuotesRequest {
 	r.index = &index
 	return r
@@ -286,27 +277,27 @@ BulkQuotes Bulk quote actions
 
 ## POST /api/v1/quotes/bulk
 
-Performs bulk actions on an array of quotes
+# Performs bulk actions on an array of quotes
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBulkQuotesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBulkQuotesRequest
 */
 func (a *QuotesAPIService) BulkQuotes(ctx context.Context) ApiBulkQuotesRequest {
 	return ApiBulkQuotesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Quote
+//
+//	@return Quote
 func (a *QuotesAPIService) BulkQuotesExecute(r ApiBulkQuotesRequest) (*Quote, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Quote
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Quote
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "QuotesAPIService.BulkQuotes")
@@ -396,8 +387,8 @@ func (a *QuotesAPIService) BulkQuotesExecute(r ApiBulkQuotesRequest) (*Quote, *h
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -407,8 +398,8 @@ func (a *QuotesAPIService) BulkQuotesExecute(r ApiBulkQuotesRequest) (*Quote, *h
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -418,8 +409,8 @@ func (a *QuotesAPIService) BulkQuotesExecute(r ApiBulkQuotesRequest) (*Quote, *h
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -429,18 +420,18 @@ func (a *QuotesAPIService) BulkQuotesExecute(r ApiBulkQuotesRequest) (*Quote, *h
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -457,12 +448,12 @@ func (a *QuotesAPIService) BulkQuotesExecute(r ApiBulkQuotesRequest) (*Quote, *h
 }
 
 type ApiDeleteQuoteRequest struct {
-	ctx context.Context
-	ApiService *QuotesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *QuotesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	include *string
+	id             string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -494,25 +485,24 @@ DeleteQuote Delete quote
 
 Handles the deletion of an Quote by id.
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The Quote Hashed ID
- @return ApiDeleteQuoteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Quote Hashed ID
+	@return ApiDeleteQuoteRequest
 */
 func (a *QuotesAPIService) DeleteQuote(ctx context.Context, id string) ApiDeleteQuoteRequest {
 	return ApiDeleteQuoteRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *QuotesAPIService) DeleteQuoteExecute(r ApiDeleteQuoteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "QuotesAPIService.DeleteQuote")
@@ -598,8 +588,8 @@ func (a *QuotesAPIService) DeleteQuoteExecute(r ApiDeleteQuoteRequest) (*http.Re
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -609,8 +599,8 @@ func (a *QuotesAPIService) DeleteQuoteExecute(r ApiDeleteQuoteRequest) (*http.Re
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -620,8 +610,8 @@ func (a *QuotesAPIService) DeleteQuoteExecute(r ApiDeleteQuoteRequest) (*http.Re
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -631,18 +621,18 @@ func (a *QuotesAPIService) DeleteQuoteExecute(r ApiDeleteQuoteRequest) (*http.Re
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -650,12 +640,12 @@ func (a *QuotesAPIService) DeleteQuoteExecute(r ApiDeleteQuoteRequest) (*http.Re
 }
 
 type ApiDownloadCreditRequest struct {
-	ctx context.Context
-	ApiService *QuotesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *QuotesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	invitationKey string
-	include *string
+	invitationKey  string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -685,14 +675,14 @@ DownloadCredit Download quote PDF
 
 Downloads a specific quote
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param invitationKey The Credit Invitation Key
- @return ApiDownloadCreditRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param invitationKey The Credit Invitation Key
+	@return ApiDownloadCreditRequest
 */
 func (a *QuotesAPIService) DownloadCredit(ctx context.Context, invitationKey string) ApiDownloadCreditRequest {
 	return ApiDownloadCreditRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:    a,
+		ctx:           ctx,
 		invitationKey: invitationKey,
 	}
 }
@@ -700,9 +690,9 @@ func (a *QuotesAPIService) DownloadCredit(ctx context.Context, invitationKey str
 // Execute executes the request
 func (a *QuotesAPIService) DownloadCreditExecute(r ApiDownloadCreditRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "QuotesAPIService.DownloadCredit")
@@ -788,8 +778,8 @@ func (a *QuotesAPIService) DownloadCreditExecute(r ApiDownloadCreditRequest) (*h
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -799,8 +789,8 @@ func (a *QuotesAPIService) DownloadCreditExecute(r ApiDownloadCreditRequest) (*h
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -810,8 +800,8 @@ func (a *QuotesAPIService) DownloadCreditExecute(r ApiDownloadCreditRequest) (*h
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -821,18 +811,18 @@ func (a *QuotesAPIService) DownloadCreditExecute(r ApiDownloadCreditRequest) (*h
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -840,12 +830,12 @@ func (a *QuotesAPIService) DownloadCreditExecute(r ApiDownloadCreditRequest) (*h
 }
 
 type ApiDownloadQuoteRequest struct {
-	ctx context.Context
-	ApiService *QuotesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *QuotesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	invitationKey string
-	include *string
+	invitationKey  string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -875,14 +865,14 @@ DownloadQuote Download quote PDF
 
 Downloads a specific quote
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param invitationKey The Quote Invitation Key
- @return ApiDownloadQuoteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param invitationKey The Quote Invitation Key
+	@return ApiDownloadQuoteRequest
 */
 func (a *QuotesAPIService) DownloadQuote(ctx context.Context, invitationKey string) ApiDownloadQuoteRequest {
 	return ApiDownloadQuoteRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:    a,
+		ctx:           ctx,
 		invitationKey: invitationKey,
 	}
 }
@@ -890,9 +880,9 @@ func (a *QuotesAPIService) DownloadQuote(ctx context.Context, invitationKey stri
 // Execute executes the request
 func (a *QuotesAPIService) DownloadQuoteExecute(r ApiDownloadQuoteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "QuotesAPIService.DownloadQuote")
@@ -978,8 +968,8 @@ func (a *QuotesAPIService) DownloadQuoteExecute(r ApiDownloadQuoteRequest) (*htt
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -989,8 +979,8 @@ func (a *QuotesAPIService) DownloadQuoteExecute(r ApiDownloadQuoteRequest) (*htt
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1000,8 +990,8 @@ func (a *QuotesAPIService) DownloadQuoteExecute(r ApiDownloadQuoteRequest) (*htt
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1011,18 +1001,18 @@ func (a *QuotesAPIService) DownloadQuoteExecute(r ApiDownloadQuoteRequest) (*htt
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -1030,12 +1020,12 @@ func (a *QuotesAPIService) DownloadQuoteExecute(r ApiDownloadQuoteRequest) (*htt
 }
 
 type ApiEditQuoteRequest struct {
-	ctx context.Context
-	ApiService *QuotesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *QuotesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	include *string
+	id             string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -1065,29 +1055,29 @@ EditQuote Edit quote
 
 ## GET /api/v1/quotes/{id}/edit
 
-Displays an Quote by id for editting
+# Displays an Quote by id for editting
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The Quote Hashed ID
- @return ApiEditQuoteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Quote Hashed ID
+	@return ApiEditQuoteRequest
 */
 func (a *QuotesAPIService) EditQuote(ctx context.Context, id string) ApiEditQuoteRequest {
 	return ApiEditQuoteRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Quote
+//
+//	@return Quote
 func (a *QuotesAPIService) EditQuoteExecute(r ApiEditQuoteRequest) (*Quote, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Quote
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Quote
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "QuotesAPIService.EditQuote")
@@ -1173,8 +1163,8 @@ func (a *QuotesAPIService) EditQuoteExecute(r ApiEditQuoteRequest) (*Quote, *htt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1184,8 +1174,8 @@ func (a *QuotesAPIService) EditQuoteExecute(r ApiEditQuoteRequest) (*Quote, *htt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1195,8 +1185,8 @@ func (a *QuotesAPIService) EditQuoteExecute(r ApiEditQuoteRequest) (*Quote, *htt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1206,18 +1196,18 @@ func (a *QuotesAPIService) EditQuoteExecute(r ApiEditQuoteRequest) (*Quote, *htt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1234,21 +1224,21 @@ func (a *QuotesAPIService) EditQuoteExecute(r ApiEditQuoteRequest) (*Quote, *htt
 }
 
 type ApiGetQuotesRequest struct {
-	ctx context.Context
-	ApiService *QuotesAPIService
-	xRequestedWith *string
-	include *string
-	status *string
-	clientId *string
-	createdAt *int32
-	updatedAt *int32
-	isDeleted *bool
+	ctx                  context.Context
+	ApiService           *QuotesAPIService
+	xRequestedWith       *string
+	include              *string
+	status               *string
+	clientId             *string
+	createdAt            *int32
+	updatedAt            *int32
+	isDeleted            *bool
 	filterDeletedClients *string
-	vendorId *string
-	filter *string
-	clientStatus *string
-	number *string
-	sort *string
+	vendorId             *string
+	filter               *string
+	clientStatus         *string
+	number               *string
+	sort                 *string
 }
 
 // Used to send the XMLHttpRequest header
@@ -1263,61 +1253,61 @@ func (r ApiGetQuotesRequest) Include(include string) ApiGetQuotesRequest {
 	return r
 }
 
-// Filter the entity based on their status. ie active / archived / deleted. Format is a comma separated string with any of the following options:   - active - archived - deleted    &#x60;&#x60;&#x60;html GET /api/v1/invoices?status&#x3D;archived,deleted Returns only archived and deleted invoices &#x60;&#x60;&#x60; 
+// Filter the entity based on their status. ie active / archived / deleted. Format is a comma separated string with any of the following options:   - active - archived - deleted    &#x60;&#x60;&#x60;html GET /api/v1/invoices?status&#x3D;archived,deleted Returns only archived and deleted invoices &#x60;&#x60;&#x60;
 func (r ApiGetQuotesRequest) Status(status string) ApiGetQuotesRequest {
 	r.status = &status
 	return r
 }
 
-// Filters the entity list by client_id. Suitable when you only want the entities of a specific client.  &#x60;&#x60;&#x60;html GET /api/v1/invoices?client_id&#x3D;AxB7Hjk9 Returns only invoices for the specified client &#x60;&#x60;&#x60; 
+// Filters the entity list by client_id. Suitable when you only want the entities of a specific client.  &#x60;&#x60;&#x60;html GET /api/v1/invoices?client_id&#x3D;AxB7Hjk9 Returns only invoices for the specified client &#x60;&#x60;&#x60;
 func (r ApiGetQuotesRequest) ClientId(clientId string) ApiGetQuotesRequest {
 	r.clientId = &clientId
 	return r
 }
 
-// Filters the entity list by the created at timestamp. Parameter value can be a datetime string or unix timestamp  &#x60;&#x60;&#x60;html GET /api/v1/invoices?created_at&#x3D;2022-01-10 Returns entities created on January 10th, 2022 &#x60;&#x60;&#x60; 
+// Filters the entity list by the created at timestamp. Parameter value can be a datetime string or unix timestamp  &#x60;&#x60;&#x60;html GET /api/v1/invoices?created_at&#x3D;2022-01-10 Returns entities created on January 10th, 2022 &#x60;&#x60;&#x60;
 func (r ApiGetQuotesRequest) CreatedAt(createdAt int32) ApiGetQuotesRequest {
 	r.createdAt = &createdAt
 	return r
 }
 
-// Filters the entity list by the updated at timestamp. Parameter value can be a datetime string or unix timestamp  &#x60;&#x60;&#x60;html GET /api/v1/invoices?updated_at&#x3D;2022-01-10 Returns entities last updated on January 10th, 2022 &#x60;&#x60;&#x60; 
+// Filters the entity list by the updated at timestamp. Parameter value can be a datetime string or unix timestamp  &#x60;&#x60;&#x60;html GET /api/v1/invoices?updated_at&#x3D;2022-01-10 Returns entities last updated on January 10th, 2022 &#x60;&#x60;&#x60;
 func (r ApiGetQuotesRequest) UpdatedAt(updatedAt int32) ApiGetQuotesRequest {
 	r.updatedAt = &updatedAt
 	return r
 }
 
-// Filters the entity list by entities that have been deleted.  &#x60;&#x60;&#x60;html GET /api/v1/invoices?is_deleted&#x3D;true Returns only soft-deleted entities &#x60;&#x60;&#x60; 
+// Filters the entity list by entities that have been deleted.  &#x60;&#x60;&#x60;html GET /api/v1/invoices?is_deleted&#x3D;true Returns only soft-deleted entities &#x60;&#x60;&#x60;
 func (r ApiGetQuotesRequest) IsDeleted(isDeleted bool) ApiGetQuotesRequest {
 	r.isDeleted = &isDeleted
 	return r
 }
 
-// Filters the entity list and only returns entities for clients that have not been deleted  &#x60;&#x60;&#x60;html GET /api/v1/invoices?filter_deleted_clients&#x3D;true Returns only invoices for active (non-deleted) clients &#x60;&#x60;&#x60; 
+// Filters the entity list and only returns entities for clients that have not been deleted  &#x60;&#x60;&#x60;html GET /api/v1/invoices?filter_deleted_clients&#x3D;true Returns only invoices for active (non-deleted) clients &#x60;&#x60;&#x60;
 func (r ApiGetQuotesRequest) FilterDeletedClients(filterDeletedClients string) ApiGetQuotesRequest {
 	r.filterDeletedClients = &filterDeletedClients
 	return r
 }
 
-// Filters the entity list by an associated vendor  &#x60;&#x60;&#x60;html GET /api/v1/purchases?vendor_id&#x3D;AxB7Hjk9 Returns only purchases for the specified vendor &#x60;&#x60;&#x60; 
+// Filters the entity list by an associated vendor  &#x60;&#x60;&#x60;html GET /api/v1/purchases?vendor_id&#x3D;AxB7Hjk9 Returns only purchases for the specified vendor &#x60;&#x60;&#x60;
 func (r ApiGetQuotesRequest) VendorId(vendorId string) ApiGetQuotesRequest {
 	r.vendorId = &vendorId
 	return r
 }
 
-// Searches across a range of columns including:   - number   - custom_value1   - custom_value2   - custom_value3   - custom_value4 
+// Searches across a range of columns including:   - number   - custom_value1   - custom_value2   - custom_value3   - custom_value4
 func (r ApiGetQuotesRequest) Filter(filter string) ApiGetQuotesRequest {
 	r.filter = &filter
 	return r
 }
 
-// A comma separated list of quote status strings. Valid options include:   - all - draft   - sent   - approved - expired - upcoming    
+// A comma separated list of quote status strings. Valid options include:   - all - draft   - sent   - approved - expired - upcoming
 func (r ApiGetQuotesRequest) ClientStatus(clientStatus string) ApiGetQuotesRequest {
 	r.clientStatus = &clientStatus
 	return r
 }
 
-// Search quote by quote number  
+// Search quote by quote number
 func (r ApiGetQuotesRequest) Number(number string) ApiGetQuotesRequest {
 	r.number = &number
 	return r
@@ -1340,27 +1330,27 @@ GetQuotes List quotes
 
 Lists quotes, search and filters allow fine grained lists to be generated.
 
-Query parameters can be added to performed more fine grained filtering of the quotes, these are handled by the QuoteFilters class which defines the methods available
+# Query parameters can be added to performed more fine grained filtering of the quotes, these are handled by the QuoteFilters class which defines the methods available
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetQuotesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetQuotesRequest
 */
 func (a *QuotesAPIService) GetQuotes(ctx context.Context) ApiGetQuotesRequest {
 	return ApiGetQuotesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetQuotes200Response
+//
+//	@return GetQuotes200Response
 func (a *QuotesAPIService) GetQuotesExecute(r ApiGetQuotesRequest) (*GetQuotes200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetQuotes200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetQuotes200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "QuotesAPIService.GetQuotes")
@@ -1474,8 +1464,8 @@ func (a *QuotesAPIService) GetQuotesExecute(r ApiGetQuotesRequest) (*GetQuotes20
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1485,8 +1475,8 @@ func (a *QuotesAPIService) GetQuotesExecute(r ApiGetQuotesRequest) (*GetQuotes20
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1496,8 +1486,8 @@ func (a *QuotesAPIService) GetQuotesExecute(r ApiGetQuotesRequest) (*GetQuotes20
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1507,18 +1497,18 @@ func (a *QuotesAPIService) GetQuotesExecute(r ApiGetQuotesRequest) (*GetQuotes20
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1535,11 +1525,11 @@ func (a *QuotesAPIService) GetQuotesExecute(r ApiGetQuotesRequest) (*GetQuotes20
 }
 
 type ApiGetQuotesCreateRequest struct {
-	ctx context.Context
-	ApiService *QuotesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *QuotesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	include *string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -1569,27 +1559,27 @@ GetQuotesCreate Blank quote
 
 ## GET /api/v1/quotes/create
 
-Returns a blank object with default values
+# Returns a blank object with default values
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetQuotesCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetQuotesCreateRequest
 */
 func (a *QuotesAPIService) GetQuotesCreate(ctx context.Context) ApiGetQuotesCreateRequest {
 	return ApiGetQuotesCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Quote
+//
+//	@return Quote
 func (a *QuotesAPIService) GetQuotesCreateExecute(r ApiGetQuotesCreateRequest) (*Quote, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Quote
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Quote
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "QuotesAPIService.GetQuotesCreate")
@@ -1674,8 +1664,8 @@ func (a *QuotesAPIService) GetQuotesCreateExecute(r ApiGetQuotesCreateRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1685,8 +1675,8 @@ func (a *QuotesAPIService) GetQuotesCreateExecute(r ApiGetQuotesCreateRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1696,8 +1686,8 @@ func (a *QuotesAPIService) GetQuotesCreateExecute(r ApiGetQuotesCreateRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1707,18 +1697,18 @@ func (a *QuotesAPIService) GetQuotesCreateExecute(r ApiGetQuotesCreateRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1735,12 +1725,12 @@ func (a *QuotesAPIService) GetQuotesCreateExecute(r ApiGetQuotesCreateRequest) (
 }
 
 type ApiShowQuoteRequest struct {
-	ctx context.Context
-	ApiService *QuotesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *QuotesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	include *string
+	id             string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -1770,29 +1760,29 @@ ShowQuote Show quote
 
 ## GET /api/v1/quotes/{id}
 
-Displays an Quote by id
+# Displays an Quote by id
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The Quote Hashed ID
- @return ApiShowQuoteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Quote Hashed ID
+	@return ApiShowQuoteRequest
 */
 func (a *QuotesAPIService) ShowQuote(ctx context.Context, id string) ApiShowQuoteRequest {
 	return ApiShowQuoteRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Quote
+//
+//	@return Quote
 func (a *QuotesAPIService) ShowQuoteExecute(r ApiShowQuoteRequest) (*Quote, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Quote
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Quote
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "QuotesAPIService.ShowQuote")
@@ -1878,8 +1868,8 @@ func (a *QuotesAPIService) ShowQuoteExecute(r ApiShowQuoteRequest) (*Quote, *htt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1889,8 +1879,8 @@ func (a *QuotesAPIService) ShowQuoteExecute(r ApiShowQuoteRequest) (*Quote, *htt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1900,8 +1890,8 @@ func (a *QuotesAPIService) ShowQuoteExecute(r ApiShowQuoteRequest) (*Quote, *htt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1911,18 +1901,18 @@ func (a *QuotesAPIService) ShowQuoteExecute(r ApiShowQuoteRequest) (*Quote, *htt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1939,11 +1929,11 @@ func (a *QuotesAPIService) ShowQuoteExecute(r ApiShowQuoteRequest) (*Quote, *htt
 }
 
 type ApiStoreQuoteRequest struct {
-	ctx context.Context
-	ApiService *QuotesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *QuotesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	include *string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -1988,25 +1978,25 @@ These are query parameters that can be chained in order to perform additional ac
 
 ```
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiStoreQuoteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiStoreQuoteRequest
 */
 func (a *QuotesAPIService) StoreQuote(ctx context.Context) ApiStoreQuoteRequest {
 	return ApiStoreQuoteRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Quote
+//
+//	@return Quote
 func (a *QuotesAPIService) StoreQuoteExecute(r ApiStoreQuoteRequest) (*Quote, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Quote
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Quote
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "QuotesAPIService.StoreQuote")
@@ -2091,8 +2081,8 @@ func (a *QuotesAPIService) StoreQuoteExecute(r ApiStoreQuoteRequest) (*Quote, *h
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2102,8 +2092,8 @@ func (a *QuotesAPIService) StoreQuoteExecute(r ApiStoreQuoteRequest) (*Quote, *h
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -2113,8 +2103,8 @@ func (a *QuotesAPIService) StoreQuoteExecute(r ApiStoreQuoteRequest) (*Quote, *h
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2124,18 +2114,18 @@ func (a *QuotesAPIService) StoreQuoteExecute(r ApiStoreQuoteRequest) (*Quote, *h
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2152,12 +2142,12 @@ func (a *QuotesAPIService) StoreQuoteExecute(r ApiStoreQuoteRequest) (*Quote, *h
 }
 
 type ApiUpdateQuoteRequest struct {
-	ctx context.Context
-	ApiService *QuotesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *QuotesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	include *string
+	id             string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -2203,27 +2193,27 @@ These are query parameters that can be chained in order to perform additional ac
 
 ```
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The Quote Hashed ID
- @return ApiUpdateQuoteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Quote Hashed ID
+	@return ApiUpdateQuoteRequest
 */
 func (a *QuotesAPIService) UpdateQuote(ctx context.Context, id string) ApiUpdateQuoteRequest {
 	return ApiUpdateQuoteRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Quote
+//
+//	@return Quote
 func (a *QuotesAPIService) UpdateQuoteExecute(r ApiUpdateQuoteRequest) (*Quote, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Quote
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Quote
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "QuotesAPIService.UpdateQuote")
@@ -2309,8 +2299,8 @@ func (a *QuotesAPIService) UpdateQuoteExecute(r ApiUpdateQuoteRequest) (*Quote, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2320,8 +2310,8 @@ func (a *QuotesAPIService) UpdateQuoteExecute(r ApiUpdateQuoteRequest) (*Quote, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -2331,8 +2321,8 @@ func (a *QuotesAPIService) UpdateQuoteExecute(r ApiUpdateQuoteRequest) (*Quote, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2342,18 +2332,18 @@ func (a *QuotesAPIService) UpdateQuoteExecute(r ApiUpdateQuoteRequest) (*Quote, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2370,14 +2360,14 @@ func (a *QuotesAPIService) UpdateQuoteExecute(r ApiUpdateQuoteRequest) (*Quote, 
 }
 
 type ApiUploadQuoteRequest struct {
-	ctx context.Context
-	ApiService *QuotesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *QuotesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	include *string
-	method *string
-	documents []*os.File
+	id             string
+	include        *string
+	method         *string
+	documents      []*os.File
 }
 
 // The API token to be used for authentication
@@ -2417,26 +2407,27 @@ UploadQuote Upload a quote document
 
 Handles the uploading of a document to a quote
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The Quote Hashed ID
- @return ApiUploadQuoteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Quote Hashed ID
+	@return ApiUploadQuoteRequest
 */
 func (a *QuotesAPIService) UploadQuote(ctx context.Context, id string) ApiUploadQuoteRequest {
 	return ApiUploadQuoteRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Quote
+//
+//	@return Quote
 func (a *QuotesAPIService) UploadQuoteExecute(r ApiUploadQuoteRequest) (*Quote, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Quote
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Quote
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "QuotesAPIService.UploadQuote")
@@ -2483,8 +2474,8 @@ func (a *QuotesAPIService) UploadQuoteExecute(r ApiUploadQuoteRequest) (*Quote, 
 		parameterAddToHeaderOrQuery(localVarFormParams, "_method", r.method, "", "")
 	}
 	var documentsLocalVarFormFileName string
-	var documentsLocalVarFileName     string
-	var documentsLocalVarFileBytes    []byte
+	var documentsLocalVarFileName string
+	var documentsLocalVarFileBytes []byte
 
 	documentsLocalVarFormFileName = "documents"
 	documentsLocalVarFile := r.documents
@@ -2543,8 +2534,8 @@ func (a *QuotesAPIService) UploadQuoteExecute(r ApiUploadQuoteRequest) (*Quote, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2554,8 +2545,8 @@ func (a *QuotesAPIService) UploadQuoteExecute(r ApiUploadQuoteRequest) (*Quote, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -2565,8 +2556,8 @@ func (a *QuotesAPIService) UploadQuoteExecute(r ApiUploadQuoteRequest) (*Quote, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2576,18 +2567,18 @@ func (a *QuotesAPIService) UploadQuoteExecute(r ApiUploadQuoteRequest) (*Quote, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

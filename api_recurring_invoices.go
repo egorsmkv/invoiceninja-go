@@ -1,14 +1,3 @@
-/*
-Invoice Ninja API Reference.
-
----   ![Invoice Ninja](https://invoicing.co/images/new_logo.png)   ## Introduction   Welcome to the Invoice Ninja API documentation, your comprehensive guide to integrating Invoice Ninja's powerful features into your applications. Whether you're building a custom client, automating workflows, or integrating with other systems, our API provides the tools you need to streamline your invoicing and billing processes.   ### What is Invoice Ninja?   Invoice Ninja is a robust source-available platform designed to simplify invoicing, billing, and payment management for freelancers, small businesses, and enterprises alike. With a user-friendly interface, customizable templates, and a suite of powerful features, Invoice Ninja empowers businesses to create professional invoices, track expenses, manage clients, and get paid faster.   ### Why use the Invoice Ninja API?   The Invoice Ninja API allows developers to extend the functionality of Invoice Ninja by programmatically accessing and manipulating data within their Invoice Ninja accounts. With the API, you can automate repetitive tasks, integrate with third-party services, and build custom solutions tailored to your specific business needs.   ### Getting Started   To get started with the Invoice Ninja API, you'll need an active Invoice Ninja account (or your own self hosted installation) and API credentials. If you haven't already done so, sign up for an account at Invoice Ninja and generate your API keys from the settings section.    Once you have your API credentials, you can start exploring the API endpoints, authentication methods, request and response formats, and more using the documentation provided here.   ### Explore the Documentation     This documentation is organized into sections to help you navigate and understand the various aspects of the Invoice Ninja API:    - Authentication: Learn how to authenticate your requests to the API using API tokens.   - Endpoints: Explore the available API endpoints for managing invoices, clients, payments, expenses, and more.   - Request and Response Formats: Understand the structure of API requests and responses, including parameters, headers, and payloads.   - Error Handling: Learn about error codes, status messages, and best practices for handling errors gracefully.   - Code Examples: Find code examples and tutorials to help you get started with integrating the Invoice Ninja API into your applications.         ### Need Help?         If you have any questions, encounter any issues, or need assistance with using the Invoice Ninja API, don't hesitate to reach out to our support team or join our community forums. We're here to help you succeed with Invoice Ninja and make the most of our API.        Let's start building together!   ### Endpoints      <div style=\"background-color: #2D394E; color: #fff padding: 20px; border-radius: 5px; border: 4px solid #212A3B; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\">       <p style=\"padding:10px; color: #DBDBDB;\"\">Production: https://invoicing.co</p>       <p style=\"padding:10px; color: #DBDBDB;\">Demo: https://demo.invoiceninja.com</p>   </div>    ### Client Libraries    PHP SDK can be found [here](https://github.com/invoiceninja/sdk-php)   ### Authentication:    Invoice Ninja uses API tokens to authenticate requests. You can view and manage your API keys in Settings > Account Management > Integrations > API tokens    API requests must be made over HTTPS. Calls made to HTTP will fail.   ### Errors:    Invoice Ninja uses standard HTTP response codes to indicate the success or failure of a request. below is a table of standard status codes and responses    | Status Code | Explanation                                                                 |   |-------------|-----------------------------------------------------------------------------|   | 200         | OK: The request has succeeded. The information returned with the response is dependent on the method used in the request. |   | 301         | Moved Permanently: This and all future requests should be directed to the given URI. |   | 303         | See Other: The response to the request can be found under another URI using the GET method. |   | 400         | Bad Request: The server cannot or will not process the request due to an apparent client error. |   | 401         | Unauthorized: Similar to 403 Forbidden, but specifically for use when authentication is required and has failed or has not yet been provided. |   | 403         | Forbidden: The request was valid, but the server is refusing action. |   | 404         | Not Found: The requested resource could not be found but may be available in the future. |   | 405         | Method Not Allowed: A request method is not supported for the requested resource. |   | 409         | Conflict: Indicates that the request could not be processed because of conflict in the request. |   | 422         | Unprocessable Entity: The request was well-formed but was unable to be followed due to semantic errors. |   | 429         | Too Many Requests: The user has sent too many requests in a given amount of time (\"rate limiting\"). |   | 500         | Internal Server Error: A generic error message, given when an unexpected condition was encountered and no more specific message is suitable. |   ### Pagination    When using index routes to retrieve lists of data, by default we limit the number of records returned to 20. You can using standard pagination to paginate results, ie: ?per_page=50 
-
-API version: 5.11.48
-Contact: contact@invoiceninja.com
-*/
-
-// Code generated by OpenAPI Generator (https://openapi-generator.tech); DO NOT EDIT.
-
 package openapi
 
 import (
@@ -17,21 +6,21 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"os"
 	"strings"
 )
-
 
 // RecurringInvoicesAPIService RecurringInvoicesAPI service
 type RecurringInvoicesAPIService service
 
 type ApiActionRecurringInvoiceRequest struct {
-	ctx context.Context
-	ApiService *RecurringInvoicesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *RecurringInvoicesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	action string
-	include *string
+	id             string
+	action         string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -61,42 +50,44 @@ ActionRecurringInvoice Custom recurring invoice action
 
 Performs a custom action on an RecurringInvoice.
 
-    The current range of actions are as follows
-    - clone_to_RecurringInvoice
-    - clone_to_quote
-    - history
-    - delivery_note
-    - mark_paid
-    - download
-    - archive
-    - delete
-    - email
+	   The current range of actions are as follows
+	   - clone_to_RecurringInvoice
+	   - clone_to_quote
+	   - history
+	   - delivery_note
+	   - mark_paid
+	   - download
+	   - archive
+	   - delete
+	   - email
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The RecurringInvoice Hashed ID
- @param action The action string to be performed
- @return ApiActionRecurringInvoiceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The RecurringInvoice Hashed ID
+	@param action The action string to be performed
+	@return ApiActionRecurringInvoiceRequest
 
 Deprecated
 */
 func (a *RecurringInvoicesAPIService) ActionRecurringInvoice(ctx context.Context, id string, action string) ApiActionRecurringInvoiceRequest {
 	return ApiActionRecurringInvoiceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
-		action: action,
+		ctx:        ctx,
+		id:         id,
+		action:     action,
 	}
 }
 
 // Execute executes the request
-//  @return RecurringInvoice
+//
+//	@return RecurringInvoice
+//
 // Deprecated
 func (a *RecurringInvoicesAPIService) ActionRecurringInvoiceExecute(r ApiActionRecurringInvoiceRequest) (*RecurringInvoice, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RecurringInvoice
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RecurringInvoice
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.ActionRecurringInvoice")
@@ -183,8 +174,8 @@ func (a *RecurringInvoicesAPIService) ActionRecurringInvoiceExecute(r ApiActionR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -194,8 +185,8 @@ func (a *RecurringInvoicesAPIService) ActionRecurringInvoiceExecute(r ApiActionR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -205,8 +196,8 @@ func (a *RecurringInvoicesAPIService) ActionRecurringInvoiceExecute(r ApiActionR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -216,18 +207,18 @@ func (a *RecurringInvoicesAPIService) ActionRecurringInvoiceExecute(r ApiActionR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -244,12 +235,12 @@ func (a *RecurringInvoicesAPIService) ActionRecurringInvoiceExecute(r ApiActionR
 }
 
 type ApiBulkRecurringInvoicesRequest struct {
-	ctx context.Context
-	ApiService *RecurringInvoicesAPIService
-	xAPITOKEN *string
-	xRequestedWith *string
+	ctx                          context.Context
+	ApiService                   *RecurringInvoicesAPIService
+	xAPITOKEN                    *string
+	xRequestedWith               *string
 	bulkRecurringInvoicesRequest *BulkRecurringInvoicesRequest
-	index *string
+	index                        *string
 }
 
 // The API token to be used for authentication
@@ -270,7 +261,7 @@ func (r ApiBulkRecurringInvoicesRequest) BulkRecurringInvoicesRequest(bulkRecurr
 	return r
 }
 
-// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60; 
+// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60;
 func (r ApiBulkRecurringInvoicesRequest) Index(index string) ApiBulkRecurringInvoicesRequest {
 	r.index = &index
 	return r
@@ -285,25 +276,25 @@ BulkRecurringInvoices Bulk recurring invoice actions
 
 There are multiple actions that are available including:
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBulkRecurringInvoicesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBulkRecurringInvoicesRequest
 */
 func (a *RecurringInvoicesAPIService) BulkRecurringInvoices(ctx context.Context) ApiBulkRecurringInvoicesRequest {
 	return ApiBulkRecurringInvoicesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return RecurringInvoice
+//
+//	@return RecurringInvoice
 func (a *RecurringInvoicesAPIService) BulkRecurringInvoicesExecute(r ApiBulkRecurringInvoicesRequest) (*RecurringInvoice, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RecurringInvoice
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RecurringInvoice
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.BulkRecurringInvoices")
@@ -393,8 +384,8 @@ func (a *RecurringInvoicesAPIService) BulkRecurringInvoicesExecute(r ApiBulkRecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -404,8 +395,8 @@ func (a *RecurringInvoicesAPIService) BulkRecurringInvoicesExecute(r ApiBulkRecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -415,8 +406,8 @@ func (a *RecurringInvoicesAPIService) BulkRecurringInvoicesExecute(r ApiBulkRecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -426,18 +417,18 @@ func (a *RecurringInvoicesAPIService) BulkRecurringInvoicesExecute(r ApiBulkRecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -454,12 +445,12 @@ func (a *RecurringInvoicesAPIService) BulkRecurringInvoicesExecute(r ApiBulkRecu
 }
 
 type ApiDeleteRecurringInvoiceRequest struct {
-	ctx context.Context
-	ApiService *RecurringInvoicesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *RecurringInvoicesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	include *string
+	id             string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -489,24 +480,24 @@ DeleteRecurringInvoice Delete recurring invoice
 
 Handles the deletion of an RecurringInvoice by id
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The RecurringInvoice Hashed ID
- @return ApiDeleteRecurringInvoiceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The RecurringInvoice Hashed ID
+	@return ApiDeleteRecurringInvoiceRequest
 */
 func (a *RecurringInvoicesAPIService) DeleteRecurringInvoice(ctx context.Context, id string) ApiDeleteRecurringInvoiceRequest {
 	return ApiDeleteRecurringInvoiceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *RecurringInvoicesAPIService) DeleteRecurringInvoiceExecute(r ApiDeleteRecurringInvoiceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.DeleteRecurringInvoice")
@@ -592,8 +583,8 @@ func (a *RecurringInvoicesAPIService) DeleteRecurringInvoiceExecute(r ApiDeleteR
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -603,8 +594,8 @@ func (a *RecurringInvoicesAPIService) DeleteRecurringInvoiceExecute(r ApiDeleteR
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -614,8 +605,8 @@ func (a *RecurringInvoicesAPIService) DeleteRecurringInvoiceExecute(r ApiDeleteR
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -625,18 +616,18 @@ func (a *RecurringInvoicesAPIService) DeleteRecurringInvoiceExecute(r ApiDeleteR
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -644,12 +635,12 @@ func (a *RecurringInvoicesAPIService) DeleteRecurringInvoiceExecute(r ApiDeleteR
 }
 
 type ApiDownloadRecurringInvoiceRequest struct {
-	ctx context.Context
-	ApiService *RecurringInvoicesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *RecurringInvoicesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	invitationKey string
-	include *string
+	invitationKey  string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -679,14 +670,14 @@ DownloadRecurringInvoice Download recurring invoice PDF
 
 Downloads a specific invoice
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param invitationKey The Recurring Invoice Invitation Key
- @return ApiDownloadRecurringInvoiceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param invitationKey The Recurring Invoice Invitation Key
+	@return ApiDownloadRecurringInvoiceRequest
 */
 func (a *RecurringInvoicesAPIService) DownloadRecurringInvoice(ctx context.Context, invitationKey string) ApiDownloadRecurringInvoiceRequest {
 	return ApiDownloadRecurringInvoiceRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:    a,
+		ctx:           ctx,
 		invitationKey: invitationKey,
 	}
 }
@@ -694,9 +685,9 @@ func (a *RecurringInvoicesAPIService) DownloadRecurringInvoice(ctx context.Conte
 // Execute executes the request
 func (a *RecurringInvoicesAPIService) DownloadRecurringInvoiceExecute(r ApiDownloadRecurringInvoiceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.DownloadRecurringInvoice")
@@ -782,8 +773,8 @@ func (a *RecurringInvoicesAPIService) DownloadRecurringInvoiceExecute(r ApiDownl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -793,8 +784,8 @@ func (a *RecurringInvoicesAPIService) DownloadRecurringInvoiceExecute(r ApiDownl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -804,8 +795,8 @@ func (a *RecurringInvoicesAPIService) DownloadRecurringInvoiceExecute(r ApiDownl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -815,18 +806,18 @@ func (a *RecurringInvoicesAPIService) DownloadRecurringInvoiceExecute(r ApiDownl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -834,12 +825,12 @@ func (a *RecurringInvoicesAPIService) DownloadRecurringInvoiceExecute(r ApiDownl
 }
 
 type ApiEditRecurringInvoiceRequest struct {
-	ctx context.Context
-	ApiService *RecurringInvoicesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *RecurringInvoicesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	include *string
+	id             string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -869,26 +860,27 @@ EditRecurringInvoice Edit recurring invoice
 
 Displays an RecurringInvoice by id
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The RecurringInvoice Hashed ID
- @return ApiEditRecurringInvoiceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The RecurringInvoice Hashed ID
+	@return ApiEditRecurringInvoiceRequest
 */
 func (a *RecurringInvoicesAPIService) EditRecurringInvoice(ctx context.Context, id string) ApiEditRecurringInvoiceRequest {
 	return ApiEditRecurringInvoiceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return RecurringInvoice
+//
+//	@return RecurringInvoice
 func (a *RecurringInvoicesAPIService) EditRecurringInvoiceExecute(r ApiEditRecurringInvoiceRequest) (*RecurringInvoice, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RecurringInvoice
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RecurringInvoice
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.EditRecurringInvoice")
@@ -974,8 +966,8 @@ func (a *RecurringInvoicesAPIService) EditRecurringInvoiceExecute(r ApiEditRecur
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -985,8 +977,8 @@ func (a *RecurringInvoicesAPIService) EditRecurringInvoiceExecute(r ApiEditRecur
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -996,8 +988,8 @@ func (a *RecurringInvoicesAPIService) EditRecurringInvoiceExecute(r ApiEditRecur
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1007,18 +999,18 @@ func (a *RecurringInvoicesAPIService) EditRecurringInvoiceExecute(r ApiEditRecur
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1035,24 +1027,24 @@ func (a *RecurringInvoicesAPIService) EditRecurringInvoiceExecute(r ApiEditRecur
 }
 
 type ApiGetRecurringInvoicesRequest struct {
-	ctx context.Context
-	ApiService *RecurringInvoicesAPIService
-	xAPITOKEN *string
-	xRequestedWith *string
-	include *string
-	clientId *string
-	createdAt *int32
-	updatedAt *int32
-	isDeleted *bool
+	ctx                  context.Context
+	ApiService           *RecurringInvoicesAPIService
+	xAPITOKEN            *string
+	xRequestedWith       *string
+	include              *string
+	clientId             *string
+	createdAt            *int32
+	updatedAt            *int32
+	isDeleted            *bool
 	filterDeletedClients *string
-	vendorId *string
-	filter *string
-	clientStatus *string
-	sort *string
-	number *string
-	productKey *string
-	nextSendBetween *string
-	frequencyId *string
+	vendorId             *string
+	filter               *string
+	clientStatus         *string
+	sort                 *string
+	number               *string
+	productKey           *string
+	nextSendBetween      *string
+	frequencyId          *string
 }
 
 // The API token to be used for authentication
@@ -1073,49 +1065,49 @@ func (r ApiGetRecurringInvoicesRequest) Include(include string) ApiGetRecurringI
 	return r
 }
 
-// Filters the entity list by client_id. Suitable when you only want the entities of a specific client.  &#x60;&#x60;&#x60;html GET /api/v1/invoices?client_id&#x3D;AxB7Hjk9 Returns only invoices for the specified client &#x60;&#x60;&#x60; 
+// Filters the entity list by client_id. Suitable when you only want the entities of a specific client.  &#x60;&#x60;&#x60;html GET /api/v1/invoices?client_id&#x3D;AxB7Hjk9 Returns only invoices for the specified client &#x60;&#x60;&#x60;
 func (r ApiGetRecurringInvoicesRequest) ClientId(clientId string) ApiGetRecurringInvoicesRequest {
 	r.clientId = &clientId
 	return r
 }
 
-// Filters the entity list by the created at timestamp. Parameter value can be a datetime string or unix timestamp  &#x60;&#x60;&#x60;html GET /api/v1/invoices?created_at&#x3D;2022-01-10 Returns entities created on January 10th, 2022 &#x60;&#x60;&#x60; 
+// Filters the entity list by the created at timestamp. Parameter value can be a datetime string or unix timestamp  &#x60;&#x60;&#x60;html GET /api/v1/invoices?created_at&#x3D;2022-01-10 Returns entities created on January 10th, 2022 &#x60;&#x60;&#x60;
 func (r ApiGetRecurringInvoicesRequest) CreatedAt(createdAt int32) ApiGetRecurringInvoicesRequest {
 	r.createdAt = &createdAt
 	return r
 }
 
-// Filters the entity list by the updated at timestamp. Parameter value can be a datetime string or unix timestamp  &#x60;&#x60;&#x60;html GET /api/v1/invoices?updated_at&#x3D;2022-01-10 Returns entities last updated on January 10th, 2022 &#x60;&#x60;&#x60; 
+// Filters the entity list by the updated at timestamp. Parameter value can be a datetime string or unix timestamp  &#x60;&#x60;&#x60;html GET /api/v1/invoices?updated_at&#x3D;2022-01-10 Returns entities last updated on January 10th, 2022 &#x60;&#x60;&#x60;
 func (r ApiGetRecurringInvoicesRequest) UpdatedAt(updatedAt int32) ApiGetRecurringInvoicesRequest {
 	r.updatedAt = &updatedAt
 	return r
 }
 
-// Filters the entity list by entities that have been deleted.  &#x60;&#x60;&#x60;html GET /api/v1/invoices?is_deleted&#x3D;true Returns only soft-deleted entities &#x60;&#x60;&#x60; 
+// Filters the entity list by entities that have been deleted.  &#x60;&#x60;&#x60;html GET /api/v1/invoices?is_deleted&#x3D;true Returns only soft-deleted entities &#x60;&#x60;&#x60;
 func (r ApiGetRecurringInvoicesRequest) IsDeleted(isDeleted bool) ApiGetRecurringInvoicesRequest {
 	r.isDeleted = &isDeleted
 	return r
 }
 
-// Filters the entity list and only returns entities for clients that have not been deleted  &#x60;&#x60;&#x60;html GET /api/v1/invoices?filter_deleted_clients&#x3D;true Returns only invoices for active (non-deleted) clients &#x60;&#x60;&#x60; 
+// Filters the entity list and only returns entities for clients that have not been deleted  &#x60;&#x60;&#x60;html GET /api/v1/invoices?filter_deleted_clients&#x3D;true Returns only invoices for active (non-deleted) clients &#x60;&#x60;&#x60;
 func (r ApiGetRecurringInvoicesRequest) FilterDeletedClients(filterDeletedClients string) ApiGetRecurringInvoicesRequest {
 	r.filterDeletedClients = &filterDeletedClients
 	return r
 }
 
-// Filters the entity list by an associated vendor  &#x60;&#x60;&#x60;html GET /api/v1/purchases?vendor_id&#x3D;AxB7Hjk9 Returns only purchases for the specified vendor &#x60;&#x60;&#x60; 
+// Filters the entity list by an associated vendor  &#x60;&#x60;&#x60;html GET /api/v1/purchases?vendor_id&#x3D;AxB7Hjk9 Returns only purchases for the specified vendor &#x60;&#x60;&#x60;
 func (r ApiGetRecurringInvoicesRequest) VendorId(vendorId string) ApiGetRecurringInvoicesRequest {
 	r.vendorId = &vendorId
 	return r
 }
 
-// Searches across a range of columns including:   - custom_value1   - custom_value2   - custom_value3   - custom_value4 
+// Searches across a range of columns including:   - custom_value1   - custom_value2   - custom_value3   - custom_value4
 func (r ApiGetRecurringInvoicesRequest) Filter(filter string) ApiGetRecurringInvoicesRequest {
 	r.filter = &filter
 	return r
 }
 
-// A comma separated list of invoice status strings. Valid options include:   - all - active   - paused   - completed   
+// A comma separated list of invoice status strings. Valid options include:   - all - active   - paused   - completed
 func (r ApiGetRecurringInvoicesRequest) ClientStatus(clientStatus string) ApiGetRecurringInvoicesRequest {
 	r.clientStatus = &clientStatus
 	return r
@@ -1127,25 +1119,25 @@ func (r ApiGetRecurringInvoicesRequest) Sort(sort string) ApiGetRecurringInvoice
 	return r
 }
 
-// Filters the list by number. 
+// Filters the list by number.
 func (r ApiGetRecurringInvoicesRequest) Number(number string) ApiGetRecurringInvoicesRequest {
 	r.number = &number
 	return r
 }
 
-// Filters the list by product_key. 
+// Filters the list by product_key.
 func (r ApiGetRecurringInvoicesRequest) ProductKey(productKey string) ApiGetRecurringInvoicesRequest {
 	r.productKey = &productKey
 	return r
 }
 
-// Filters the list by next_send_between. 
+// Filters the list by next_send_between.
 func (r ApiGetRecurringInvoicesRequest) NextSendBetween(nextSendBetween string) ApiGetRecurringInvoicesRequest {
 	r.nextSendBetween = &nextSendBetween
 	return r
 }
 
-// Filters the list by frequency_id. 
+// Filters the list by frequency_id.
 func (r ApiGetRecurringInvoicesRequest) FrequencyId(frequencyId string) ApiGetRecurringInvoicesRequest {
 	r.frequencyId = &frequencyId
 	return r
@@ -1160,27 +1152,27 @@ GetRecurringInvoices List recurring invoices
 
 ## GET /api/v1/recurring_invoices
 
-Lists invoices with the option to chain multiple query parameters allowing fine grained filtering of the list.  
+Lists invoices with the option to chain multiple query parameters allowing fine grained filtering of the list.
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetRecurringInvoicesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetRecurringInvoicesRequest
 */
 func (a *RecurringInvoicesAPIService) GetRecurringInvoices(ctx context.Context) ApiGetRecurringInvoicesRequest {
 	return ApiGetRecurringInvoicesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetRecurringInvoices200Response
+//
+//	@return GetRecurringInvoices200Response
 func (a *RecurringInvoicesAPIService) GetRecurringInvoicesExecute(r ApiGetRecurringInvoicesRequest) (*GetRecurringInvoices200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetRecurringInvoices200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetRecurringInvoices200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.GetRecurringInvoices")
@@ -1304,8 +1296,8 @@ func (a *RecurringInvoicesAPIService) GetRecurringInvoicesExecute(r ApiGetRecurr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1315,8 +1307,8 @@ func (a *RecurringInvoicesAPIService) GetRecurringInvoicesExecute(r ApiGetRecurr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1326,8 +1318,8 @@ func (a *RecurringInvoicesAPIService) GetRecurringInvoicesExecute(r ApiGetRecurr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1337,18 +1329,18 @@ func (a *RecurringInvoicesAPIService) GetRecurringInvoicesExecute(r ApiGetRecurr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1365,11 +1357,11 @@ func (a *RecurringInvoicesAPIService) GetRecurringInvoicesExecute(r ApiGetRecurr
 }
 
 type ApiGetRecurringInvoicesCreateRequest struct {
-	ctx context.Context
-	ApiService *RecurringInvoicesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *RecurringInvoicesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	include *string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -1399,24 +1391,25 @@ GetRecurringInvoicesCreate Blank recurring invoice
 
 Returns a blank object with default values
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetRecurringInvoicesCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetRecurringInvoicesCreateRequest
 */
 func (a *RecurringInvoicesAPIService) GetRecurringInvoicesCreate(ctx context.Context) ApiGetRecurringInvoicesCreateRequest {
 	return ApiGetRecurringInvoicesCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return RecurringInvoice
+//
+//	@return RecurringInvoice
 func (a *RecurringInvoicesAPIService) GetRecurringInvoicesCreateExecute(r ApiGetRecurringInvoicesCreateRequest) (*RecurringInvoice, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RecurringInvoice
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RecurringInvoice
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.GetRecurringInvoicesCreate")
@@ -1501,8 +1494,8 @@ func (a *RecurringInvoicesAPIService) GetRecurringInvoicesCreateExecute(r ApiGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1512,8 +1505,8 @@ func (a *RecurringInvoicesAPIService) GetRecurringInvoicesCreateExecute(r ApiGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1523,8 +1516,8 @@ func (a *RecurringInvoicesAPIService) GetRecurringInvoicesCreateExecute(r ApiGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1534,18 +1527,18 @@ func (a *RecurringInvoicesAPIService) GetRecurringInvoicesCreateExecute(r ApiGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1562,12 +1555,12 @@ func (a *RecurringInvoicesAPIService) GetRecurringInvoicesCreateExecute(r ApiGet
 }
 
 type ApiShowRecurringInvoiceRequest struct {
-	ctx context.Context
-	ApiService *RecurringInvoicesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *RecurringInvoicesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	include *string
+	id             string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -1597,26 +1590,27 @@ ShowRecurringInvoice Show recurring invoice
 
 Displays an RecurringInvoice by id
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The RecurringInvoice Hashed ID
- @return ApiShowRecurringInvoiceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The RecurringInvoice Hashed ID
+	@return ApiShowRecurringInvoiceRequest
 */
 func (a *RecurringInvoicesAPIService) ShowRecurringInvoice(ctx context.Context, id string) ApiShowRecurringInvoiceRequest {
 	return ApiShowRecurringInvoiceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return RecurringInvoice
+//
+//	@return RecurringInvoice
 func (a *RecurringInvoicesAPIService) ShowRecurringInvoiceExecute(r ApiShowRecurringInvoiceRequest) (*RecurringInvoice, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RecurringInvoice
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RecurringInvoice
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.ShowRecurringInvoice")
@@ -1702,8 +1696,8 @@ func (a *RecurringInvoicesAPIService) ShowRecurringInvoiceExecute(r ApiShowRecur
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1713,8 +1707,8 @@ func (a *RecurringInvoicesAPIService) ShowRecurringInvoiceExecute(r ApiShowRecur
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1724,8 +1718,8 @@ func (a *RecurringInvoicesAPIService) ShowRecurringInvoiceExecute(r ApiShowRecur
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1735,18 +1729,18 @@ func (a *RecurringInvoicesAPIService) ShowRecurringInvoiceExecute(r ApiShowRecur
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1763,12 +1757,12 @@ func (a *RecurringInvoicesAPIService) ShowRecurringInvoiceExecute(r ApiShowRecur
 }
 
 type ApiStoreRecurringInvoiceRequest struct {
-	ctx context.Context
-	ApiService *RecurringInvoicesAPIService
-	xAPITOKEN *string
-	xRequestedWith *string
+	ctx                     context.Context
+	ApiService              *RecurringInvoicesAPIService
+	xAPITOKEN               *string
+	xRequestedWith          *string
 	recurringInvoiceRequest *RecurringInvoiceRequest
-	include *string
+	include                 *string
 }
 
 // The API token to be used for authentication
@@ -1803,27 +1797,27 @@ StoreRecurringInvoice Create recurring invoice
 
 ## POST /api/v1/recurring_invoices
 
-Adds a Recurring Invoice to the system
+# Adds a Recurring Invoice to the system
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiStoreRecurringInvoiceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiStoreRecurringInvoiceRequest
 */
 func (a *RecurringInvoicesAPIService) StoreRecurringInvoice(ctx context.Context) ApiStoreRecurringInvoiceRequest {
 	return ApiStoreRecurringInvoiceRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return RecurringInvoice
+//
+//	@return RecurringInvoice
 func (a *RecurringInvoicesAPIService) StoreRecurringInvoiceExecute(r ApiStoreRecurringInvoiceRequest) (*RecurringInvoice, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RecurringInvoice
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RecurringInvoice
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.StoreRecurringInvoice")
@@ -1913,8 +1907,8 @@ func (a *RecurringInvoicesAPIService) StoreRecurringInvoiceExecute(r ApiStoreRec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1924,8 +1918,8 @@ func (a *RecurringInvoicesAPIService) StoreRecurringInvoiceExecute(r ApiStoreRec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1935,8 +1929,8 @@ func (a *RecurringInvoicesAPIService) StoreRecurringInvoiceExecute(r ApiStoreRec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1946,18 +1940,18 @@ func (a *RecurringInvoicesAPIService) StoreRecurringInvoiceExecute(r ApiStoreRec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1974,12 +1968,12 @@ func (a *RecurringInvoicesAPIService) StoreRecurringInvoiceExecute(r ApiStoreRec
 }
 
 type ApiUpdateRecurringInvoiceRequest struct {
-	ctx context.Context
-	ApiService *RecurringInvoicesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *RecurringInvoicesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	include *string
+	id             string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -2009,26 +2003,27 @@ UpdateRecurringInvoice Update recurring invoice
 
 Handles the updating of an RecurringInvoice by id
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The RecurringInvoice Hashed ID
- @return ApiUpdateRecurringInvoiceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The RecurringInvoice Hashed ID
+	@return ApiUpdateRecurringInvoiceRequest
 */
 func (a *RecurringInvoicesAPIService) UpdateRecurringInvoice(ctx context.Context, id string) ApiUpdateRecurringInvoiceRequest {
 	return ApiUpdateRecurringInvoiceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return RecurringInvoice
+//
+//	@return RecurringInvoice
 func (a *RecurringInvoicesAPIService) UpdateRecurringInvoiceExecute(r ApiUpdateRecurringInvoiceRequest) (*RecurringInvoice, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RecurringInvoice
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RecurringInvoice
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.UpdateRecurringInvoice")
@@ -2114,8 +2109,8 @@ func (a *RecurringInvoicesAPIService) UpdateRecurringInvoiceExecute(r ApiUpdateR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2125,8 +2120,8 @@ func (a *RecurringInvoicesAPIService) UpdateRecurringInvoiceExecute(r ApiUpdateR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -2136,8 +2131,8 @@ func (a *RecurringInvoicesAPIService) UpdateRecurringInvoiceExecute(r ApiUpdateR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2147,18 +2142,18 @@ func (a *RecurringInvoicesAPIService) UpdateRecurringInvoiceExecute(r ApiUpdateR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2175,14 +2170,14 @@ func (a *RecurringInvoicesAPIService) UpdateRecurringInvoiceExecute(r ApiUpdateR
 }
 
 type ApiUploadRecurringInvoiceRequest struct {
-	ctx context.Context
-	ApiService *RecurringInvoicesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *RecurringInvoicesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	include *string
-	method *string
-	documents []*os.File
+	id             string
+	include        *string
+	method         *string
+	documents      []*os.File
 }
 
 // The API token to be used for authentication
@@ -2222,26 +2217,27 @@ UploadRecurringInvoice Add recurring invoice document
 
 Handles the uploading of a document to a recurring_invoice
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The RecurringInvoice Hashed ID
- @return ApiUploadRecurringInvoiceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The RecurringInvoice Hashed ID
+	@return ApiUploadRecurringInvoiceRequest
 */
 func (a *RecurringInvoicesAPIService) UploadRecurringInvoice(ctx context.Context, id string) ApiUploadRecurringInvoiceRequest {
 	return ApiUploadRecurringInvoiceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return RecurringInvoice
+//
+//	@return RecurringInvoice
 func (a *RecurringInvoicesAPIService) UploadRecurringInvoiceExecute(r ApiUploadRecurringInvoiceRequest) (*RecurringInvoice, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RecurringInvoice
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RecurringInvoice
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.UploadRecurringInvoice")
@@ -2288,8 +2284,8 @@ func (a *RecurringInvoicesAPIService) UploadRecurringInvoiceExecute(r ApiUploadR
 		parameterAddToHeaderOrQuery(localVarFormParams, "_method", r.method, "", "")
 	}
 	var documentsLocalVarFormFileName string
-	var documentsLocalVarFileName     string
-	var documentsLocalVarFileBytes    []byte
+	var documentsLocalVarFileName string
+	var documentsLocalVarFileBytes []byte
 
 	documentsLocalVarFormFileName = "documents"
 	documentsLocalVarFile := r.documents
@@ -2348,8 +2344,8 @@ func (a *RecurringInvoicesAPIService) UploadRecurringInvoiceExecute(r ApiUploadR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2359,8 +2355,8 @@ func (a *RecurringInvoicesAPIService) UploadRecurringInvoiceExecute(r ApiUploadR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -2370,8 +2366,8 @@ func (a *RecurringInvoicesAPIService) UploadRecurringInvoiceExecute(r ApiUploadR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2381,18 +2377,18 @@ func (a *RecurringInvoicesAPIService) UploadRecurringInvoiceExecute(r ApiUploadR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

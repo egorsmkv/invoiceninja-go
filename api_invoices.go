@@ -1,14 +1,3 @@
-/*
-Invoice Ninja API Reference.
-
----   ![Invoice Ninja](https://invoicing.co/images/new_logo.png)   ## Introduction   Welcome to the Invoice Ninja API documentation, your comprehensive guide to integrating Invoice Ninja's powerful features into your applications. Whether you're building a custom client, automating workflows, or integrating with other systems, our API provides the tools you need to streamline your invoicing and billing processes.   ### What is Invoice Ninja?   Invoice Ninja is a robust source-available platform designed to simplify invoicing, billing, and payment management for freelancers, small businesses, and enterprises alike. With a user-friendly interface, customizable templates, and a suite of powerful features, Invoice Ninja empowers businesses to create professional invoices, track expenses, manage clients, and get paid faster.   ### Why use the Invoice Ninja API?   The Invoice Ninja API allows developers to extend the functionality of Invoice Ninja by programmatically accessing and manipulating data within their Invoice Ninja accounts. With the API, you can automate repetitive tasks, integrate with third-party services, and build custom solutions tailored to your specific business needs.   ### Getting Started   To get started with the Invoice Ninja API, you'll need an active Invoice Ninja account (or your own self hosted installation) and API credentials. If you haven't already done so, sign up for an account at Invoice Ninja and generate your API keys from the settings section.    Once you have your API credentials, you can start exploring the API endpoints, authentication methods, request and response formats, and more using the documentation provided here.   ### Explore the Documentation     This documentation is organized into sections to help you navigate and understand the various aspects of the Invoice Ninja API:    - Authentication: Learn how to authenticate your requests to the API using API tokens.   - Endpoints: Explore the available API endpoints for managing invoices, clients, payments, expenses, and more.   - Request and Response Formats: Understand the structure of API requests and responses, including parameters, headers, and payloads.   - Error Handling: Learn about error codes, status messages, and best practices for handling errors gracefully.   - Code Examples: Find code examples and tutorials to help you get started with integrating the Invoice Ninja API into your applications.         ### Need Help?         If you have any questions, encounter any issues, or need assistance with using the Invoice Ninja API, don't hesitate to reach out to our support team or join our community forums. We're here to help you succeed with Invoice Ninja and make the most of our API.        Let's start building together!   ### Endpoints      <div style=\"background-color: #2D394E; color: #fff padding: 20px; border-radius: 5px; border: 4px solid #212A3B; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\">       <p style=\"padding:10px; color: #DBDBDB;\"\">Production: https://invoicing.co</p>       <p style=\"padding:10px; color: #DBDBDB;\">Demo: https://demo.invoiceninja.com</p>   </div>    ### Client Libraries    PHP SDK can be found [here](https://github.com/invoiceninja/sdk-php)   ### Authentication:    Invoice Ninja uses API tokens to authenticate requests. You can view and manage your API keys in Settings > Account Management > Integrations > API tokens    API requests must be made over HTTPS. Calls made to HTTP will fail.   ### Errors:    Invoice Ninja uses standard HTTP response codes to indicate the success or failure of a request. below is a table of standard status codes and responses    | Status Code | Explanation                                                                 |   |-------------|-----------------------------------------------------------------------------|   | 200         | OK: The request has succeeded. The information returned with the response is dependent on the method used in the request. |   | 301         | Moved Permanently: This and all future requests should be directed to the given URI. |   | 303         | See Other: The response to the request can be found under another URI using the GET method. |   | 400         | Bad Request: The server cannot or will not process the request due to an apparent client error. |   | 401         | Unauthorized: Similar to 403 Forbidden, but specifically for use when authentication is required and has failed or has not yet been provided. |   | 403         | Forbidden: The request was valid, but the server is refusing action. |   | 404         | Not Found: The requested resource could not be found but may be available in the future. |   | 405         | Method Not Allowed: A request method is not supported for the requested resource. |   | 409         | Conflict: Indicates that the request could not be processed because of conflict in the request. |   | 422         | Unprocessable Entity: The request was well-formed but was unable to be followed due to semantic errors. |   | 429         | Too Many Requests: The user has sent too many requests in a given amount of time (\"rate limiting\"). |   | 500         | Internal Server Error: A generic error message, given when an unexpected condition was encountered and no more specific message is suitable. |   ### Pagination    When using index routes to retrieve lists of data, by default we limit the number of records returned to 20. You can using standard pagination to paginate results, ie: ?per_page=50 
-
-API version: 5.11.48
-Contact: contact@invoiceninja.com
-*/
-
-// Code generated by OpenAPI Generator (https://openapi-generator.tech); DO NOT EDIT.
-
 package openapi
 
 import (
@@ -17,21 +6,21 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"os"
 	"strings"
 )
-
 
 // InvoicesAPIService InvoicesAPI service
 type InvoicesAPIService service
 
 type ApiActionInvoiceRequest struct {
-	ctx context.Context
-	ApiService *InvoicesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *InvoicesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	action string
-	include *string
+	id             string
+	action         string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -59,44 +48,45 @@ func (r ApiActionInvoiceRequest) Execute() (*Invoice, *http.Response, error) {
 /*
 ActionInvoice Custom invoice action
 
-Performs a custom action on an invoice.  
-The current range of actions are as follows  
-- clone_to_invoice  
-- clone_to_quote  
-- history  
-- delivery_note  
-- mark_paid  
-- download  
-- archive  
-- delete  
-- email  
+Performs a custom action on an invoice.
+The current range of actions are as follows
+- clone_to_invoice
+- clone_to_quote
+- history
+- delivery_note
+- mark_paid
+- download
+- archive
+- delete
+- email
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The Invoice Hashed ID
- @param action The action string to be performed
- @return ApiActionInvoiceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Invoice Hashed ID
+	@param action The action string to be performed
+	@return ApiActionInvoiceRequest
 
 Deprecated
 */
 func (a *InvoicesAPIService) ActionInvoice(ctx context.Context, id string, action string) ApiActionInvoiceRequest {
 	return ApiActionInvoiceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
-		action: action,
+		ctx:        ctx,
+		id:         id,
+		action:     action,
 	}
 }
 
 // Execute executes the request
-//  @return Invoice
+//
+//	@return Invoice
+//
 // Deprecated
 func (a *InvoicesAPIService) ActionInvoiceExecute(r ApiActionInvoiceRequest) (*Invoice, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Invoice
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Invoice
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InvoicesAPIService.ActionInvoice")
@@ -183,8 +173,8 @@ func (a *InvoicesAPIService) ActionInvoiceExecute(r ApiActionInvoiceRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -194,8 +184,8 @@ func (a *InvoicesAPIService) ActionInvoiceExecute(r ApiActionInvoiceRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -205,8 +195,8 @@ func (a *InvoicesAPIService) ActionInvoiceExecute(r ApiActionInvoiceRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -216,18 +206,18 @@ func (a *InvoicesAPIService) ActionInvoiceExecute(r ApiActionInvoiceRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -244,12 +234,12 @@ func (a *InvoicesAPIService) ActionInvoiceExecute(r ApiActionInvoiceRequest) (*I
 }
 
 type ApiApiV1InvoiceInvitationKeyDownloadGetRequest struct {
-	ctx context.Context
-	ApiService *InvoicesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *InvoicesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	invitationKey string
-	include *string
+	invitationKey  string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -279,17 +269,16 @@ ApiV1InvoiceInvitationKeyDownloadGet Download invoice PDF
 
 ## GET /api/v1/invoice/{invitation_key}/download
 
-Downloads a specific invoice
+# Downloads a specific invoice
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param invitationKey The Invoice Invitation Key
- @return ApiApiV1InvoiceInvitationKeyDownloadGetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param invitationKey The Invoice Invitation Key
+	@return ApiApiV1InvoiceInvitationKeyDownloadGetRequest
 */
 func (a *InvoicesAPIService) ApiV1InvoiceInvitationKeyDownloadGet(ctx context.Context, invitationKey string) ApiApiV1InvoiceInvitationKeyDownloadGetRequest {
 	return ApiApiV1InvoiceInvitationKeyDownloadGetRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:    a,
+		ctx:           ctx,
 		invitationKey: invitationKey,
 	}
 }
@@ -297,9 +286,9 @@ func (a *InvoicesAPIService) ApiV1InvoiceInvitationKeyDownloadGet(ctx context.Co
 // Execute executes the request
 func (a *InvoicesAPIService) ApiV1InvoiceInvitationKeyDownloadGetExecute(r ApiApiV1InvoiceInvitationKeyDownloadGetRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InvoicesAPIService.ApiV1InvoiceInvitationKeyDownloadGet")
@@ -385,8 +374,8 @@ func (a *InvoicesAPIService) ApiV1InvoiceInvitationKeyDownloadGetExecute(r ApiAp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -396,8 +385,8 @@ func (a *InvoicesAPIService) ApiV1InvoiceInvitationKeyDownloadGetExecute(r ApiAp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -407,8 +396,8 @@ func (a *InvoicesAPIService) ApiV1InvoiceInvitationKeyDownloadGetExecute(r ApiAp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -418,18 +407,18 @@ func (a *InvoicesAPIService) ApiV1InvoiceInvitationKeyDownloadGetExecute(r ApiAp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -437,7 +426,7 @@ func (a *InvoicesAPIService) ApiV1InvoiceInvitationKeyDownloadGetExecute(r ApiAp
 }
 
 type ApiApiV1InvoicesCreateGetRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *InvoicesAPIService
 }
 
@@ -450,27 +439,27 @@ ApiV1InvoicesCreateGet Blank invoice
 
 ## GET /api/v1/invoices/create
 
-Returns a blank object with default values
+# Returns a blank object with default values
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1InvoicesCreateGetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiApiV1InvoicesCreateGetRequest
 */
 func (a *InvoicesAPIService) ApiV1InvoicesCreateGet(ctx context.Context) ApiApiV1InvoicesCreateGetRequest {
 	return ApiApiV1InvoicesCreateGetRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Invoice
+//
+//	@return Invoice
 func (a *InvoicesAPIService) ApiV1InvoicesCreateGetExecute(r ApiApiV1InvoicesCreateGetRequest) (*Invoice, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Invoice
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Invoice
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InvoicesAPIService.ApiV1InvoicesCreateGet")
@@ -544,8 +533,8 @@ func (a *InvoicesAPIService) ApiV1InvoicesCreateGetExecute(r ApiApiV1InvoicesCre
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -555,8 +544,8 @@ func (a *InvoicesAPIService) ApiV1InvoicesCreateGetExecute(r ApiApiV1InvoicesCre
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -566,8 +555,8 @@ func (a *InvoicesAPIService) ApiV1InvoicesCreateGetExecute(r ApiApiV1InvoicesCre
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -577,18 +566,18 @@ func (a *InvoicesAPIService) ApiV1InvoicesCreateGetExecute(r ApiApiV1InvoicesCre
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -605,12 +594,12 @@ func (a *InvoicesAPIService) ApiV1InvoicesCreateGetExecute(r ApiApiV1InvoicesCre
 }
 
 type ApiApiV1InvoicesIdDeliveryNoteGetRequest struct {
-	ctx context.Context
-	ApiService *InvoicesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *InvoicesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	include *string
+	id             string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -640,27 +629,26 @@ ApiV1InvoicesIdDeliveryNoteGet Download delivery note
 
 ## GET /api/v1/invoices/{id}/delivery_note
 
-Downloads a specific invoice delivery notes
+# Downloads a specific invoice delivery notes
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The Invoice Hahsed Id
- @return ApiApiV1InvoicesIdDeliveryNoteGetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Invoice Hahsed Id
+	@return ApiApiV1InvoicesIdDeliveryNoteGetRequest
 */
 func (a *InvoicesAPIService) ApiV1InvoicesIdDeliveryNoteGet(ctx context.Context, id string) ApiApiV1InvoicesIdDeliveryNoteGetRequest {
 	return ApiApiV1InvoicesIdDeliveryNoteGetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *InvoicesAPIService) ApiV1InvoicesIdDeliveryNoteGetExecute(r ApiApiV1InvoicesIdDeliveryNoteGetRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InvoicesAPIService.ApiV1InvoicesIdDeliveryNoteGet")
@@ -746,8 +734,8 @@ func (a *InvoicesAPIService) ApiV1InvoicesIdDeliveryNoteGetExecute(r ApiApiV1Inv
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -757,8 +745,8 @@ func (a *InvoicesAPIService) ApiV1InvoicesIdDeliveryNoteGetExecute(r ApiApiV1Inv
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -768,8 +756,8 @@ func (a *InvoicesAPIService) ApiV1InvoicesIdDeliveryNoteGetExecute(r ApiApiV1Inv
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -779,18 +767,18 @@ func (a *InvoicesAPIService) ApiV1InvoicesIdDeliveryNoteGetExecute(r ApiApiV1Inv
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -798,14 +786,14 @@ func (a *InvoicesAPIService) ApiV1InvoicesIdDeliveryNoteGetExecute(r ApiApiV1Inv
 }
 
 type ApiApiV1InvoicesIdUploadPostRequest struct {
-	ctx context.Context
-	ApiService *InvoicesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *InvoicesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	include *string
-	method *string
-	documents []*os.File
+	id             string
+	include        *string
+	method         *string
+	documents      []*os.File
 }
 
 // The API token to be used for authentication
@@ -845,29 +833,29 @@ ApiV1InvoicesIdUploadPost Add invoice document
 
 ## POST /api/v1/invoices/{id}/upload
 
-Handles the uploading of a document to a invoice
+# Handles the uploading of a document to a invoice
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The Invoice Hashed ID
- @return ApiApiV1InvoicesIdUploadPostRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Invoice Hashed ID
+	@return ApiApiV1InvoicesIdUploadPostRequest
 */
 func (a *InvoicesAPIService) ApiV1InvoicesIdUploadPost(ctx context.Context, id string) ApiApiV1InvoicesIdUploadPostRequest {
 	return ApiApiV1InvoicesIdUploadPostRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Invoice
+//
+//	@return Invoice
 func (a *InvoicesAPIService) ApiV1InvoicesIdUploadPostExecute(r ApiApiV1InvoicesIdUploadPostRequest) (*Invoice, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Invoice
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Invoice
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InvoicesAPIService.ApiV1InvoicesIdUploadPost")
@@ -914,8 +902,8 @@ func (a *InvoicesAPIService) ApiV1InvoicesIdUploadPostExecute(r ApiApiV1Invoices
 		parameterAddToHeaderOrQuery(localVarFormParams, "_method", r.method, "", "")
 	}
 	var documentsLocalVarFormFileName string
-	var documentsLocalVarFileName     string
-	var documentsLocalVarFileBytes    []byte
+	var documentsLocalVarFileName string
+	var documentsLocalVarFileBytes []byte
 
 	documentsLocalVarFormFileName = "documents"
 	documentsLocalVarFile := r.documents
@@ -974,8 +962,8 @@ func (a *InvoicesAPIService) ApiV1InvoicesIdUploadPostExecute(r ApiApiV1Invoices
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -985,8 +973,8 @@ func (a *InvoicesAPIService) ApiV1InvoicesIdUploadPostExecute(r ApiApiV1Invoices
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -996,8 +984,8 @@ func (a *InvoicesAPIService) ApiV1InvoicesIdUploadPostExecute(r ApiApiV1Invoices
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1007,18 +995,18 @@ func (a *InvoicesAPIService) ApiV1InvoicesIdUploadPostExecute(r ApiApiV1Invoices
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1035,12 +1023,12 @@ func (a *InvoicesAPIService) ApiV1InvoicesIdUploadPostExecute(r ApiApiV1Invoices
 }
 
 type ApiBulkInvoicesRequest struct {
-	ctx context.Context
-	ApiService *InvoicesAPIService
-	xAPITOKEN *string
-	xRequestedWith *string
+	ctx                 context.Context
+	ApiService          *InvoicesAPIService
+	xAPITOKEN           *string
+	xRequestedWith      *string
 	bulkInvoicesRequest *BulkInvoicesRequest
-	index *string
+	index               *string
 }
 
 // The API token to be used for authentication
@@ -1061,7 +1049,7 @@ func (r ApiBulkInvoicesRequest) BulkInvoicesRequest(bulkInvoicesRequest BulkInvo
 	return r
 }
 
-// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60; 
+// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60;
 func (r ApiBulkInvoicesRequest) Index(index string) ApiBulkInvoicesRequest {
 	r.index = &index
 	return r
@@ -1076,25 +1064,24 @@ BulkInvoices Bulk invoice actions
 
 ## POST /api/v1/invoices/bulk
 
-There are multiple actions that are available including:  
+There are multiple actions that are available including:
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBulkInvoicesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBulkInvoicesRequest
 */
 func (a *InvoicesAPIService) BulkInvoices(ctx context.Context) ApiBulkInvoicesRequest {
 	return ApiBulkInvoicesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *InvoicesAPIService) BulkInvoicesExecute(r ApiBulkInvoicesRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InvoicesAPIService.BulkInvoices")
@@ -1184,8 +1171,8 @@ func (a *InvoicesAPIService) BulkInvoicesExecute(r ApiBulkInvoicesRequest) (*htt
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1195,8 +1182,8 @@ func (a *InvoicesAPIService) BulkInvoicesExecute(r ApiBulkInvoicesRequest) (*htt
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1206,8 +1193,8 @@ func (a *InvoicesAPIService) BulkInvoicesExecute(r ApiBulkInvoicesRequest) (*htt
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1217,18 +1204,18 @@ func (a *InvoicesAPIService) BulkInvoicesExecute(r ApiBulkInvoicesRequest) (*htt
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -1236,12 +1223,12 @@ func (a *InvoicesAPIService) BulkInvoicesExecute(r ApiBulkInvoicesRequest) (*htt
 }
 
 type ApiDeleteInvoiceRequest struct {
-	ctx context.Context
-	ApiService *InvoicesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *InvoicesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	include *string
+	id             string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -1273,25 +1260,24 @@ DeleteInvoice Delete invoice
 
 Handles the deletion of an invoice by id.
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The Invoice Hashed ID
- @return ApiDeleteInvoiceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Invoice Hashed ID
+	@return ApiDeleteInvoiceRequest
 */
 func (a *InvoicesAPIService) DeleteInvoice(ctx context.Context, id string) ApiDeleteInvoiceRequest {
 	return ApiDeleteInvoiceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *InvoicesAPIService) DeleteInvoiceExecute(r ApiDeleteInvoiceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InvoicesAPIService.DeleteInvoice")
@@ -1377,8 +1363,8 @@ func (a *InvoicesAPIService) DeleteInvoiceExecute(r ApiDeleteInvoiceRequest) (*h
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1388,8 +1374,8 @@ func (a *InvoicesAPIService) DeleteInvoiceExecute(r ApiDeleteInvoiceRequest) (*h
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1399,8 +1385,8 @@ func (a *InvoicesAPIService) DeleteInvoiceExecute(r ApiDeleteInvoiceRequest) (*h
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1410,18 +1396,18 @@ func (a *InvoicesAPIService) DeleteInvoiceExecute(r ApiDeleteInvoiceRequest) (*h
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -1429,12 +1415,12 @@ func (a *InvoicesAPIService) DeleteInvoiceExecute(r ApiDeleteInvoiceRequest) (*h
 }
 
 type ApiEditInvoiceRequest struct {
-	ctx context.Context
-	ApiService *InvoicesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *InvoicesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	include *string
+	id             string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -1464,29 +1450,29 @@ EditInvoice Edit invoice
 
 ## GET /api/v1/invoices/{id}/edit
 
-Displays an invoice by id for editting
+# Displays an invoice by id for editting
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The Invoice Hashed ID
- @return ApiEditInvoiceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Invoice Hashed ID
+	@return ApiEditInvoiceRequest
 */
 func (a *InvoicesAPIService) EditInvoice(ctx context.Context, id string) ApiEditInvoiceRequest {
 	return ApiEditInvoiceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Invoice
+//
+//	@return Invoice
 func (a *InvoicesAPIService) EditInvoiceExecute(r ApiEditInvoiceRequest) (*Invoice, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Invoice
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Invoice
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InvoicesAPIService.EditInvoice")
@@ -1572,8 +1558,8 @@ func (a *InvoicesAPIService) EditInvoiceExecute(r ApiEditInvoiceRequest) (*Invoi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1583,8 +1569,8 @@ func (a *InvoicesAPIService) EditInvoiceExecute(r ApiEditInvoiceRequest) (*Invoi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1594,8 +1580,8 @@ func (a *InvoicesAPIService) EditInvoiceExecute(r ApiEditInvoiceRequest) (*Invoi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1605,18 +1591,18 @@ func (a *InvoicesAPIService) EditInvoiceExecute(r ApiEditInvoiceRequest) (*Invoi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1633,29 +1619,29 @@ func (a *InvoicesAPIService) EditInvoiceExecute(r ApiEditInvoiceRequest) (*Invoi
 }
 
 type ApiGetInvoicesRequest struct {
-	ctx context.Context
-	ApiService *InvoicesAPIService
-	xAPITOKEN *string
-	xRequestedWith *string
-	include *string
-	status *string
-	clientId *string
-	createdAt *int32
-	updatedAt *int32
-	isDeleted *bool
-	filterDeletedClients *string
-	vendorId *string
-	clientStatus *string
-	number *string
-	filter *string
+	ctx                   context.Context
+	ApiService            *InvoicesAPIService
+	xAPITOKEN             *string
+	xRequestedWith        *string
+	include               *string
+	status                *string
+	clientId              *string
+	createdAt             *int32
+	updatedAt             *int32
+	isDeleted             *bool
+	filterDeletedClients  *string
+	vendorId              *string
+	clientStatus          *string
+	number                *string
+	filter                *string
 	withoutDeletedClients *string
-	overdue *string
-	payable *string
-	sort *string
-	privateNotes *string
-	date *string
-	dateRange *string
-	statusId *int32
+	overdue               *string
+	payable               *string
+	sort                  *string
+	privateNotes          *string
+	date                  *string
+	dateRange             *string
+	statusId              *int32
 }
 
 // The API token to be used for authentication
@@ -1676,79 +1662,79 @@ func (r ApiGetInvoicesRequest) Include(include string) ApiGetInvoicesRequest {
 	return r
 }
 
-// Filter the entity based on their status. ie active / archived / deleted. Format is a comma separated string with any of the following options:   - active - archived - deleted    &#x60;&#x60;&#x60;html GET /api/v1/invoices?status&#x3D;archived,deleted Returns only archived and deleted invoices &#x60;&#x60;&#x60; 
+// Filter the entity based on their status. ie active / archived / deleted. Format is a comma separated string with any of the following options:   - active - archived - deleted    &#x60;&#x60;&#x60;html GET /api/v1/invoices?status&#x3D;archived,deleted Returns only archived and deleted invoices &#x60;&#x60;&#x60;
 func (r ApiGetInvoicesRequest) Status(status string) ApiGetInvoicesRequest {
 	r.status = &status
 	return r
 }
 
-// Filters the entity list by client_id. Suitable when you only want the entities of a specific client.  &#x60;&#x60;&#x60;html GET /api/v1/invoices?client_id&#x3D;AxB7Hjk9 Returns only invoices for the specified client &#x60;&#x60;&#x60; 
+// Filters the entity list by client_id. Suitable when you only want the entities of a specific client.  &#x60;&#x60;&#x60;html GET /api/v1/invoices?client_id&#x3D;AxB7Hjk9 Returns only invoices for the specified client &#x60;&#x60;&#x60;
 func (r ApiGetInvoicesRequest) ClientId(clientId string) ApiGetInvoicesRequest {
 	r.clientId = &clientId
 	return r
 }
 
-// Filters the entity list by the created at timestamp. Parameter value can be a datetime string or unix timestamp  &#x60;&#x60;&#x60;html GET /api/v1/invoices?created_at&#x3D;2022-01-10 Returns entities created on January 10th, 2022 &#x60;&#x60;&#x60; 
+// Filters the entity list by the created at timestamp. Parameter value can be a datetime string or unix timestamp  &#x60;&#x60;&#x60;html GET /api/v1/invoices?created_at&#x3D;2022-01-10 Returns entities created on January 10th, 2022 &#x60;&#x60;&#x60;
 func (r ApiGetInvoicesRequest) CreatedAt(createdAt int32) ApiGetInvoicesRequest {
 	r.createdAt = &createdAt
 	return r
 }
 
-// Filters the entity list by the updated at timestamp. Parameter value can be a datetime string or unix timestamp  &#x60;&#x60;&#x60;html GET /api/v1/invoices?updated_at&#x3D;2022-01-10 Returns entities last updated on January 10th, 2022 &#x60;&#x60;&#x60; 
+// Filters the entity list by the updated at timestamp. Parameter value can be a datetime string or unix timestamp  &#x60;&#x60;&#x60;html GET /api/v1/invoices?updated_at&#x3D;2022-01-10 Returns entities last updated on January 10th, 2022 &#x60;&#x60;&#x60;
 func (r ApiGetInvoicesRequest) UpdatedAt(updatedAt int32) ApiGetInvoicesRequest {
 	r.updatedAt = &updatedAt
 	return r
 }
 
-// Filters the entity list by entities that have been deleted.  &#x60;&#x60;&#x60;html GET /api/v1/invoices?is_deleted&#x3D;true Returns only soft-deleted entities &#x60;&#x60;&#x60; 
+// Filters the entity list by entities that have been deleted.  &#x60;&#x60;&#x60;html GET /api/v1/invoices?is_deleted&#x3D;true Returns only soft-deleted entities &#x60;&#x60;&#x60;
 func (r ApiGetInvoicesRequest) IsDeleted(isDeleted bool) ApiGetInvoicesRequest {
 	r.isDeleted = &isDeleted
 	return r
 }
 
-// Filters the entity list and only returns entities for clients that have not been deleted  &#x60;&#x60;&#x60;html GET /api/v1/invoices?filter_deleted_clients&#x3D;true Returns only invoices for active (non-deleted) clients &#x60;&#x60;&#x60; 
+// Filters the entity list and only returns entities for clients that have not been deleted  &#x60;&#x60;&#x60;html GET /api/v1/invoices?filter_deleted_clients&#x3D;true Returns only invoices for active (non-deleted) clients &#x60;&#x60;&#x60;
 func (r ApiGetInvoicesRequest) FilterDeletedClients(filterDeletedClients string) ApiGetInvoicesRequest {
 	r.filterDeletedClients = &filterDeletedClients
 	return r
 }
 
-// Filters the entity list by an associated vendor  &#x60;&#x60;&#x60;html GET /api/v1/purchases?vendor_id&#x3D;AxB7Hjk9 Returns only purchases for the specified vendor &#x60;&#x60;&#x60; 
+// Filters the entity list by an associated vendor  &#x60;&#x60;&#x60;html GET /api/v1/purchases?vendor_id&#x3D;AxB7Hjk9 Returns only purchases for the specified vendor &#x60;&#x60;&#x60;
 func (r ApiGetInvoicesRequest) VendorId(vendorId string) ApiGetInvoicesRequest {
 	r.vendorId = &vendorId
 	return r
 }
 
-// A comma separated list of invoice status strings. Valid options include:   - all - paid   - unpaid   - overdue    
+// A comma separated list of invoice status strings. Valid options include:   - all - paid   - unpaid   - overdue
 func (r ApiGetInvoicesRequest) ClientStatus(clientStatus string) ApiGetInvoicesRequest {
 	r.clientStatus = &clientStatus
 	return r
 }
 
-// Search invoices by invoice number  
+// Search invoices by invoice number
 func (r ApiGetInvoicesRequest) Number(number string) ApiGetInvoicesRequest {
 	r.number = &number
 	return r
 }
 
-// Searches across a range of columns including:   - number   - po_number   - date   - amount   - balance   - custom_value1   - custom_value2   - custom_value3   - custom_value4 - client.name - client.contacts.[first_name, last_name, email] - line_items.[product_key, notes] 
+// Searches across a range of columns including:   - number   - po_number   - date   - amount   - balance   - custom_value1   - custom_value2   - custom_value3   - custom_value4 - client.name - client.contacts.[first_name, last_name, email] - line_items.[product_key, notes]
 func (r ApiGetInvoicesRequest) Filter(filter string) ApiGetInvoicesRequest {
 	r.filter = &filter
 	return r
 }
 
-// Returns the invoice list without the invoices of deleted clients. 
+// Returns the invoice list without the invoices of deleted clients.
 func (r ApiGetInvoicesRequest) WithoutDeletedClients(withoutDeletedClients string) ApiGetInvoicesRequest {
 	r.withoutDeletedClients = &withoutDeletedClients
 	return r
 }
 
-// Returns the list of invoices that are overdue 
+// Returns the list of invoices that are overdue
 func (r ApiGetInvoicesRequest) Overdue(overdue string) ApiGetInvoicesRequest {
 	r.overdue = &overdue
 	return r
 }
 
-// Returns the invoice list that are payable for a defined client. Please note, you must pass the client_id as the value for this query parameter 
+// Returns the invoice list that are payable for a defined client. Please note, you must pass the client_id as the value for this query parameter
 func (r ApiGetInvoicesRequest) Payable(payable string) ApiGetInvoicesRequest {
 	r.payable = &payable
 	return r
@@ -1760,25 +1746,25 @@ func (r ApiGetInvoicesRequest) Sort(sort string) ApiGetInvoicesRequest {
 	return r
 }
 
-// Searches on the private_notes field of the invoices 
+// Searches on the private_notes field of the invoices
 func (r ApiGetInvoicesRequest) PrivateNotes(privateNotes string) ApiGetInvoicesRequest {
 	r.privateNotes = &privateNotes
 	return r
 }
 
-// Filters the invoices by invoice date returns a list of invoices after (and including) the date 
+// Filters the invoices by invoice date returns a list of invoices after (and including) the date
 func (r ApiGetInvoicesRequest) Date(date string) ApiGetInvoicesRequest {
 	r.date = &date
 	return r
 }
 
-// Filters the invoices by invoice date returns a list of invoices between two dates 
+// Filters the invoices by invoice date returns a list of invoices between two dates
 func (r ApiGetInvoicesRequest) DateRange(dateRange string) ApiGetInvoicesRequest {
 	r.dateRange = &dateRange
 	return r
 }
 
-// Filters the invoices by status id  &#x60;&#x60;&#x60;html   STATUS_DRAFT &#x3D; 1;   STATUS_SENT &#x3D; 2;   STATUS_PARTIAL &#x3D; 3;   STATUS_PAID &#x3D; 4;   STATUS_CANCELLED &#x3D; 5;   STATUS_REVERSED &#x3D; 6; &#x60;&#x60;&#x60; 
+// Filters the invoices by status id  &#x60;&#x60;&#x60;html   STATUS_DRAFT &#x3D; 1;   STATUS_SENT &#x3D; 2;   STATUS_PARTIAL &#x3D; 3;   STATUS_PAID &#x3D; 4;   STATUS_CANCELLED &#x3D; 5;   STATUS_REVERSED &#x3D; 6; &#x60;&#x60;&#x60;
 func (r ApiGetInvoicesRequest) StatusId(statusId int32) ApiGetInvoicesRequest {
 	r.statusId = &statusId
 	return r
@@ -1793,27 +1779,27 @@ GetInvoices List invoices
 
 ##  GET /api/v1/invoices
 
-Lists invoices with the option to chain multiple query parameters allowing fine grained filtering of the list.  
+Lists invoices with the option to chain multiple query parameters allowing fine grained filtering of the list.
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetInvoicesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetInvoicesRequest
 */
 func (a *InvoicesAPIService) GetInvoices(ctx context.Context) ApiGetInvoicesRequest {
 	return ApiGetInvoicesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetInvoices200Response
+//
+//	@return GetInvoices200Response
 func (a *InvoicesAPIService) GetInvoicesExecute(r ApiGetInvoicesRequest) (*GetInvoices200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetInvoices200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetInvoices200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InvoicesAPIService.GetInvoices")
@@ -1952,8 +1938,8 @@ func (a *InvoicesAPIService) GetInvoicesExecute(r ApiGetInvoicesRequest) (*GetIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1963,8 +1949,8 @@ func (a *InvoicesAPIService) GetInvoicesExecute(r ApiGetInvoicesRequest) (*GetIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1974,8 +1960,8 @@ func (a *InvoicesAPIService) GetInvoicesExecute(r ApiGetInvoicesRequest) (*GetIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1985,18 +1971,18 @@ func (a *InvoicesAPIService) GetInvoicesExecute(r ApiGetInvoicesRequest) (*GetIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2013,12 +1999,12 @@ func (a *InvoicesAPIService) GetInvoicesExecute(r ApiGetInvoicesRequest) (*GetIn
 }
 
 type ApiShowInvoiceRequest struct {
-	ctx context.Context
-	ApiService *InvoicesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *InvoicesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	include *string
+	id             string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -2048,29 +2034,29 @@ ShowInvoice Show invoice
 
 ## GET /api/v1/invoices/{id}
 
-Displays an invoice by id
+# Displays an invoice by id
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The Invoice Hashed ID
- @return ApiShowInvoiceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Invoice Hashed ID
+	@return ApiShowInvoiceRequest
 */
 func (a *InvoicesAPIService) ShowInvoice(ctx context.Context, id string) ApiShowInvoiceRequest {
 	return ApiShowInvoiceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Invoice
+//
+//	@return Invoice
 func (a *InvoicesAPIService) ShowInvoiceExecute(r ApiShowInvoiceRequest) (*Invoice, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Invoice
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Invoice
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InvoicesAPIService.ShowInvoice")
@@ -2156,8 +2142,8 @@ func (a *InvoicesAPIService) ShowInvoiceExecute(r ApiShowInvoiceRequest) (*Invoi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2167,8 +2153,8 @@ func (a *InvoicesAPIService) ShowInvoiceExecute(r ApiShowInvoiceRequest) (*Invoi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -2178,8 +2164,8 @@ func (a *InvoicesAPIService) ShowInvoiceExecute(r ApiShowInvoiceRequest) (*Invoi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2189,18 +2175,18 @@ func (a *InvoicesAPIService) ShowInvoiceExecute(r ApiShowInvoiceRequest) (*Invoi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2217,12 +2203,12 @@ func (a *InvoicesAPIService) ShowInvoiceExecute(r ApiShowInvoiceRequest) (*Invoi
 }
 
 type ApiStoreInvoiceRequest struct {
-	ctx context.Context
-	ApiService *InvoicesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *InvoicesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
 	invoiceRequest *InvoiceRequest
-	include *string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -2262,37 +2248,38 @@ Triggered actions are available when updating or creating an invoice.
 
 These are query parameters that can be chained in order to perform additional actions on the entity, these include:
 
-  ```
-  ?send_email=true [Saves and sends the invoice]
-  ?mark_sent=true [Saves and marks the invoice as sent]
-  ?paid=true [Saves and marks the invoice as paid]
-  ?amount_paid=100 [Saves and marks the invoice as paid with the given amount]
-  ?cancel=true [Saves and marks the invoice as cancelled]
-  ?save_default_footer=true [Saves the current footer as the default footer]
-  ?save_default_terms=true [Saves the current terms as the default terms]
-  ?retry_e_send=true [Saves and retries the e-send for the invoice]
-  ?redirect=https://example.com [Saves and redirects to the given url]
-  ```
+	 ```
+	 ?send_email=true [Saves and sends the invoice]
+	 ?mark_sent=true [Saves and marks the invoice as sent]
+	 ?paid=true [Saves and marks the invoice as paid]
+	 ?amount_paid=100 [Saves and marks the invoice as paid with the given amount]
+	 ?cancel=true [Saves and marks the invoice as cancelled]
+	 ?save_default_footer=true [Saves the current footer as the default footer]
+	 ?save_default_terms=true [Saves the current terms as the default terms]
+	 ?retry_e_send=true [Saves and retries the e-send for the invoice]
+	 ?redirect=https://example.com [Saves and redirects to the given url]
+	 ```
 
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiStoreInvoiceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiStoreInvoiceRequest
 */
 func (a *InvoicesAPIService) StoreInvoice(ctx context.Context) ApiStoreInvoiceRequest {
 	return ApiStoreInvoiceRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Invoice
+//
+//	@return Invoice
 func (a *InvoicesAPIService) StoreInvoiceExecute(r ApiStoreInvoiceRequest) (*Invoice, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Invoice
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Invoice
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InvoicesAPIService.StoreInvoice")
@@ -2382,8 +2369,8 @@ func (a *InvoicesAPIService) StoreInvoiceExecute(r ApiStoreInvoiceRequest) (*Inv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2393,8 +2380,8 @@ func (a *InvoicesAPIService) StoreInvoiceExecute(r ApiStoreInvoiceRequest) (*Inv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -2404,8 +2391,8 @@ func (a *InvoicesAPIService) StoreInvoiceExecute(r ApiStoreInvoiceRequest) (*Inv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2415,18 +2402,18 @@ func (a *InvoicesAPIService) StoreInvoiceExecute(r ApiStoreInvoiceRequest) (*Inv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2443,12 +2430,12 @@ func (a *InvoicesAPIService) StoreInvoiceExecute(r ApiStoreInvoiceRequest) (*Inv
 }
 
 type ApiUpdateInvoiceRequest struct {
-	ctx context.Context
-	ApiService *InvoicesAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *InvoicesAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	include *string
+	id             string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -2479,42 +2466,43 @@ UpdateInvoice Update invoice
 ## PUT /api/v1/invoices/{id}
 Handles the updating of an invoice by id.
 
-Triggered actions are available when updating or creating an invoice.  
+Triggered actions are available when updating or creating an invoice.
 These are query parameters that can be chained in order to perform additional actions on the entity, these include:
 
-  ```
-  ?send_email=true [Saves and sends the invoice]
-  ?mark_sent=true [Saves and marks the invoice as sent]
-  ?paid=true [Saves and marks the invoice as paid]
-  ?amount_paid=100 [Saves and marks the invoice as paid with the given amount]
-  ?cancel=true [Saves and marks the invoice as cancelled]
-  ?save_default_footer=true [Saves the current footer as the default footer]
-  ?save_default_terms=true [Saves the current terms as the default terms]
-  ?retry_e_send=true [Saves and retries the e-send for the invoice]
-  ?redirect=https://example.com [Saves and redirects to the given url]
-  ```
+	 ```
+	 ?send_email=true [Saves and sends the invoice]
+	 ?mark_sent=true [Saves and marks the invoice as sent]
+	 ?paid=true [Saves and marks the invoice as paid]
+	 ?amount_paid=100 [Saves and marks the invoice as paid with the given amount]
+	 ?cancel=true [Saves and marks the invoice as cancelled]
+	 ?save_default_footer=true [Saves the current footer as the default footer]
+	 ?save_default_terms=true [Saves the current terms as the default terms]
+	 ?retry_e_send=true [Saves and retries the e-send for the invoice]
+	 ?redirect=https://example.com [Saves and redirects to the given url]
+	 ```
 
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The Invoice Hashed ID
- @return ApiUpdateInvoiceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Invoice Hashed ID
+	@return ApiUpdateInvoiceRequest
 */
 func (a *InvoicesAPIService) UpdateInvoice(ctx context.Context, id string) ApiUpdateInvoiceRequest {
 	return ApiUpdateInvoiceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Invoice
+//
+//	@return Invoice
 func (a *InvoicesAPIService) UpdateInvoiceExecute(r ApiUpdateInvoiceRequest) (*Invoice, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Invoice
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Invoice
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InvoicesAPIService.UpdateInvoice")
@@ -2600,8 +2588,8 @@ func (a *InvoicesAPIService) UpdateInvoiceExecute(r ApiUpdateInvoiceRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2611,8 +2599,8 @@ func (a *InvoicesAPIService) UpdateInvoiceExecute(r ApiUpdateInvoiceRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -2622,8 +2610,8 @@ func (a *InvoicesAPIService) UpdateInvoiceExecute(r ApiUpdateInvoiceRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2633,18 +2621,18 @@ func (a *InvoicesAPIService) UpdateInvoiceExecute(r ApiUpdateInvoiceRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

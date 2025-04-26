@@ -1,14 +1,3 @@
-/*
-Invoice Ninja API Reference.
-
----   ![Invoice Ninja](https://invoicing.co/images/new_logo.png)   ## Introduction   Welcome to the Invoice Ninja API documentation, your comprehensive guide to integrating Invoice Ninja's powerful features into your applications. Whether you're building a custom client, automating workflows, or integrating with other systems, our API provides the tools you need to streamline your invoicing and billing processes.   ### What is Invoice Ninja?   Invoice Ninja is a robust source-available platform designed to simplify invoicing, billing, and payment management for freelancers, small businesses, and enterprises alike. With a user-friendly interface, customizable templates, and a suite of powerful features, Invoice Ninja empowers businesses to create professional invoices, track expenses, manage clients, and get paid faster.   ### Why use the Invoice Ninja API?   The Invoice Ninja API allows developers to extend the functionality of Invoice Ninja by programmatically accessing and manipulating data within their Invoice Ninja accounts. With the API, you can automate repetitive tasks, integrate with third-party services, and build custom solutions tailored to your specific business needs.   ### Getting Started   To get started with the Invoice Ninja API, you'll need an active Invoice Ninja account (or your own self hosted installation) and API credentials. If you haven't already done so, sign up for an account at Invoice Ninja and generate your API keys from the settings section.    Once you have your API credentials, you can start exploring the API endpoints, authentication methods, request and response formats, and more using the documentation provided here.   ### Explore the Documentation     This documentation is organized into sections to help you navigate and understand the various aspects of the Invoice Ninja API:    - Authentication: Learn how to authenticate your requests to the API using API tokens.   - Endpoints: Explore the available API endpoints for managing invoices, clients, payments, expenses, and more.   - Request and Response Formats: Understand the structure of API requests and responses, including parameters, headers, and payloads.   - Error Handling: Learn about error codes, status messages, and best practices for handling errors gracefully.   - Code Examples: Find code examples and tutorials to help you get started with integrating the Invoice Ninja API into your applications.         ### Need Help?         If you have any questions, encounter any issues, or need assistance with using the Invoice Ninja API, don't hesitate to reach out to our support team or join our community forums. We're here to help you succeed with Invoice Ninja and make the most of our API.        Let's start building together!   ### Endpoints      <div style=\"background-color: #2D394E; color: #fff padding: 20px; border-radius: 5px; border: 4px solid #212A3B; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\">       <p style=\"padding:10px; color: #DBDBDB;\"\">Production: https://invoicing.co</p>       <p style=\"padding:10px; color: #DBDBDB;\">Demo: https://demo.invoiceninja.com</p>   </div>    ### Client Libraries    PHP SDK can be found [here](https://github.com/invoiceninja/sdk-php)   ### Authentication:    Invoice Ninja uses API tokens to authenticate requests. You can view and manage your API keys in Settings > Account Management > Integrations > API tokens    API requests must be made over HTTPS. Calls made to HTTP will fail.   ### Errors:    Invoice Ninja uses standard HTTP response codes to indicate the success or failure of a request. below is a table of standard status codes and responses    | Status Code | Explanation                                                                 |   |-------------|-----------------------------------------------------------------------------|   | 200         | OK: The request has succeeded. The information returned with the response is dependent on the method used in the request. |   | 301         | Moved Permanently: This and all future requests should be directed to the given URI. |   | 303         | See Other: The response to the request can be found under another URI using the GET method. |   | 400         | Bad Request: The server cannot or will not process the request due to an apparent client error. |   | 401         | Unauthorized: Similar to 403 Forbidden, but specifically for use when authentication is required and has failed or has not yet been provided. |   | 403         | Forbidden: The request was valid, but the server is refusing action. |   | 404         | Not Found: The requested resource could not be found but may be available in the future. |   | 405         | Method Not Allowed: A request method is not supported for the requested resource. |   | 409         | Conflict: Indicates that the request could not be processed because of conflict in the request. |   | 422         | Unprocessable Entity: The request was well-formed but was unable to be followed due to semantic errors. |   | 429         | Too Many Requests: The user has sent too many requests in a given amount of time (\"rate limiting\"). |   | 500         | Internal Server Error: A generic error message, given when an unexpected condition was encountered and no more specific message is suitable. |   ### Pagination    When using index routes to retrieve lists of data, by default we limit the number of records returned to 20. You can using standard pagination to paginate results, ie: ?per_page=50 
-
-API version: 5.11.48
-Contact: contact@invoiceninja.com
-*/
-
-// Code generated by OpenAPI Generator (https://openapi-generator.tech); DO NOT EDIT.
-
 package openapi
 
 import (
@@ -17,21 +6,21 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"os"
 	"strings"
 )
-
 
 // ClientsAPIService ClientsAPI service
 type ClientsAPIService service
 
 type ApiBulkClientsRequest struct {
-	ctx context.Context
-	ApiService *ClientsAPIService
-	xAPITOKEN *string
-	xRequestedWith *string
+	ctx               context.Context
+	ApiService        *ClientsAPIService
+	xAPITOKEN         *string
+	xRequestedWith    *string
 	genericBulkAction *GenericBulkAction
-	index *string
-	include *string
+	index             *string
+	include           *string
 }
 
 // The API token to be used for authentication
@@ -52,13 +41,13 @@ func (r ApiBulkClientsRequest) GenericBulkAction(genericBulkAction GenericBulkAc
 	return r
 }
 
-// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60; 
+// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60;
 func (r ApiBulkClientsRequest) Index(index string) ApiBulkClientsRequest {
 	r.index = &index
 	return r
 }
 
-// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60; 
+// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60;
 func (r ApiBulkClientsRequest) Include(include string) ApiBulkClientsRequest {
 	r.include = &include
 	return r
@@ -73,7 +62,7 @@ BulkClients Bulk client actions
 
 ##  POST /api/v1/clients/bulk
 
-Bulk actions allow to make changes to multiple clients in a single request the following actions are supported
+# Bulk actions allow to make changes to multiple clients in a single request the following actions are supported
 
 - archive
 - restore
@@ -94,7 +83,7 @@ The template bulk action allows the creation of a custom template using the prov
 
 - assign_group
 
-Allows setting multiple clients to a single group
+# Allows setting multiple clients to a single group
 
 - bulk_update
 
@@ -109,25 +98,25 @@ Allows updating certain columns on the client model in bulk. the current list of
 - custom_value3
 - custom_value4
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBulkClientsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBulkClientsRequest
 */
 func (a *ClientsAPIService) BulkClients(ctx context.Context) ApiBulkClientsRequest {
 	return ApiBulkClientsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Client
+//
+//	@return Client
 func (a *ClientsAPIService) BulkClientsExecute(r ApiBulkClientsRequest) (*Client, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Client
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Client
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientsAPIService.BulkClients")
@@ -220,8 +209,8 @@ func (a *ClientsAPIService) BulkClientsExecute(r ApiBulkClientsRequest) (*Client
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -231,8 +220,8 @@ func (a *ClientsAPIService) BulkClientsExecute(r ApiBulkClientsRequest) (*Client
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -242,8 +231,8 @@ func (a *ClientsAPIService) BulkClientsExecute(r ApiBulkClientsRequest) (*Client
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -253,18 +242,18 @@ func (a *ClientsAPIService) BulkClientsExecute(r ApiBulkClientsRequest) (*Client
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -281,13 +270,13 @@ func (a *ClientsAPIService) BulkClientsExecute(r ApiBulkClientsRequest) (*Client
 }
 
 type ApiClientStatementRequest struct {
-	ctx context.Context
-	ApiService *ClientsAPIService
-	xAPITOKEN *string
-	xRequestedWith *string
+	ctx                    context.Context
+	ApiService             *ClientsAPIService
+	xAPITOKEN              *string
+	xRequestedWith         *string
 	clientStatementRequest *ClientStatementRequest
-	index *string
-	include *string
+	index                  *string
+	include                *string
 }
 
 // The API token to be used for authentication
@@ -308,13 +297,13 @@ func (r ApiClientStatementRequest) ClientStatementRequest(clientStatementRequest
 	return r
 }
 
-// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60; 
+// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60;
 func (r ApiClientStatementRequest) Index(index string) ApiClientStatementRequest {
 	r.index = &index
 	return r
 }
 
-// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60; 
+// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60;
 func (r ApiClientStatementRequest) Include(include string) ApiClientStatementRequest {
 	r.include = &include
 	return r
@@ -329,27 +318,27 @@ ClientStatement Client statement PDF
 
 ##  POST /api/v1/client_statement
 
-Return a PDF of the client statement
+# Return a PDF of the client statement
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiClientStatementRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiClientStatementRequest
 */
 func (a *ClientsAPIService) ClientStatement(ctx context.Context) ApiClientStatementRequest {
 	return ApiClientStatementRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Client
+//
+//	@return Client
 func (a *ClientsAPIService) ClientStatementExecute(r ApiClientStatementRequest) (*Client, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Client
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Client
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientsAPIService.ClientStatement")
@@ -442,8 +431,8 @@ func (a *ClientsAPIService) ClientStatementExecute(r ApiClientStatementRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -453,8 +442,8 @@ func (a *ClientsAPIService) ClientStatementExecute(r ApiClientStatementRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -464,8 +453,8 @@ func (a *ClientsAPIService) ClientStatementExecute(r ApiClientStatementRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -475,18 +464,18 @@ func (a *ClientsAPIService) ClientStatementExecute(r ApiClientStatementRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -503,13 +492,13 @@ func (a *ClientsAPIService) ClientStatementExecute(r ApiClientStatementRequest) 
 }
 
 type ApiDeleteClientRequest struct {
-	ctx context.Context
-	ApiService *ClientsAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *ClientsAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	index *string
-	include *string
+	id             string
+	index          *string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -524,13 +513,13 @@ func (r ApiDeleteClientRequest) XRequestedWith(xRequestedWith string) ApiDeleteC
 	return r
 }
 
-// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60; 
+// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60;
 func (r ApiDeleteClientRequest) Index(index string) ApiDeleteClientRequest {
 	r.index = &index
 	return r
 }
 
-// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60; 
+// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60;
 func (r ApiDeleteClientRequest) Include(include string) ApiDeleteClientRequest {
 	r.include = &include
 	return r
@@ -545,35 +534,34 @@ DeleteClient Delete client
 
 ##  DELETE /api/v1/clients/{id}
 
-Handles the deletion of a client by id
+# Handles the deletion of a client by id
 
 > ❗ Note
-Deleting a client does not purge the client from the system. The delete action will remove the clients data from all 
+Deleting a client does not purge the client from the system. The delete action will remove the clients data from all
 views in the application but keep it on file in case it needs to be restored.
 
-A Client can be later restored reversing this action.  
+A Client can be later restored reversing this action.
 
 To permanently wipe a client and all of their records from the system, use the [/purge route](/#tag/clients/POST/api/v1/clients/{id}/purge)
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The Client Hashed ID
- @return ApiDeleteClientRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Client Hashed ID
+	@return ApiDeleteClientRequest
 */
 func (a *ClientsAPIService) DeleteClient(ctx context.Context, id string) ApiDeleteClientRequest {
 	return ApiDeleteClientRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *ClientsAPIService) DeleteClientExecute(r ApiDeleteClientRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientsAPIService.DeleteClient")
@@ -662,8 +650,8 @@ func (a *ClientsAPIService) DeleteClientExecute(r ApiDeleteClientRequest) (*http
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -673,8 +661,8 @@ func (a *ClientsAPIService) DeleteClientExecute(r ApiDeleteClientRequest) (*http
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -684,8 +672,8 @@ func (a *ClientsAPIService) DeleteClientExecute(r ApiDeleteClientRequest) (*http
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -695,18 +683,18 @@ func (a *ClientsAPIService) DeleteClientExecute(r ApiDeleteClientRequest) (*http
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -714,13 +702,13 @@ func (a *ClientsAPIService) DeleteClientExecute(r ApiDeleteClientRequest) (*http
 }
 
 type ApiEditClientRequest struct {
-	ctx context.Context
-	ApiService *ClientsAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *ClientsAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	index *string
-	include *string
+	id             string
+	index          *string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -735,13 +723,13 @@ func (r ApiEditClientRequest) XRequestedWith(xRequestedWith string) ApiEditClien
 	return r
 }
 
-// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60; 
+// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60;
 func (r ApiEditClientRequest) Index(index string) ApiEditClientRequest {
 	r.index = &index
 	return r
 }
 
-// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60; 
+// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60;
 func (r ApiEditClientRequest) Include(include string) ApiEditClientRequest {
 	r.include = &include
 	return r
@@ -757,27 +745,27 @@ EditClient Edit Client
 ##  GET /api/v1/clients/{id}/edit
 Displays a client by id, essentially an alias of the show route
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The Client Hashed ID
- @return ApiEditClientRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Client Hashed ID
+	@return ApiEditClientRequest
 */
 func (a *ClientsAPIService) EditClient(ctx context.Context, id string) ApiEditClientRequest {
 	return ApiEditClientRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Client
+//
+//	@return Client
 func (a *ClientsAPIService) EditClientExecute(r ApiEditClientRequest) (*Client, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Client
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Client
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientsAPIService.EditClient")
@@ -866,8 +854,8 @@ func (a *ClientsAPIService) EditClientExecute(r ApiEditClientRequest) (*Client, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -877,8 +865,8 @@ func (a *ClientsAPIService) EditClientExecute(r ApiEditClientRequest) (*Client, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -888,8 +876,8 @@ func (a *ClientsAPIService) EditClientExecute(r ApiEditClientRequest) (*Client, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -899,18 +887,18 @@ func (a *ClientsAPIService) EditClientExecute(r ApiEditClientRequest) (*Client, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -927,27 +915,27 @@ func (a *ClientsAPIService) EditClientExecute(r ApiEditClientRequest) (*Client, 
 }
 
 type ApiGetClientsRequest struct {
-	ctx context.Context
-	ApiService *ClientsAPIService
-	xAPITOKEN *string
-	xRequestedWith *string
-	include *string
-	index *string
-	status *string
-	createdAt *int32
-	updatedAt *int32
-	isDeleted *bool
+	ctx                  context.Context
+	ApiService           *ClientsAPIService
+	xAPITOKEN            *string
+	xRequestedWith       *string
+	include              *string
+	index                *string
+	status               *string
+	createdAt            *int32
+	updatedAt            *int32
+	isDeleted            *bool
 	filterDeletedClients *string
-	name *string
-	balance *string
-	betweenBalance *string
-	email *string
-	idNumber *string
-	number *string
-	filter *string
-	sort *string
-	group *string
-	clientId *string
+	name                 *string
+	balance              *string
+	betweenBalance       *string
+	email                *string
+	idNumber             *string
+	number               *string
+	filter               *string
+	sort                 *string
+	group                *string
+	clientId             *string
 }
 
 // The API token to be used for authentication
@@ -962,103 +950,103 @@ func (r ApiGetClientsRequest) XRequestedWith(xRequestedWith string) ApiGetClient
 	return r
 }
 
-// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60; 
+// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60;
 func (r ApiGetClientsRequest) Include(include string) ApiGetClientsRequest {
 	r.include = &include
 	return r
 }
 
-// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60; 
+// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60;
 func (r ApiGetClientsRequest) Index(index string) ApiGetClientsRequest {
 	r.index = &index
 	return r
 }
 
-// Filter the entity based on their status. ie active / archived / deleted. Format is a comma separated string with any of the following options:   - active - archived - deleted    &#x60;&#x60;&#x60;html GET /api/v1/invoices?status&#x3D;archived,deleted Returns only archived and deleted invoices &#x60;&#x60;&#x60; 
+// Filter the entity based on their status. ie active / archived / deleted. Format is a comma separated string with any of the following options:   - active - archived - deleted    &#x60;&#x60;&#x60;html GET /api/v1/invoices?status&#x3D;archived,deleted Returns only archived and deleted invoices &#x60;&#x60;&#x60;
 func (r ApiGetClientsRequest) Status(status string) ApiGetClientsRequest {
 	r.status = &status
 	return r
 }
 
-// Filters the entity list by the created at timestamp. Parameter value can be a datetime string or unix timestamp  &#x60;&#x60;&#x60;html GET /api/v1/invoices?created_at&#x3D;2022-01-10 Returns entities created on January 10th, 2022 &#x60;&#x60;&#x60; 
+// Filters the entity list by the created at timestamp. Parameter value can be a datetime string or unix timestamp  &#x60;&#x60;&#x60;html GET /api/v1/invoices?created_at&#x3D;2022-01-10 Returns entities created on January 10th, 2022 &#x60;&#x60;&#x60;
 func (r ApiGetClientsRequest) CreatedAt(createdAt int32) ApiGetClientsRequest {
 	r.createdAt = &createdAt
 	return r
 }
 
-// Filters the entity list by the updated at timestamp. Parameter value can be a datetime string or unix timestamp  &#x60;&#x60;&#x60;html GET /api/v1/invoices?updated_at&#x3D;2022-01-10 Returns entities last updated on January 10th, 2022 &#x60;&#x60;&#x60; 
+// Filters the entity list by the updated at timestamp. Parameter value can be a datetime string or unix timestamp  &#x60;&#x60;&#x60;html GET /api/v1/invoices?updated_at&#x3D;2022-01-10 Returns entities last updated on January 10th, 2022 &#x60;&#x60;&#x60;
 func (r ApiGetClientsRequest) UpdatedAt(updatedAt int32) ApiGetClientsRequest {
 	r.updatedAt = &updatedAt
 	return r
 }
 
-// Filters the entity list by entities that have been deleted.  &#x60;&#x60;&#x60;html GET /api/v1/invoices?is_deleted&#x3D;true Returns only soft-deleted entities &#x60;&#x60;&#x60; 
+// Filters the entity list by entities that have been deleted.  &#x60;&#x60;&#x60;html GET /api/v1/invoices?is_deleted&#x3D;true Returns only soft-deleted entities &#x60;&#x60;&#x60;
 func (r ApiGetClientsRequest) IsDeleted(isDeleted bool) ApiGetClientsRequest {
 	r.isDeleted = &isDeleted
 	return r
 }
 
-// Filters the entity list and only returns entities for clients that have not been deleted  &#x60;&#x60;&#x60;html GET /api/v1/invoices?filter_deleted_clients&#x3D;true Returns only invoices for active (non-deleted) clients &#x60;&#x60;&#x60; 
+// Filters the entity list and only returns entities for clients that have not been deleted  &#x60;&#x60;&#x60;html GET /api/v1/invoices?filter_deleted_clients&#x3D;true Returns only invoices for active (non-deleted) clients &#x60;&#x60;&#x60;
 func (r ApiGetClientsRequest) FilterDeletedClients(filterDeletedClients string) ApiGetClientsRequest {
 	r.filterDeletedClients = &filterDeletedClients
 	return r
 }
 
-// Filter by client name    &#x60;&#x60;&#x60;html ?name&#x3D;bob &#x60;&#x60;&#x60; 
+// Filter by client name    &#x60;&#x60;&#x60;html ?name&#x3D;bob &#x60;&#x60;&#x60;
 func (r ApiGetClientsRequest) Name(name string) ApiGetClientsRequest {
 	r.name = &name
 	return r
 }
 
-// Filter by client balance, format uses an operator and value separated by a colon. lt,lte, gt, gte, eq  &#x60;&#x60;&#x60;html ?balance&#x3D;lt:10 &#x60;&#x60;&#x60;  ie all clients whose balance is less than 10 
+// Filter by client balance, format uses an operator and value separated by a colon. lt,lte, gt, gte, eq  &#x60;&#x60;&#x60;html ?balance&#x3D;lt:10 &#x60;&#x60;&#x60;  ie all clients whose balance is less than 10
 func (r ApiGetClientsRequest) Balance(balance string) ApiGetClientsRequest {
 	r.balance = &balance
 	return r
 }
 
-// Filter between client balances, format uses two values separated by a colon  &#x60;&#x60;&#x60;html ?between_balance&#x3D;10:100 &#x60;&#x60;&#x60; 
+// Filter between client balances, format uses two values separated by a colon  &#x60;&#x60;&#x60;html ?between_balance&#x3D;10:100 &#x60;&#x60;&#x60;
 func (r ApiGetClientsRequest) BetweenBalance(betweenBalance string) ApiGetClientsRequest {
 	r.betweenBalance = &betweenBalance
 	return r
 }
 
-// Filter by client email  &#x60;&#x60;&#x60;html ?email&#x3D;bob@gmail.com &#x60;&#x60;&#x60; 
+// Filter by client email  &#x60;&#x60;&#x60;html ?email&#x3D;bob@gmail.com &#x60;&#x60;&#x60;
 func (r ApiGetClientsRequest) Email(email string) ApiGetClientsRequest {
 	r.email = &email
 	return r
 }
 
-// Filter by client id_number  &#x60;&#x60;&#x60;html ?id_number&#x3D;0001 &#x60;&#x60;&#x60; 
+// Filter by client id_number  &#x60;&#x60;&#x60;html ?id_number&#x3D;0001 &#x60;&#x60;&#x60;
 func (r ApiGetClientsRequest) IdNumber(idNumber string) ApiGetClientsRequest {
 	r.idNumber = &idNumber
 	return r
 }
 
-// Filter by client number  &#x60;&#x60;&#x60;html ?number&#x3D;0002 &#x60;&#x60;&#x60; 
+// Filter by client number  &#x60;&#x60;&#x60;html ?number&#x3D;0002 &#x60;&#x60;&#x60;
 func (r ApiGetClientsRequest) Number(number string) ApiGetClientsRequest {
 	r.number = &number
 	return r
 }
 
-// Broad filter which targets multiple client columns:      &#x60;&#x60;&#x60;html     name,      id_number,      contact.first_name      contact.last_name,      contact.email,      contact.phone     custom_value1,     custom_value2,     custom_value3,     custom_value4,   &#x60;&#x60;&#x60;    &#x60;&#x60;&#x60;html   ?filter&#x3D;Bobby   &#x60;&#x60;&#x60; 
+// Broad filter which targets multiple client columns:      &#x60;&#x60;&#x60;html     name,      id_number,      contact.first_name      contact.last_name,      contact.email,      contact.phone     custom_value1,     custom_value2,     custom_value3,     custom_value4,   &#x60;&#x60;&#x60;    &#x60;&#x60;&#x60;html   ?filter&#x3D;Bobby   &#x60;&#x60;&#x60;
 func (r ApiGetClientsRequest) Filter(filter string) ApiGetClientsRequest {
 	r.filter = &filter
 	return r
 }
 
-// Returns the list sorted by column in ascending or descending order.  Ensure you use column | direction, ie.  &#x60;&#x60;&#x60;html   ?sort&#x3D;id|desc &#x60;&#x60;&#x60; 
+// Returns the list sorted by column in ascending or descending order.  Ensure you use column | direction, ie.  &#x60;&#x60;&#x60;html   ?sort&#x3D;id|desc &#x60;&#x60;&#x60;
 func (r ApiGetClientsRequest) Sort(sort string) ApiGetClientsRequest {
 	r.sort = &sort
 	return r
 }
 
-// Returns the list of clients assigned to {group_id}  &#x60;&#x60;&#x60;html   ?group&#x3D;X89sjd8 &#x60;&#x60;&#x60; 
+// Returns the list of clients assigned to {group_id}  &#x60;&#x60;&#x60;html   ?group&#x3D;X89sjd8 &#x60;&#x60;&#x60;
 func (r ApiGetClientsRequest) Group(group string) ApiGetClientsRequest {
 	r.group = &group
 	return r
 }
 
-// Returns the list of clients with {client_id} - proxy call to retrieve a client_id wrapped in an array  &#x60;&#x60;&#x60;html   ?client_id&#x3D;X89sjd8 &#x60;&#x60;&#x60; 
+// Returns the list of clients with {client_id} - proxy call to retrieve a client_id wrapped in an array  &#x60;&#x60;&#x60;html   ?client_id&#x3D;X89sjd8 &#x60;&#x60;&#x60;
 func (r ApiGetClientsRequest) ClientId(clientId string) ApiGetClientsRequest {
 	r.clientId = &clientId
 	return r
@@ -1069,14 +1057,14 @@ func (r ApiGetClientsRequest) Execute() (*Client, *http.Response, error) {
 }
 
 /*
-GetClients List clients 
+GetClients List clients
 
-##  GET /api/v1/clients  
+##  GET /api/v1/clients
 When retrieving a list of clients you can also chain query parameters in order to filter the dataset that is returned. For example, you can send a request to the following URL to retrieve clients that have a balance greater than 1000
-  
+
 ```
 /api/v1/clients?balance=gt:1000
-``` 
+```
 
 You can also sort the results by adding a sort parameter. The following example will sort the results by the client name in descending order
 
@@ -1104,25 +1092,25 @@ The per_page and page variables allow pagination of the list of clients. The fol
 
 The default per_page value is 20.
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetClientsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetClientsRequest
 */
 func (a *ClientsAPIService) GetClients(ctx context.Context) ApiGetClientsRequest {
 	return ApiGetClientsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Client
+//
+//	@return Client
 func (a *ClientsAPIService) GetClientsExecute(r ApiGetClientsRequest) (*Client, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Client
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Client
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientsAPIService.GetClients")
@@ -1255,8 +1243,8 @@ func (a *ClientsAPIService) GetClientsExecute(r ApiGetClientsRequest) (*Client, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1266,8 +1254,8 @@ func (a *ClientsAPIService) GetClientsExecute(r ApiGetClientsRequest) (*Client, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1277,8 +1265,8 @@ func (a *ClientsAPIService) GetClientsExecute(r ApiGetClientsRequest) (*Client, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1288,18 +1276,18 @@ func (a *ClientsAPIService) GetClientsExecute(r ApiGetClientsRequest) (*Client, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1316,12 +1304,12 @@ func (a *ClientsAPIService) GetClientsExecute(r ApiGetClientsRequest) (*Client, 
 }
 
 type ApiGetClientsCreateRequest struct {
-	ctx context.Context
-	ApiService *ClientsAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *ClientsAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	index *string
-	include *string
+	index          *string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -1336,13 +1324,13 @@ func (r ApiGetClientsCreateRequest) XRequestedWith(xRequestedWith string) ApiGet
 	return r
 }
 
-// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60; 
+// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60;
 func (r ApiGetClientsCreateRequest) Index(index string) ApiGetClientsCreateRequest {
 	r.index = &index
 	return r
 }
 
-// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60; 
+// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60;
 func (r ApiGetClientsCreateRequest) Include(include string) ApiGetClientsCreateRequest {
 	r.include = &include
 	return r
@@ -1355,29 +1343,29 @@ func (r ApiGetClientsCreateRequest) Execute() (*Client, *http.Response, error) {
 /*
 GetClientsCreate Blank Client
 
-##  GET /api/v1/clients/create  
+##  GET /api/v1/clients/create
 
-Returns a blank object with default values
+# Returns a blank object with default values
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetClientsCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetClientsCreateRequest
 */
 func (a *ClientsAPIService) GetClientsCreate(ctx context.Context) ApiGetClientsCreateRequest {
 	return ApiGetClientsCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Client
+//
+//	@return Client
 func (a *ClientsAPIService) GetClientsCreateExecute(r ApiGetClientsCreateRequest) (*Client, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Client
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Client
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientsAPIService.GetClientsCreate")
@@ -1465,8 +1453,8 @@ func (a *ClientsAPIService) GetClientsCreateExecute(r ApiGetClientsCreateRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1476,8 +1464,8 @@ func (a *ClientsAPIService) GetClientsCreateExecute(r ApiGetClientsCreateRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1487,8 +1475,8 @@ func (a *ClientsAPIService) GetClientsCreateExecute(r ApiGetClientsCreateRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1498,18 +1486,18 @@ func (a *ClientsAPIService) GetClientsCreateExecute(r ApiGetClientsCreateRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1526,15 +1514,15 @@ func (a *ClientsAPIService) GetClientsCreateExecute(r ApiGetClientsCreateRequest
 }
 
 type ApiMergeClientRequest struct {
-	ctx context.Context
-	ApiService *ClientsAPIService
-	xAPITOKEN *string
-	xRequestedWith *string
-	xAPIPASSWORD *string
-	id string
+	ctx                     context.Context
+	ApiService              *ClientsAPIService
+	xAPITOKEN               *string
+	xRequestedWith          *string
+	xAPIPASSWORD            *string
+	id                      string
 	mergeableClientHashedId string
-	index *string
-	include *string
+	index                   *string
+	include                 *string
 }
 
 // The API token to be used for authentication
@@ -1555,13 +1543,13 @@ func (r ApiMergeClientRequest) XAPIPASSWORD(xAPIPASSWORD string) ApiMergeClientR
 	return r
 }
 
-// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60; 
+// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60;
 func (r ApiMergeClientRequest) Index(index string) ApiMergeClientRequest {
 	r.index = &index
 	return r
 }
 
-// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60; 
+// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60;
 func (r ApiMergeClientRequest) Include(include string) ApiMergeClientRequest {
 	r.include = &include
 	return r
@@ -1576,26 +1564,25 @@ MergeClient Merge client
 
 ##  POST /api/v1/clients/{id}/{mergeable_client_hashed_id}/merge
 
-Handles merging 2 clients
+# Handles merging 2 clients
 
-The id parameter is the client that will be the primary client after the merge has completed. 
+The id parameter is the client that will be the primary client after the merge has completed.
 
 The mergeable_client_hashed_id is the client that will be merged into the primary client, this clients records will be updated and associated with the primary client.
 
-> 🚨 **Important**    
+> 🚨 **Important**
 This action requires elevated permissions, please note the X-API-PASSWORD header requirements for this route.
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The Client Hashed ID
- @param mergeableClientHashedId The Mergeable Client Hashed ID
- @return ApiMergeClientRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Client Hashed ID
+	@param mergeableClientHashedId The Mergeable Client Hashed ID
+	@return ApiMergeClientRequest
 */
 func (a *ClientsAPIService) MergeClient(ctx context.Context, id string, mergeableClientHashedId string) ApiMergeClientRequest {
 	return ApiMergeClientRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ApiService:              a,
+		ctx:                     ctx,
+		id:                      id,
 		mergeableClientHashedId: mergeableClientHashedId,
 	}
 }
@@ -1603,9 +1590,9 @@ func (a *ClientsAPIService) MergeClient(ctx context.Context, id string, mergeabl
 // Execute executes the request
 func (a *ClientsAPIService) MergeClientExecute(r ApiMergeClientRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientsAPIService.MergeClient")
@@ -1699,8 +1686,8 @@ func (a *ClientsAPIService) MergeClientExecute(r ApiMergeClientRequest) (*http.R
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1710,8 +1697,8 @@ func (a *ClientsAPIService) MergeClientExecute(r ApiMergeClientRequest) (*http.R
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1721,8 +1708,8 @@ func (a *ClientsAPIService) MergeClientExecute(r ApiMergeClientRequest) (*http.R
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1732,18 +1719,18 @@ func (a *ClientsAPIService) MergeClientExecute(r ApiMergeClientRequest) (*http.R
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -1751,12 +1738,12 @@ func (a *ClientsAPIService) MergeClientExecute(r ApiMergeClientRequest) (*http.R
 }
 
 type ApiPurgeClientRequest struct {
-	ctx context.Context
-	ApiService *ClientsAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *ClientsAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	xAPIPASSWORD *string
-	id string
+	xAPIPASSWORD   *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1792,25 +1779,24 @@ Handles purging a client.
 This is a destructive action.
 This action will remove all data associated with the client and cannot be undone.
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The Client Hashed ID
- @return ApiPurgeClientRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Client Hashed ID
+	@return ApiPurgeClientRequest
 */
 func (a *ClientsAPIService) PurgeClient(ctx context.Context, id string) ApiPurgeClientRequest {
 	return ApiPurgeClientRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *ClientsAPIService) PurgeClientExecute(r ApiPurgeClientRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientsAPIService.PurgeClient")
@@ -1897,8 +1883,8 @@ func (a *ClientsAPIService) PurgeClientExecute(r ApiPurgeClientRequest) (*http.R
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1908,8 +1894,8 @@ func (a *ClientsAPIService) PurgeClientExecute(r ApiPurgeClientRequest) (*http.R
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1919,8 +1905,8 @@ func (a *ClientsAPIService) PurgeClientExecute(r ApiPurgeClientRequest) (*http.R
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1930,18 +1916,18 @@ func (a *ClientsAPIService) PurgeClientExecute(r ApiPurgeClientRequest) (*http.R
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -1949,13 +1935,13 @@ func (a *ClientsAPIService) PurgeClientExecute(r ApiPurgeClientRequest) (*http.R
 }
 
 type ApiReactivateEmailRequest struct {
-	ctx context.Context
-	ApiService *ClientsAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *ClientsAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	bounceId string
-	index *string
-	include *string
+	bounceId       string
+	index          *string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -1970,13 +1956,13 @@ func (r ApiReactivateEmailRequest) XRequestedWith(xRequestedWith string) ApiReac
 	return r
 }
 
-// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60; 
+// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60;
 func (r ApiReactivateEmailRequest) Index(index string) ApiReactivateEmailRequest {
 	r.index = &index
 	return r
 }
 
-// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60; 
+// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60;
 func (r ApiReactivateEmailRequest) Include(include string) ApiReactivateEmailRequest {
 	r.include = &include
 	return r
@@ -1993,25 +1979,24 @@ ReactivateEmail Removes email suppression of a user in the system
 
 Emails are suppressed by PostMark, when they receive a Hard bounce / Spam Complaint. This endpoint allows you to remove the suppression and send emails to the user again.
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param bounceId The postmark Bounce ID reference
- @return ApiReactivateEmailRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param bounceId The postmark Bounce ID reference
+	@return ApiReactivateEmailRequest
 */
 func (a *ClientsAPIService) ReactivateEmail(ctx context.Context, bounceId string) ApiReactivateEmailRequest {
 	return ApiReactivateEmailRequest{
 		ApiService: a,
-		ctx: ctx,
-		bounceId: bounceId,
+		ctx:        ctx,
+		bounceId:   bounceId,
 	}
 }
 
 // Execute executes the request
 func (a *ClientsAPIService) ReactivateEmailExecute(r ApiReactivateEmailRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientsAPIService.ReactivateEmail")
@@ -2100,8 +2085,8 @@ func (a *ClientsAPIService) ReactivateEmailExecute(r ApiReactivateEmailRequest) 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2111,8 +2096,8 @@ func (a *ClientsAPIService) ReactivateEmailExecute(r ApiReactivateEmailRequest) 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -2122,8 +2107,8 @@ func (a *ClientsAPIService) ReactivateEmailExecute(r ApiReactivateEmailRequest) 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2133,18 +2118,18 @@ func (a *ClientsAPIService) ReactivateEmailExecute(r ApiReactivateEmailRequest) 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -2152,13 +2137,13 @@ func (a *ClientsAPIService) ReactivateEmailExecute(r ApiReactivateEmailRequest) 
 }
 
 type ApiShowClientRequest struct {
-	ctx context.Context
-	ApiService *ClientsAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *ClientsAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	index *string
-	include *string
+	id             string
+	index          *string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -2173,13 +2158,13 @@ func (r ApiShowClientRequest) XRequestedWith(xRequestedWith string) ApiShowClien
 	return r
 }
 
-// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60; 
+// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60;
 func (r ApiShowClientRequest) Index(index string) ApiShowClientRequest {
 	r.index = &index
 	return r
 }
 
-// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60; 
+// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60;
 func (r ApiShowClientRequest) Include(include string) ApiShowClientRequest {
 	r.include = &include
 	return r
@@ -2194,29 +2179,29 @@ ShowClient Show client
 
 ##  GET /api/v1/clients/{id}
 
-Displays a client by id
+# Displays a client by id
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The Client Hashed ID
- @return ApiShowClientRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Client Hashed ID
+	@return ApiShowClientRequest
 */
 func (a *ClientsAPIService) ShowClient(ctx context.Context, id string) ApiShowClientRequest {
 	return ApiShowClientRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Client
+//
+//	@return Client
 func (a *ClientsAPIService) ShowClientExecute(r ApiShowClientRequest) (*Client, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Client
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Client
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientsAPIService.ShowClient")
@@ -2305,8 +2290,8 @@ func (a *ClientsAPIService) ShowClientExecute(r ApiShowClientRequest) (*Client, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2316,8 +2301,8 @@ func (a *ClientsAPIService) ShowClientExecute(r ApiShowClientRequest) (*Client, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -2327,8 +2312,8 @@ func (a *ClientsAPIService) ShowClientExecute(r ApiShowClientRequest) (*Client, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2338,18 +2323,18 @@ func (a *ClientsAPIService) ShowClientExecute(r ApiShowClientRequest) (*Client, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2366,13 +2351,13 @@ func (a *ClientsAPIService) ShowClientExecute(r ApiShowClientRequest) (*Client, 
 }
 
 type ApiStoreClientRequest struct {
-	ctx context.Context
-	ApiService *ClientsAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *ClientsAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	clientRequest *ClientRequest
-	index *string
-	include *string
+	clientRequest  *ClientRequest
+	index          *string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -2392,13 +2377,13 @@ func (r ApiStoreClientRequest) ClientRequest(clientRequest ClientRequest) ApiSto
 	return r
 }
 
-// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60; 
+// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60;
 func (r ApiStoreClientRequest) Index(index string) ApiStoreClientRequest {
 	r.index = &index
 	return r
 }
 
-// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60; 
+// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60;
 func (r ApiStoreClientRequest) Include(include string) ApiStoreClientRequest {
 	r.include = &include
 	return r
@@ -2411,32 +2396,31 @@ func (r ApiStoreClientRequest) Execute() (*Client, *http.Response, error) {
 /*
 StoreClient Create client
 
-
-##  POST /api/v1/clients  
+##  POST /api/v1/clients
 Adds a client to a company
-  
-> 🚨 Important    
+
+> 🚨 Important
 When creating (or updating) a client you must include the child contacts with all mutating requests. Client contacts cannot be modified in isolation.
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiStoreClientRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiStoreClientRequest
 */
 func (a *ClientsAPIService) StoreClient(ctx context.Context) ApiStoreClientRequest {
 	return ApiStoreClientRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Client
+//
+//	@return Client
 func (a *ClientsAPIService) StoreClientExecute(r ApiStoreClientRequest) (*Client, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Client
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Client
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientsAPIService.StoreClient")
@@ -2529,8 +2513,8 @@ func (a *ClientsAPIService) StoreClientExecute(r ApiStoreClientRequest) (*Client
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2540,8 +2524,8 @@ func (a *ClientsAPIService) StoreClientExecute(r ApiStoreClientRequest) (*Client
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -2551,8 +2535,8 @@ func (a *ClientsAPIService) StoreClientExecute(r ApiStoreClientRequest) (*Client
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2562,18 +2546,18 @@ func (a *ClientsAPIService) StoreClientExecute(r ApiStoreClientRequest) (*Client
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2590,14 +2574,14 @@ func (a *ClientsAPIService) StoreClientExecute(r ApiStoreClientRequest) (*Client
 }
 
 type ApiUpdateClientRequest struct {
-	ctx context.Context
-	ApiService *ClientsAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *ClientsAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	clientRequest *ClientRequest
-	index *string
-	include *string
+	id             string
+	clientRequest  *ClientRequest
+	index          *string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -2618,13 +2602,13 @@ func (r ApiUpdateClientRequest) ClientRequest(clientRequest ClientRequest) ApiUp
 	return r
 }
 
-// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60; 
+// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60;
 func (r ApiUpdateClientRequest) Index(index string) ApiUpdateClientRequest {
 	r.index = &index
 	return r
 }
 
-// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60; 
+// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60;
 func (r ApiUpdateClientRequest) Include(include string) ApiUpdateClientRequest {
 	r.include = &include
 	return r
@@ -2639,32 +2623,32 @@ UpdateClient Update client
 
 ##  PUT /api/v1/clients/{id}
 
-Handles the updating of a client by id
+# Handles the updating of a client by id
 
-> 🚨 Important    
+> 🚨 Important
 When creating (or updating) a client you must include the child contacts with all mutating requests. Client contacts cannot be modified in isolation.
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The Client Hashed ID
- @return ApiUpdateClientRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Client Hashed ID
+	@return ApiUpdateClientRequest
 */
 func (a *ClientsAPIService) UpdateClient(ctx context.Context, id string) ApiUpdateClientRequest {
 	return ApiUpdateClientRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Client
+//
+//	@return Client
 func (a *ClientsAPIService) UpdateClientExecute(r ApiUpdateClientRequest) (*Client, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Client
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Client
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientsAPIService.UpdateClient")
@@ -2758,8 +2742,8 @@ func (a *ClientsAPIService) UpdateClientExecute(r ApiUpdateClientRequest) (*Clie
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2769,8 +2753,8 @@ func (a *ClientsAPIService) UpdateClientExecute(r ApiUpdateClientRequest) (*Clie
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -2780,8 +2764,8 @@ func (a *ClientsAPIService) UpdateClientExecute(r ApiUpdateClientRequest) (*Clie
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2791,18 +2775,18 @@ func (a *ClientsAPIService) UpdateClientExecute(r ApiUpdateClientRequest) (*Clie
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2819,13 +2803,13 @@ func (a *ClientsAPIService) UpdateClientExecute(r ApiUpdateClientRequest) (*Clie
 }
 
 type ApiUpdateClientTaxDataRequest struct {
-	ctx context.Context
-	ApiService *ClientsAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *ClientsAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	client string
-	index *string
-	include *string
+	client         string
+	index          *string
+	include        *string
 }
 
 // The API token to be used for authentication
@@ -2840,13 +2824,13 @@ func (r ApiUpdateClientTaxDataRequest) XRequestedWith(xRequestedWith string) Api
 	return r
 }
 
-// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60; 
+// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60;
 func (r ApiUpdateClientTaxDataRequest) Index(index string) ApiUpdateClientTaxDataRequest {
 	r.index = &index
 	return r
 }
 
-// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60; 
+// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60;
 func (r ApiUpdateClientTaxDataRequest) Include(include string) ApiUpdateClientTaxDataRequest {
 	r.include = &include
 	return r
@@ -2861,27 +2845,26 @@ UpdateClientTaxData Update tax data
 
 ##  POST /api/v1/clients/{client}/updateTaxData
 
-Updates the clients tax data - if their address has changed
+# Updates the clients tax data - if their address has changed
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param client The Client Hashed ID reference
- @return ApiUpdateClientTaxDataRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param client The Client Hashed ID reference
+	@return ApiUpdateClientTaxDataRequest
 */
 func (a *ClientsAPIService) UpdateClientTaxData(ctx context.Context, client string) ApiUpdateClientTaxDataRequest {
 	return ApiUpdateClientTaxDataRequest{
 		ApiService: a,
-		ctx: ctx,
-		client: client,
+		ctx:        ctx,
+		client:     client,
 	}
 }
 
 // Execute executes the request
 func (a *ClientsAPIService) UpdateClientTaxDataExecute(r ApiUpdateClientTaxDataRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientsAPIService.UpdateClientTaxData")
@@ -2970,8 +2953,8 @@ func (a *ClientsAPIService) UpdateClientTaxDataExecute(r ApiUpdateClientTaxDataR
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2981,8 +2964,8 @@ func (a *ClientsAPIService) UpdateClientTaxDataExecute(r ApiUpdateClientTaxDataR
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -2992,8 +2975,8 @@ func (a *ClientsAPIService) UpdateClientTaxDataExecute(r ApiUpdateClientTaxDataR
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3003,18 +2986,18 @@ func (a *ClientsAPIService) UpdateClientTaxDataExecute(r ApiUpdateClientTaxDataR
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -3022,15 +3005,15 @@ func (a *ClientsAPIService) UpdateClientTaxDataExecute(r ApiUpdateClientTaxDataR
 }
 
 type ApiUploadClientRequest struct {
-	ctx context.Context
-	ApiService *ClientsAPIService
-	xAPITOKEN *string
+	ctx            context.Context
+	ApiService     *ClientsAPIService
+	xAPITOKEN      *string
 	xRequestedWith *string
-	id string
-	index *string
-	include *string
-	method *string
-	documents []*os.File
+	id             string
+	index          *string
+	include        *string
+	method         *string
+	documents      []*os.File
 }
 
 // The API token to be used for authentication
@@ -3045,13 +3028,13 @@ func (r ApiUploadClientRequest) XRequestedWith(xRequestedWith string) ApiUploadC
 	return r
 }
 
-// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60; 
+// Replaces the default response index from data to a user specific string  ie.  &#x60;&#x60;&#x60;html   ?index&#x3D;new_index &#x60;&#x60;&#x60;  response is wrapped  &#x60;&#x60;&#x60;json   {     &#39;new_index&#39; : [       .....       ]   } &#x60;&#x60;&#x60;
 func (r ApiUploadClientRequest) Index(index string) ApiUploadClientRequest {
 	r.index = &index
 	return r
 }
 
-// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60; 
+// Include child relationships of the Client Object. ie ?include&#x3D;documents,system_logs  &#x60;&#x60;&#x60;html Available includes:  contacts [All contacts related to the client] documents [All documents related to the client] gateway_tokens [All payment tokens related to the client] activities [All activities related to the client] ledger [The client ledger] system_logs [System logs related to the client] group_settings [The group settings object the client is assigned to]  &#x60;&#x60;&#x60;  Usage:  &#x60;&#x60;&#x60;html /api/v1/clients?include&#x3D;contacts,documents,activities &#x60;&#x60;&#x60;
 func (r ApiUploadClientRequest) Include(include string) ApiUploadClientRequest {
 	r.include = &include
 	return r
@@ -3062,7 +3045,7 @@ func (r ApiUploadClientRequest) Method(method string) ApiUploadClientRequest {
 	return r
 }
 
-// Array of files to upload. The files should be sent with the key name &#39;documents[]&#39;.  Supported file types: - PDF (.pdf) - Word (.doc, .docx) - Excel (.xls, .xlsx) - Images (.jpg, .jpeg, .png) - Text (.txt)  Maximum file size: 20MB per file 
+// Array of files to upload. The files should be sent with the key name &#39;documents[]&#39;.  Supported file types: - PDF (.pdf) - Word (.doc, .docx) - Excel (.xls, .xlsx) - Images (.jpg, .jpeg, .png) - Text (.txt)  Maximum file size: 20MB per file
 func (r ApiUploadClientRequest) Documents(documents []*os.File) ApiUploadClientRequest {
 	r.documents = documents
 	return r
@@ -3079,27 +3062,27 @@ UploadClient Add client document
 
 Handles the uploading of a document to a client, please note due to a quirk in REST you will need to use a _method parameter with value of POST
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The Client Hashed ID
- @return ApiUploadClientRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Client Hashed ID
+	@return ApiUploadClientRequest
 */
 func (a *ClientsAPIService) UploadClient(ctx context.Context, id string) ApiUploadClientRequest {
 	return ApiUploadClientRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Client
+//
+//	@return Client
 func (a *ClientsAPIService) UploadClientExecute(r ApiUploadClientRequest) (*Client, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Client
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Client
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientsAPIService.UploadClient")
@@ -3149,8 +3132,8 @@ func (a *ClientsAPIService) UploadClientExecute(r ApiUploadClientRequest) (*Clie
 		parameterAddToHeaderOrQuery(localVarFormParams, "_method", r.method, "", "")
 	}
 	var documentsLocalVarFormFileName string
-	var documentsLocalVarFileName     string
-	var documentsLocalVarFileBytes    []byte
+	var documentsLocalVarFileName string
+	var documentsLocalVarFileBytes []byte
 
 	documentsLocalVarFormFileName = "documents[]"
 	documentsLocalVarFile := r.documents
@@ -3209,8 +3192,8 @@ func (a *ClientsAPIService) UploadClientExecute(r ApiUploadClientRequest) (*Clie
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3220,8 +3203,8 @@ func (a *ClientsAPIService) UploadClientExecute(r ApiUploadClientRequest) (*Clie
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -3231,8 +3214,8 @@ func (a *ClientsAPIService) UploadClientExecute(r ApiUploadClientRequest) (*Clie
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3242,18 +3225,18 @@ func (a *ClientsAPIService) UploadClientExecute(r ApiUploadClientRequest) (*Clie
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v Error
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
