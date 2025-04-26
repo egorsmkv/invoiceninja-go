@@ -20,7 +20,6 @@ import (
 	"strconv"
 	"strings"
 	"time"
-	"unicode/utf8"
 )
 
 var (
@@ -251,10 +250,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	return c
 }
 
-func atoi(in string) (int, error) {
-	return strconv.Atoi(in)
-}
-
 // selectHeaderContentType select a content type from the available list.
 func selectHeaderContentType(contentTypes []string) string {
 	if len(contentTypes) == 0 {
@@ -287,20 +282,6 @@ func contains(haystack []string, needle string) bool {
 		}
 	}
 	return false
-}
-
-// Verify optional parameters are of the correct type.
-func typeCheckParameter(obj any, expected string, name string) error {
-	// Make sure there is an object.
-	if obj == nil {
-		return nil
-	}
-
-	// Check the type is as expected.
-	if reflect.TypeOf(obj).String() != expected {
-		return fmt.Errorf("expected %s to be of type %s but received %s", name, expected, reflect.TypeOf(obj).String())
-	}
-	return nil
 }
 
 func parameterValueToString(obj any, key string) string {
@@ -760,10 +741,6 @@ func CacheExpires(r *http.Response) time.Time {
 		}
 	}
 	return expires
-}
-
-func strlen(s string) int {
-	return utf8.RuneCountInString(s)
 }
 
 // GenericOpenAPIError Provides access to the body, error and model on returned errors.
