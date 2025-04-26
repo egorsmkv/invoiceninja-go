@@ -739,7 +739,6 @@ func (o *Project) UnmarshalJSON(data []byte) (err error) {
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
-
 	if err != nil {
 		return err
 	}
@@ -755,7 +754,6 @@ func (o *Project) UnmarshalJSON(data []byte) (err error) {
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
 	err = decoder.Decode(&varProject)
-
 	if err != nil {
 		return err
 	}

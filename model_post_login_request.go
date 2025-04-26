@@ -150,7 +150,6 @@ func (o *PostLoginRequest) UnmarshalJSON(data []byte) (err error) {
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
-
 	if err != nil {
 		return err
 	}
@@ -166,7 +165,6 @@ func (o *PostLoginRequest) UnmarshalJSON(data []byte) (err error) {
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
 	err = decoder.Decode(&varPostLoginRequest)
-
 	if err != nil {
 		return err
 	}

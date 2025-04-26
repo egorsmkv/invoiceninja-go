@@ -311,7 +311,7 @@ func parameterValueToString(obj any, key string) string {
 
 		return fmt.Sprintf("%v", obj)
 	}
-	var param, ok = obj.(MappedNullable)
+	param, ok := obj.(MappedNullable)
 	if !ok {
 		return ""
 	}
@@ -325,8 +325,8 @@ func parameterValueToString(obj any, key string) string {
 // parameterAddToHeaderOrQuery adds the provided object to the request header or url query
 // supporting deep object syntax
 func parameterAddToHeaderOrQuery(headerOrQueryParams any, keyPrefix string, obj any, style string, collectionType string) {
-	var v = reflect.ValueOf(obj)
-	var value = ""
+	v := reflect.ValueOf(obj)
+	value := ""
 	if v == reflect.ValueOf(nil) {
 		value = "null"
 	} else {
@@ -349,14 +349,14 @@ func parameterAddToHeaderOrQuery(headerOrQueryParams any, keyPrefix string, obj 
 			}
 			value = v.Type().String() + " value"
 		case reflect.Slice:
-			var indValue = reflect.ValueOf(obj)
+			indValue := reflect.ValueOf(obj)
 			if indValue == reflect.ValueOf(nil) {
 				return
 			}
-			var lenIndValue = indValue.Len()
+			lenIndValue := indValue.Len()
 			for i := 0; i < lenIndValue; i++ {
-				var arrayValue = indValue.Index(i)
-				var keyPrefixForCollectionType = keyPrefix
+				arrayValue := indValue.Index(i)
+				keyPrefixForCollectionType := keyPrefix
 				if style == "deepObject" {
 					keyPrefixForCollectionType = keyPrefix + "[" + strconv.Itoa(i) + "]"
 				}
@@ -365,7 +365,7 @@ func parameterAddToHeaderOrQuery(headerOrQueryParams any, keyPrefix string, obj 
 			return
 
 		case reflect.Map:
-			var indValue = reflect.ValueOf(obj)
+			indValue := reflect.ValueOf(obj)
 			if indValue == reflect.ValueOf(nil) {
 				return
 			}
@@ -456,8 +456,8 @@ func (c *APIClient) prepareRequest(
 	headerParams map[string]string,
 	queryParams url.Values,
 	formParams url.Values,
-	formFiles []formFile) (localVarRequest *http.Request, err error) {
-
+	formFiles []formFile,
+) (localVarRequest *http.Request, err error) {
 	var body *bytes.Buffer
 
 	// Detect postBody type and post.
@@ -584,7 +584,6 @@ func (c *APIClient) prepareRequest(
 		localVarRequest = localVarRequest.WithContext(ctx)
 
 		// Walk through any authentication.
-
 	}
 
 	for header, value := range c.cfg.DefaultHeader {
