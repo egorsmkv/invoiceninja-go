@@ -228,8 +228,8 @@ type ApiDeleteProductRequest struct {
 	ApiService     *ProductsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -419,8 +419,8 @@ type ApiEditProductRequest struct {
 	ApiService     *ProductsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1122,8 +1122,8 @@ type ApiShowProductRequest struct {
 	ApiService     *ProductsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1536,9 +1536,9 @@ type ApiUpdateProductRequest struct {
 	ApiService     *ProductsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	productRequest *ProductRequest
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1751,10 +1751,10 @@ type ApiUploadProductRequest struct {
 	ApiService     *ProductsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
 	method         *string
 	documents      *[]any
+	id             string
 }
 
 // The API token to be used for authentication

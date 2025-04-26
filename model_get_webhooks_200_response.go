@@ -9,8 +9,8 @@ var _ MappedNullable = &GetWebhooks200Response{}
 
 // GetWebhooks200Response struct for GetWebhooks200Response
 type GetWebhooks200Response struct {
-	Data []Webhook `json:"data,omitempty"`
 	Meta Meta      `json:"meta,omitempty"`
+	Data []Webhook `json:"data,omitempty"`
 }
 
 // NewGetWebhooks200Response instantiates a new GetWebhooks200Response object

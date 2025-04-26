@@ -26,12 +26,12 @@ type PaymentRequest struct {
 	PrivateNotes *string `json:"private_notes,omitempty"`
 	// The amount of this payment
 	Amount *float32 `json:"amount,omitempty"`
+	// The payment number - is a unique alpha numeric number per payment per company
+	Number *string `json:"number,omitempty"`
 	//
 	Invoices []InvoicePaymentable `json:"invoices,omitempty"`
 	//
 	Credits []CreditPaymentable `json:"credits,omitempty"`
-	// The payment number - is a unique alpha numeric number per payment per company
-	Number *string `json:"number,omitempty"`
 }
 
 // NewPaymentRequest instantiates a new PaymentRequest object

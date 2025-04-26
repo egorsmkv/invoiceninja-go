@@ -11,8 +11,6 @@ var _ MappedNullable = &ClientSettings{}
 
 // ClientSettings struct for ClientSettings
 type ClientSettings struct {
-	// The default currency id
-	CurrencyId string `json:"currency_id"`
 	// The timezone id
 	TimezoneId *string `json:"timezone_id,omitempty"`
 	// The date format id
@@ -425,6 +423,8 @@ type ClientSettings struct {
 	AutoEmailInvoice *bool `json:"auto_email_invoice,omitempty"`
 	// The email signature for emails
 	EmailSignature *string `json:"email_signature,omitempty"`
+	// The default currency id
+	CurrencyId string `json:"currency_id"`
 }
 
 type _ClientSettings ClientSettings

@@ -11,12 +11,12 @@ var _ MappedNullable = &PostLoginRequest{}
 
 // PostLoginRequest struct for PostLoginRequest
 type PostLoginRequest struct {
+	// The one time password if 2FA is enabled
+	OneTimePassword *string `json:"one_time_password,omitempty"`
 	// The users email address.
 	Email string `json:"email"`
 	// The user password. Must meet minimum criteria ~ > 6 characters
 	Password string `json:"password"`
-	// The one time password if 2FA is enabled
-	OneTimePassword *string `json:"one_time_password,omitempty"`
 }
 
 type _PostLoginRequest PostLoginRequest

@@ -18,9 +18,9 @@ type ApiActionPurchaseOrderRequest struct {
 	ApiService     *PurchaseOrdersAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
+	include        *string
 	id             string
 	action         string
-	include        *string
 }
 
 // The API token to be used for authentication
@@ -432,8 +432,8 @@ type ApiDeletePurchaseOrderRequest struct {
 	ApiService     *PurchaseOrdersAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -622,8 +622,8 @@ type ApiDownloadPurchaseOrderRequest struct {
 	ApiService     *PurchaseOrdersAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	invitationKey  string
 	include        *string
+	invitationKey  string
 }
 
 // The API token to be used for authentication
@@ -812,8 +812,8 @@ type ApiEditPurchaseOrderRequest struct {
 	ApiService     *PurchaseOrdersAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1413,8 +1413,8 @@ type ApiShowPurchaseOrderRequest struct {
 	ApiService     *PurchaseOrdersAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1813,8 +1813,8 @@ type ApiUpdatePurchaseOrderRequest struct {
 	ApiService     *PurchaseOrdersAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

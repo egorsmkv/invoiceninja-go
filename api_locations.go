@@ -859,8 +859,8 @@ type ApiShowLocationRequest struct {
 	ApiService     *LocationsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	index          *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1275,9 +1275,9 @@ type ApiUpdateLocationRequest struct {
 	ApiService      *LocationsAPIService
 	xAPITOKEN       *string
 	xRequestedWith  *string
-	id              string
 	locationRequest *LocationRequest
 	index           *string
+	id              string
 }
 
 // The API token to be used for authentication

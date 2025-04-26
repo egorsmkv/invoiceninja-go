@@ -43,12 +43,12 @@ type Payment struct {
 	// The company gateway id
 	CompanyGatewayId *string      `json:"company_gateway_id,omitempty"`
 	Paymentables     *Paymentable `json:"paymentables,omitempty"`
+	// The payment number - is a unique alpha numeric number per payment per company
+	Number *string `json:"number,omitempty"`
 	//
 	Invoices []InvoicePaymentable `json:"invoices,omitempty"`
 	//
 	Credits []CreditPaymentable `json:"credits,omitempty"`
-	// The payment number - is a unique alpha numeric number per payment per company
-	Number *string `json:"number,omitempty"`
 }
 
 // NewPayment instantiates a new Payment object

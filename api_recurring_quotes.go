@@ -17,9 +17,9 @@ type ApiActionRecurringQuoteRequest struct {
 	ApiService     *RecurringQuotesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
+	include        *string
 	id             string
 	action         string
-	include        *string
 }
 
 // The API token to be used for authentication
@@ -420,8 +420,8 @@ type ApiDeleteRecurringQuoteRequest struct {
 	ApiService     *RecurringQuotesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -599,8 +599,8 @@ type ApiEditRecurringQuoteRequest struct {
 	ApiService     *RecurringQuotesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1166,8 +1166,8 @@ type ApiShowRecurringQuoteRequest struct {
 	ApiService     *RecurringQuotesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1544,8 +1544,8 @@ type ApiUpdateRecurringQuoteRequest struct {
 	ApiService     *RecurringQuotesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

@@ -9,8 +9,8 @@ var _ MappedNullable = &GetCompanyGateways200Response{}
 
 // GetCompanyGateways200Response struct for GetCompanyGateways200Response
 type GetCompanyGateways200Response struct {
-	Data []CompanyGateway `json:"data,omitempty"`
 	Meta Meta             `json:"meta,omitempty"`
+	Data []CompanyGateway `json:"data,omitempty"`
 }
 
 // NewGetCompanyGateways200Response instantiates a new GetCompanyGateways200Response object

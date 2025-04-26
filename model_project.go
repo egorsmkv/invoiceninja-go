@@ -11,24 +11,14 @@ var _ MappedNullable = &Project{}
 
 // Project struct for Project
 type Project struct {
-	// The project hashed id
-	Id string `json:"id"`
-	// The user hashed id
-	UserId string `json:"user_id"`
 	// The assigned user identifier associated with the project
 	AssignedUserId *string `json:"assigned_user_id,omitempty"`
 	// The client identifier associated with the project
 	ClientId *string `json:"client_id,omitempty"`
-	// The name of the project
-	Name string `json:"name"`
-	// The default rate per task for the project
-	TaskRate float32 `json:"task_rate"`
 	// The due date for the project
 	DueDate *string `json:"due_date,omitempty"`
 	// Private notes associated with the project
 	PrivateNotes *string `json:"private_notes,omitempty"`
-	// The number of budgeted hours for the project
-	BudgetedHours float32 `json:"budgeted_hours"`
 	// Custom value field 1
 	CustomValue1 *string `json:"custom_value1,omitempty"`
 	// Custom value field 2
@@ -45,12 +35,22 @@ type Project struct {
 	ArchivedAt *float32 `json:"archived_at,omitempty"`
 	// Public notes associated with the project
 	PublicNotes *string `json:"public_notes,omitempty"`
-	// A flag indicating if the project is deleted
-	IsDeleted bool `json:"is_deleted"`
 	// The project number
 	Number *string `json:"number,omitempty"`
+	// The project hashed id
+	Id string `json:"id"`
+	// The user hashed id
+	UserId string `json:"user_id"`
+	// The name of the project
+	Name string `json:"name"`
 	// The color associated with the project
 	Color string `json:"color"`
+	// The default rate per task for the project
+	TaskRate float32 `json:"task_rate"`
+	// The number of budgeted hours for the project
+	BudgetedHours float32 `json:"budgeted_hours"`
+	// A flag indicating if the project is deleted
+	IsDeleted bool `json:"is_deleted"`
 }
 
 type _Project Project

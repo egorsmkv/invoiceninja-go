@@ -53,10 +53,6 @@ type Invoice struct {
 	TaxRate3 *float32 `json:"tax_rate3,omitempty"`
 	// The total taxes for the invoice
 	TotalTaxes *float32 `json:"total_taxes,omitempty"`
-	// An array of objects which define the line items of the invoice
-	LineItems []InvoiceItem `json:"line_items,omitempty"`
-	// An array of objects which define the invitations of the invoice
-	Invitations []InvoiceInvitation `json:"invitations,omitempty"`
 	// The invoice amount
 	Amount *float32 `json:"amount,omitempty"`
 	// The invoice balance
@@ -115,6 +111,10 @@ type Invoice struct {
 	SubscriptionId *string `json:"subscription_id,omitempty"`
 	// The client location id that this invoice relates to
 	LocationId *string `json:"location_id,omitempty"`
+	// An array of objects which define the line items of the invoice
+	LineItems []InvoiceItem `json:"line_items,omitempty"`
+	// An array of objects which define the invitations of the invoice
+	Invitations []InvoiceInvitation `json:"invitations,omitempty"`
 }
 
 // NewInvoice instantiates a new Invoice object

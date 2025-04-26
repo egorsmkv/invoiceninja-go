@@ -226,8 +226,8 @@ type ApiDeleteProjectRequest struct {
 	ApiService     *ProjectsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -416,8 +416,8 @@ type ApiEditProjectRequest struct {
 	ApiService     *ProjectsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1024,8 +1024,8 @@ type ApiShowProjectRequest struct {
 	ApiService     *ProjectsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1424,8 +1424,8 @@ type ApiUpdateProjectRequest struct {
 	ApiService     *ProjectsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

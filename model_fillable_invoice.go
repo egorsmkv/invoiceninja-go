@@ -45,8 +45,6 @@ type FillableInvoice struct {
 	TaxName3 *string `json:"tax_name3,omitempty"`
 	// Rate of the third tax applied to the invoice
 	TaxRate3 *float32 `json:"tax_rate3,omitempty"`
-	// An array of objects which define the line items of the invoice
-	LineItems []InvoiceItem `json:"line_items,omitempty"`
 	// The discount applied to the invoice
 	Discount *float32 `json:"discount,omitempty"`
 	// The partial amount applied to the invoice
@@ -69,6 +67,8 @@ type FillableInvoice struct {
 	CustomSurcharge3 *float32 `json:"custom_surcharge3,omitempty"`
 	// Fourth custom surcharge applied to the invoice
 	CustomSurcharge4 *float32 `json:"custom_surcharge4,omitempty"`
+	// An array of objects which define the line items of the invoice
+	LineItems []InvoiceItem `json:"line_items,omitempty"`
 }
 
 // NewFillableInvoice instantiates a new FillableInvoice object

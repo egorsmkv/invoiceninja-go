@@ -214,8 +214,8 @@ type ApiDeleteCompanyGatewayRequest struct {
 	ApiService     *CompanyGatewaysAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -393,8 +393,8 @@ type ApiEditCompanyGatewayRequest struct {
 	ApiService     *CompanyGatewaysAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -971,8 +971,8 @@ type ApiShowCompanyGatewayRequest struct {
 	ApiService     *CompanyGatewaysAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1360,8 +1360,8 @@ type ApiUpdateCompanyGatewayRequest struct {
 	ApiService     *CompanyGatewaysAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

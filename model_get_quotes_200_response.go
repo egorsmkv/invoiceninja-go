@@ -9,8 +9,8 @@ var _ MappedNullable = &GetQuotes200Response{}
 
 // GetQuotes200Response struct for GetQuotes200Response
 type GetQuotes200Response struct {
-	Data []Quote `json:"data,omitempty"`
 	Meta Meta    `json:"meta,omitempty"`
+	Data []Quote `json:"data,omitempty"`
 }
 
 // NewGetQuotes200Response instantiates a new GetQuotes200Response object

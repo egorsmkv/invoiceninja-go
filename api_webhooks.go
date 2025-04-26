@@ -214,8 +214,8 @@ type ApiDeleteWebhookRequest struct {
 	ApiService     *WebhooksAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -393,8 +393,8 @@ type ApiEditWebhookRequest struct {
 	ApiService     *WebhooksAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -971,8 +971,8 @@ type ApiShowWebhookRequest struct {
 	ApiService     *WebhooksAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1349,8 +1349,8 @@ type ApiUpdateWebhookRequest struct {
 	ApiService     *WebhooksAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

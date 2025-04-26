@@ -203,8 +203,8 @@ type ApiDeleteGroupSettingRequest struct {
 	ApiService     *GroupSettingsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -382,8 +382,8 @@ type ApiEditGroupSettingRequest struct {
 	ApiService     *GroupSettingsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -949,8 +949,8 @@ type ApiShowGroupSettingRequest struct {
 	ApiService     *GroupSettingsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1327,8 +1327,8 @@ type ApiUpdateGroupSettingRequest struct {
 	ApiService     *GroupSettingsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

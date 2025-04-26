@@ -226,8 +226,8 @@ type ApiDeleteTaskRequest struct {
 	ApiService     *TasksAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -416,8 +416,8 @@ type ApiEditTaskRequest struct {
 	ApiService     *TasksAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1027,8 +1027,8 @@ type ApiShowTaskRequest struct {
 	ApiService     *TasksAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1613,8 +1613,8 @@ type ApiUpdateTaskRequest struct {
 	ApiService     *TasksAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

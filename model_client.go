@@ -10,8 +10,7 @@ var _ MappedNullable = &Client{}
 // Client struct for Client
 type Client struct {
 	// The unique identifier of the client
-	Id       *string         `json:"id,omitempty"`
-	Contacts []ClientContact `json:"contacts,omitempty"`
+	Id *string `json:"id,omitempty"`
 	// The unique identifier of the user who created the client
 	UserId *string `json:"user_id,omitempty"`
 	// The unique identifier of the user who has been assigned the client
@@ -93,6 +92,7 @@ type Client struct {
 	// Defines the payment balance the client has on file (pre payments / over payments / unapplied amounts)
 	PaymentBalance *float32        `json:"payment_balance,omitempty"`
 	Settings       *ClientSettings `json:"settings,omitempty"`
+	Contacts       []ClientContact `json:"contacts,omitempty"`
 }
 
 // NewClient instantiates a new Client object

@@ -17,8 +17,8 @@ type ApiDeleteTaskStatusRequest struct {
 	ApiService     *TaskStatussAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

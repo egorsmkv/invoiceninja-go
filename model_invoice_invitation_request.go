@@ -14,8 +14,6 @@ var _ MappedNullable = &InvoiceInvitationRequest{}
 type InvoiceInvitationRequest struct {
 	// The entity invitation hashed id
 	Id *string `json:"id,omitempty"`
-	// The client contact hashed id
-	ClientContactId string `json:"client_contact_id"`
 	// The invitation key
 	Key *string `json:"key,omitempty"`
 	// The invitation link
@@ -34,6 +32,8 @@ type InvoiceInvitationRequest struct {
 	EmailError *string `json:"email_error,omitempty"`
 	// The email status
 	EmailStatus *string `json:"email_status,omitempty"`
+	// The client contact hashed id
+	ClientContactId string `json:"client_contact_id"`
 }
 
 type _InvoiceInvitationRequest InvoiceInvitationRequest

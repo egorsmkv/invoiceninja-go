@@ -443,9 +443,9 @@ func (c *APIClient) GetConfig() *Configuration {
 }
 
 type formFile struct {
-	fileBytes    []byte
 	fileName     string
 	formFileName string
+	fileBytes    []byte
 }
 
 // prepareRequest build the request
@@ -768,9 +768,9 @@ func strlen(s string) int {
 
 // GenericOpenAPIError Provides access to the body, error and model on returned errors.
 type GenericOpenAPIError struct {
-	body  []byte
-	error string
 	model any
+	error string
+	body  []byte
 }
 
 // Error returns non-empty string if there was an error.

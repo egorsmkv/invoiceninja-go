@@ -9,8 +9,8 @@ var _ MappedNullable = &GetSystemLogs200Response{}
 
 // GetSystemLogs200Response struct for GetSystemLogs200Response
 type GetSystemLogs200Response struct {
-	Data []SystemLog `json:"data,omitempty"`
 	Meta Meta        `json:"meta,omitempty"`
+	Data []SystemLog `json:"data,omitempty"`
 }
 
 // NewGetSystemLogs200Response instantiates a new GetSystemLogs200Response object

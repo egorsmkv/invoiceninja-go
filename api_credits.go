@@ -214,8 +214,8 @@ type ApiDeleteCreditRequest struct {
 	ApiService     *CreditsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -404,8 +404,8 @@ type ApiEditCreditRequest struct {
 	ApiService     *CreditsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1005,8 +1005,8 @@ type ApiShowCreditRequest struct {
 	ApiService     *CreditsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1405,8 +1405,8 @@ type ApiUpdateCreditRequest struct {
 	ApiService     *CreditsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

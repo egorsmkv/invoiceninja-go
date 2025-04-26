@@ -18,9 +18,9 @@ type ApiActionInvoiceRequest struct {
 	ApiService     *InvoicesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
+	include        *string
 	id             string
 	action         string
-	include        *string
 }
 
 // The API token to be used for authentication
@@ -238,8 +238,8 @@ type ApiApiV1InvoiceInvitationKeyDownloadGetRequest struct {
 	ApiService     *InvoicesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	invitationKey  string
 	include        *string
+	invitationKey  string
 }
 
 // The API token to be used for authentication
@@ -598,8 +598,8 @@ type ApiApiV1InvoicesIdDeliveryNoteGetRequest struct {
 	ApiService     *InvoicesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1227,8 +1227,8 @@ type ApiDeleteInvoiceRequest struct {
 	ApiService     *InvoicesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1419,8 +1419,8 @@ type ApiEditInvoiceRequest struct {
 	ApiService     *InvoicesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -2003,8 +2003,8 @@ type ApiShowInvoiceRequest struct {
 	ApiService     *InvoicesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -2434,8 +2434,8 @@ type ApiUpdateInvoiceRequest struct {
 	ApiService     *InvoicesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

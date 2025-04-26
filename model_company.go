@@ -10,6 +10,8 @@ var _ MappedNullable = &Company{}
 
 // Company struct for Company
 type Company struct {
+	// A flag determining whether to apply taxes on custom surcharge amounts for the fourth custom
+	CustomSurchargeTaxes4 any `json:"custom_surcharge_taxes4,omitempty"`
 	// The unique hashed identifier for the company
 	Id *string `json:"id,omitempty"`
 	// The unique identifier representing the company's size category
@@ -52,8 +54,6 @@ type Company struct {
 	CustomSurchargeTaxes2 *bool `json:"custom_surcharge_taxes2,omitempty"`
 	// A flag determining whether to apply taxes on custom surcharge amounts for the third custom surcharge field
 	CustomSurchargeTaxes3 *bool `json:"custom_surcharge_taxes3,omitempty"`
-	// A flag determining whether to apply taxes on custom surcharge amounts for the fourth custom
-	CustomSurchargeTaxes4 any `json:"custom_surcharge_taxes4,omitempty"`
 	// The company logo file in binary format
 	Logo **os.File `json:"logo,omitempty"`
 	// The static company key hash used to identify the Company
@@ -179,8 +179,6 @@ type Company struct {
 	SmtpHost *string `json:"smtp_host,omitempty"`
 	// The SMTP port for sending emails
 	SmtpPort *int32 `json:"smtp_port,omitempty"`
-	// The encryption method for SMTP
-	SmtpEncryption NullableString `json:"smtp_encryption,omitempty"`
 	// The local domain for SMTP
 	SmtpLocalDomain *string `json:"smtp_local_domain,omitempty"`
 	// Whether to verify the SMTP peer
@@ -190,6 +188,8 @@ type Company struct {
 	// The ID of the legal entity associated with the company
 	LegalEntityId *int32           `json:"legal_entity_id,omitempty"`
 	Settings      *CompanySettings `json:"settings,omitempty"`
+	// The encryption method for SMTP
+	SmtpEncryption NullableString `json:"smtp_encryption,omitempty"`
 }
 
 // NewCompany instantiates a new Company object

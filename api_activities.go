@@ -234,8 +234,8 @@ type ApiGetActivityHistoricalEntityPdfRequest struct {
 	ApiService     *ActivitiesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	activityId     string
 	include        *string
+	activityId     string
 }
 
 // The API token to be used for authentication

@@ -9,8 +9,8 @@ var _ MappedNullable = &GetRecurringQuotes200Response{}
 
 // GetRecurringQuotes200Response struct for GetRecurringQuotes200Response
 type GetRecurringQuotes200Response struct {
-	Data []RecurringQuote `json:"data,omitempty"`
 	Meta Meta             `json:"meta,omitempty"`
+	Data []RecurringQuote `json:"data,omitempty"`
 }
 
 // NewGetRecurringQuotes200Response instantiates a new GetRecurringQuotes200Response object

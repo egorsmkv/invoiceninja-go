@@ -53,8 +53,6 @@ type Quote struct {
 	TaxRate3 *float32 `json:"tax_rate3,omitempty"`
 	// The total amount of taxes for the quote
 	TotalTaxes *float32 `json:"total_taxes,omitempty"`
-	// An array of objects which define the line items of the quote
-	LineItems []InvoiceItem `json:"line_items,omitempty"`
 	// The total amount of the quote before taxes and discounts
 	Amount *float32 `json:"amount,omitempty"`
 	// The balance due for the quote after accounting for payments
@@ -106,6 +104,8 @@ type Quote struct {
 	CustomSurchargeTax4 *bool `json:"custom_surcharge_tax4,omitempty"`
 	// The client location id that this invoice relates to
 	LocationId *string `json:"location_id,omitempty"`
+	// An array of objects which define the line items of the quote
+	LineItems []InvoiceItem `json:"line_items,omitempty"`
 }
 
 // NewQuote instantiates a new Quote object

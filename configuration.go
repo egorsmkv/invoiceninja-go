@@ -55,9 +55,9 @@ type ServerVariable struct {
 
 // ServerConfiguration stores the information about a server
 type ServerConfiguration struct {
+	Variables   map[string]ServerVariable
 	URL         string
 	Description string
-	Variables   map[string]ServerVariable
 }
 
 // ServerConfigurations stores multiple ServerConfiguration items
@@ -65,14 +65,14 @@ type ServerConfigurations []ServerConfiguration
 
 // Configuration stores the configuration of the API client
 type Configuration struct {
-	Host             string            `json:"host,omitempty"`
-	Scheme           string            `json:"scheme,omitempty"`
 	DefaultHeader    map[string]string `json:"defaultHeader,omitempty"`
-	UserAgent        string            `json:"userAgent,omitempty"`
-	Debug            bool              `json:"debug,omitempty"`
-	Servers          ServerConfigurations
 	OperationServers map[string]ServerConfigurations
 	HTTPClient       *http.Client
+	Host             string `json:"host,omitempty"`
+	Scheme           string `json:"scheme,omitempty"`
+	UserAgent        string `json:"userAgent,omitempty"`
+	Servers          ServerConfigurations
+	Debug            bool `json:"debug,omitempty"`
 }
 
 // NewConfiguration returns a new Configuration object

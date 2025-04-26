@@ -214,8 +214,8 @@ type ApiDeleteRecurringExpenseRequest struct {
 	ApiService     *RecurringExpensesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -393,8 +393,8 @@ type ApiEditRecurringExpenseRequest struct {
 	ApiService     *RecurringExpensesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -970,8 +970,8 @@ type ApiShowRecurringExpenseRequest struct {
 	ApiService     *RecurringExpensesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1348,8 +1348,8 @@ type ApiUpdateRecurringExpenseRequest struct {
 	ApiService     *RecurringExpensesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

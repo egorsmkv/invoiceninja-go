@@ -9,8 +9,8 @@ var _ MappedNullable = &GetClientGatewayTokens200Response{}
 
 // GetClientGatewayTokens200Response struct for GetClientGatewayTokens200Response
 type GetClientGatewayTokens200Response struct {
-	Data []ClientGatewayToken `json:"data,omitempty"`
 	Meta Meta                 `json:"meta,omitempty"`
+	Data []ClientGatewayToken `json:"data,omitempty"`
 }
 
 // NewGetClientGatewayTokens200Response instantiates a new GetClientGatewayTokens200Response object

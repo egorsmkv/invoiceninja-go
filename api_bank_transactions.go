@@ -213,8 +213,8 @@ type ApiDeleteBankTransactionRequest struct {
 	ApiService     *BankTransactionsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -392,8 +392,8 @@ type ApiEditBankTransactionRequest struct {
 	ApiService     *BankTransactionsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1228,8 +1228,8 @@ type ApiShowBankTransactionRequest struct {
 	ApiService     *BankTransactionsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1628,8 +1628,8 @@ type ApiUpdateBankTransactionRequest struct {
 	ApiService     *BankTransactionsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

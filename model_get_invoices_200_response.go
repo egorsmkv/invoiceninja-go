@@ -9,8 +9,8 @@ var _ MappedNullable = &GetInvoices200Response{}
 
 // GetInvoices200Response struct for GetInvoices200Response
 type GetInvoices200Response struct {
-	Data []Invoice `json:"data,omitempty"`
 	Meta Meta      `json:"meta,omitempty"`
+	Data []Invoice `json:"data,omitempty"`
 }
 
 // NewGetInvoices200Response instantiates a new GetInvoices200Response object

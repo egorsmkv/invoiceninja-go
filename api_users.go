@@ -214,9 +214,9 @@ type ApiDeleteUserRequest struct {
 	ApiService     *UsersAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
 	tokenName      *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -403,8 +403,8 @@ type ApiDetachUserRequest struct {
 	ApiService     *UsersAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	user           string
 	include        *string
+	user           string
 }
 
 // The API token to be used for authentication
@@ -582,8 +582,8 @@ type ApiEditUserRequest struct {
 	ApiService     *UsersAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1149,8 +1149,8 @@ type ApiInviteUserRequest struct {
 	ApiService     *UsersAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	user           string
 	include        *string
+	user           string
 }
 
 // The API token to be used for authentication
@@ -1328,8 +1328,8 @@ type ApiInviteUserReconfirmRequest struct {
 	ApiService     *UsersAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	user           string
 	include        *string
+	user           string
 }
 
 // The API token to be used for authentication
@@ -1507,8 +1507,8 @@ type ApiShowUserRequest struct {
 	ApiService     *UsersAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1885,8 +1885,8 @@ type ApiUpdateUserRequest struct {
 	ApiService     *UsersAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

@@ -9,8 +9,8 @@ var _ MappedNullable = &GetTaskStatuses200Response{}
 
 // GetTaskStatuses200Response struct for GetTaskStatuses200Response
 type GetTaskStatuses200Response struct {
-	Data []TaskStatus `json:"data,omitempty"`
 	Meta Meta         `json:"meta,omitempty"`
+	Data []TaskStatus `json:"data,omitempty"`
 }
 
 // NewGetTaskStatuses200Response instantiates a new GetTaskStatuses200Response object

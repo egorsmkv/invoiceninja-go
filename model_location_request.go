@@ -23,14 +23,6 @@ type LocationRequest struct {
 	PostalCode *string `json:"postal_code,omitempty"`
 	// The ID of the associated country
 	CountryId *string `json:"country_id,omitempty"`
-	// Custom field value 1
-	CustomValue1 NullableString `json:"custom_value1,omitempty"`
-	// Custom field value 2
-	CustomValue2 NullableString `json:"custom_value2,omitempty"`
-	// Custom field value 3
-	CustomValue3 NullableString `json:"custom_value3,omitempty"`
-	// Custom field value 4
-	CustomValue4 NullableString `json:"custom_value4,omitempty"`
 	// Indicates if this is a shipping location
 	IsShippingLocation *bool `json:"is_shipping_location,omitempty"`
 	// The assigned user hashed id
@@ -39,6 +31,14 @@ type LocationRequest struct {
 	ClientId *string `json:"client_id,omitempty"`
 	// The vendor hashed id
 	VendorId *string `json:"vendor_id,omitempty"`
+	// Custom field value 1
+	CustomValue1 NullableString `json:"custom_value1,omitempty"`
+	// Custom field value 2
+	CustomValue2 NullableString `json:"custom_value2,omitempty"`
+	// Custom field value 3
+	CustomValue3 NullableString `json:"custom_value3,omitempty"`
+	// Custom field value 4
+	CustomValue4 NullableString `json:"custom_value4,omitempty"`
 }
 
 // NewLocationRequest instantiates a new LocationRequest object

@@ -948,9 +948,9 @@ type ApiUpdateTaskSchedulerRequest struct {
 	ctx                 context.Context
 	ApiService          *TaskSchedulersAPIService
 	xRequestedWith      *string
-	id                  string
 	taskSchedulerSchema *TaskSchedulerSchema
 	xAPISECRET          *string
+	id                  string
 }
 
 // Used to send the XMLHttpRequest header

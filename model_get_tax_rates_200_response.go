@@ -9,8 +9,8 @@ var _ MappedNullable = &GetTaxRates200Response{}
 
 // GetTaxRates200Response struct for GetTaxRates200Response
 type GetTaxRates200Response struct {
-	Data []TaxRate `json:"data,omitempty"`
 	Meta Meta      `json:"meta,omitempty"`
+	Data []TaxRate `json:"data,omitempty"`
 }
 
 // NewGetTaxRates200Response instantiates a new GetTaxRates200Response object

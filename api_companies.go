@@ -18,8 +18,8 @@ type ApiDeleteCompanyRequest struct {
 	ApiService     *CompaniesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -208,8 +208,8 @@ type ApiEditCompanyRequest struct {
 	ApiService     *CompaniesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -808,8 +808,8 @@ type ApiSetDefaultCompanyRequest struct {
 	ApiService     *CompaniesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	company        string
 	include        *string
+	company        string
 }
 
 // The API token to be used for authentication
@@ -1010,8 +1010,8 @@ type ApiShowCompanyRequest struct {
 	ApiService     *CompaniesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1608,8 +1608,8 @@ type ApiUpdateCompanyRequest struct {
 	ApiService     *CompaniesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

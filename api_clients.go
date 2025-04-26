@@ -496,9 +496,9 @@ type ApiDeleteClientRequest struct {
 	ApiService     *ClientsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	index          *string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -706,9 +706,9 @@ type ApiEditClientRequest struct {
 	ApiService     *ClientsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	index          *string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1519,10 +1519,10 @@ type ApiMergeClientRequest struct {
 	xAPITOKEN               *string
 	xRequestedWith          *string
 	xAPIPASSWORD            *string
-	id                      string
-	mergeableClientHashedId string
 	index                   *string
 	include                 *string
+	id                      string
+	mergeableClientHashedId string
 }
 
 // The API token to be used for authentication
@@ -1939,9 +1939,9 @@ type ApiReactivateEmailRequest struct {
 	ApiService     *ClientsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	bounceId       string
 	index          *string
 	include        *string
+	bounceId       string
 }
 
 // The API token to be used for authentication
@@ -2141,9 +2141,9 @@ type ApiShowClientRequest struct {
 	ApiService     *ClientsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	index          *string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -2578,10 +2578,10 @@ type ApiUpdateClientRequest struct {
 	ApiService     *ClientsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	clientRequest  *ClientRequest
 	index          *string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -2807,9 +2807,9 @@ type ApiUpdateClientTaxDataRequest struct {
 	ApiService     *ClientsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	client         string
 	index          *string
 	include        *string
+	client         string
 }
 
 // The API token to be used for authentication

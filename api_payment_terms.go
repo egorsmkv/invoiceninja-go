@@ -214,8 +214,8 @@ type ApiEditPaymentTermsRequest struct {
 	ApiService     *PaymentTermsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -789,8 +789,8 @@ type ApiShowPaymentTermRequest struct {
 	ApiService     *PaymentTermsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1179,8 +1179,8 @@ type ApiUpdatePaymentTermRequest struct {
 	ApiService     *PaymentTermsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

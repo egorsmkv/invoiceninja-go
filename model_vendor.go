@@ -15,8 +15,6 @@ type Vendor struct {
 	UserId *string `json:"user_id,omitempty"`
 	// The hashed id of the assigned user to this vendor. This is a unique identifier for the user.
 	AssignedUserId *string `json:"assigned_user_id,omitempty"`
-	// An array of contacts associated with the vendor.
-	Contacts []VendorContact `json:"contacts,omitempty"`
 	// The name of the vendor.
 	Name *string `json:"name,omitempty"`
 	// The classification of the vendor.
@@ -75,6 +73,8 @@ type Vendor struct {
 	UpdatedAt *float32 `json:"updated_at,omitempty"`
 	// The display name of the vendor.
 	DisplayName *string `json:"display_name,omitempty"`
+	// An array of contacts associated with the vendor.
+	Contacts []VendorContact `json:"contacts,omitempty"`
 }
 
 // NewVendor instantiates a new Vendor object

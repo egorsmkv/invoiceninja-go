@@ -9,8 +9,8 @@ var _ MappedNullable = &GetCompanyLedger200Response{}
 
 // GetCompanyLedger200Response struct for GetCompanyLedger200Response
 type GetCompanyLedger200Response struct {
-	Data []CompanyLedger `json:"data,omitempty"`
 	Meta Meta            `json:"meta,omitempty"`
+	Data []CompanyLedger `json:"data,omitempty"`
 }
 
 // NewGetCompanyLedger200Response instantiates a new GetCompanyLedger200Response object

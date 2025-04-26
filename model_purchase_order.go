@@ -53,8 +53,6 @@ type PurchaseOrder struct {
 	TaxRate3 *float32 `json:"tax_rate3,omitempty"`
 	// The total amount of taxes applied to the purchase order
 	TotalTaxes *float32 `json:"total_taxes,omitempty"`
-	// An array of objects which define the line items of the purchase order
-	LineItems []InvoiceItem `json:"line_items,omitempty"`
 	// The total amount of the purchase order before taxes and discounts
 	Amount *float32 `json:"amount,omitempty"`
 	// The balance due for the purchase order after accounting for payments
@@ -104,6 +102,8 @@ type PurchaseOrder struct {
 	CustomSurchargeTax3 *bool `json:"custom_surcharge_tax3,omitempty"`
 	// Boolean flag indicating if taxes are charged on the fourth custom surcharge amount
 	CustomSurchargeTax4 *bool `json:"custom_surcharge_tax4,omitempty"`
+	// An array of objects which define the line items of the purchase order
+	LineItems []InvoiceItem `json:"line_items,omitempty"`
 }
 
 // NewPurchaseOrder instantiates a new PurchaseOrder object

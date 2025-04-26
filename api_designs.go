@@ -214,8 +214,8 @@ type ApiDeleteDesignRequest struct {
 	ApiService     *DesignsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -393,8 +393,8 @@ type ApiEditDesignRequest struct {
 	ApiService     *DesignsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -968,8 +968,8 @@ type ApiShowDesignRequest struct {
 	ApiService     *DesignsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1346,8 +1346,8 @@ type ApiUpdateDesignRequest struct {
 	ApiService     *DesignsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

@@ -9,8 +9,8 @@ var _ MappedNullable = &GetGroupSettings200Response{}
 
 // GetGroupSettings200Response struct for GetGroupSettings200Response
 type GetGroupSettings200Response struct {
-	Data []GroupSetting `json:"data,omitempty"`
 	Meta Meta           `json:"meta,omitempty"`
+	Data []GroupSetting `json:"data,omitempty"`
 }
 
 // NewGetGroupSettings200Response instantiates a new GetGroupSettings200Response object

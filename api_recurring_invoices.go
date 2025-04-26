@@ -18,9 +18,9 @@ type ApiActionRecurringInvoiceRequest struct {
 	ApiService     *RecurringInvoicesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
+	include        *string
 	id             string
 	action         string
-	include        *string
 }
 
 // The API token to be used for authentication
@@ -449,8 +449,8 @@ type ApiDeleteRecurringInvoiceRequest struct {
 	ApiService     *RecurringInvoicesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -639,8 +639,8 @@ type ApiDownloadRecurringInvoiceRequest struct {
 	ApiService     *RecurringInvoicesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	invitationKey  string
 	include        *string
+	invitationKey  string
 }
 
 // The API token to be used for authentication
@@ -829,8 +829,8 @@ type ApiEditRecurringInvoiceRequest struct {
 	ApiService     *RecurringInvoicesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1559,8 +1559,8 @@ type ApiShowRecurringInvoiceRequest struct {
 	ApiService     *RecurringInvoicesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1972,8 +1972,8 @@ type ApiUpdateRecurringInvoiceRequest struct {
 	ApiService     *RecurringInvoicesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

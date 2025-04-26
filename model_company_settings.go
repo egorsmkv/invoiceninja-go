@@ -11,8 +11,6 @@ var _ MappedNullable = &CompanySettings{}
 
 // CompanySettings struct for CompanySettings
 type CompanySettings struct {
-	// The default currency id
-	CurrencyId string `json:"currency_id"`
 	// The timezone id
 	TimezoneId *string `json:"timezone_id,omitempty"`
 	// The date format id
@@ -435,6 +433,8 @@ type CompanySettings struct {
 	CreditTerms *string `json:"credit_terms,omitempty"`
 	// Default footer for credit notes
 	CreditFooter *string `json:"credit_footer,omitempty"`
+	// The default currency id
+	CurrencyId string `json:"currency_id"`
 }
 
 type _CompanySettings CompanySettings

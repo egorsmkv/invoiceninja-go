@@ -55,8 +55,6 @@ type Credit struct {
 	TaxRate3 *float32 `json:"tax_rate3,omitempty"`
 	// The total amount of taxes for the credit
 	TotalTaxes *float32 `json:"total_taxes,omitempty"`
-	// An array of objects which define the line items of the credit
-	LineItems []InvoiceItem `json:"line_items,omitempty"`
 	// The total amount of the credit
 	Amount *float32 `json:"amount,omitempty"`
 	// The outstanding balance of the credit
@@ -108,6 +106,8 @@ type Credit struct {
 	CustomSurchargeTax4 *bool `json:"custom_surcharge_tax4,omitempty"`
 	// The client location id that this invoice relates to
 	LocationId *string `json:"location_id,omitempty"`
+	// An array of objects which define the line items of the credit
+	LineItems []InvoiceItem `json:"line_items,omitempty"`
 }
 
 // NewCredit instantiates a new Credit object

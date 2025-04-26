@@ -18,9 +18,9 @@ type ApiActionQuoteRequest struct {
 	ApiService     *QuotesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
+	include        *string
 	id             string
 	action         string
-	include        *string
 }
 
 // The API token to be used for authentication
@@ -452,8 +452,8 @@ type ApiDeleteQuoteRequest struct {
 	ApiService     *QuotesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -644,8 +644,8 @@ type ApiDownloadCreditRequest struct {
 	ApiService     *QuotesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	invitationKey  string
 	include        *string
+	invitationKey  string
 }
 
 // The API token to be used for authentication
@@ -834,8 +834,8 @@ type ApiDownloadQuoteRequest struct {
 	ApiService     *QuotesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	invitationKey  string
 	include        *string
+	invitationKey  string
 }
 
 // The API token to be used for authentication
@@ -1024,8 +1024,8 @@ type ApiEditQuoteRequest struct {
 	ApiService     *QuotesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1729,8 +1729,8 @@ type ApiShowQuoteRequest struct {
 	ApiService     *QuotesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -2146,8 +2146,8 @@ type ApiUpdateQuoteRequest struct {
 	ApiService     *QuotesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

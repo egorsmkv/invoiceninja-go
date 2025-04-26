@@ -214,8 +214,8 @@ type ApiDeleteExpenseRequest struct {
 	ApiService     *ExpensesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -393,8 +393,8 @@ type ApiEditExpenseRequest struct {
 	ApiService     *ExpensesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -970,8 +970,8 @@ type ApiShowExpenseRequest struct {
 	ApiService     *ExpensesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1348,8 +1348,8 @@ type ApiUpdateExpenseRequest struct {
 	ApiService     *ExpensesAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

@@ -9,8 +9,8 @@ var _ MappedNullable = &GetDesigns200Response{}
 
 // GetDesigns200Response struct for GetDesigns200Response
 type GetDesigns200Response struct {
-	Data []Design `json:"data,omitempty"`
 	Meta Meta     `json:"meta,omitempty"`
+	Data []Design `json:"data,omitempty"`
 }
 
 // NewGetDesigns200Response instantiates a new GetDesigns200Response object

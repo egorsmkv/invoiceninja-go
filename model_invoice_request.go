@@ -15,8 +15,6 @@ type InvoiceRequest struct {
 	UserId *string `json:"user_id,omitempty"`
 	// The assigned user hashed id
 	AssignedUserId *string `json:"assigned_user_id,omitempty"`
-	// The client hashed id
-	ClientId string `json:"client_id"`
 	// The invoice number - is a unique alpha numeric number per invoice per company
 	Number *string `json:"number,omitempty"`
 	// The purchase order associated with this invoice
@@ -49,10 +47,6 @@ type InvoiceRequest struct {
 	TaxName3 *string `json:"tax_name3,omitempty"`
 	// The tax rate
 	TaxRate3 *float32 `json:"tax_rate3,omitempty"`
-	// An array of objects which define the line items of the invoice
-	LineItems []InvoiceItem `json:"line_items,omitempty"`
-	// An array of objects which define the invitations of the invoice
-	Invitations []InvoiceInvitationRequest `json:"invitations,omitempty"`
 	// The invoice discount, can be an amount or a percentage
 	Discount *float32 `json:"discount,omitempty"`
 	// The deposit/partial amount
@@ -85,6 +79,12 @@ type InvoiceRequest struct {
 	CustomSurchargeTax4 *bool `json:"custom_surcharge_tax4,omitempty"`
 	// The project associated with this invoice
 	ProjectId *string `json:"project_id,omitempty"`
+	// The client hashed id
+	ClientId string `json:"client_id"`
+	// An array of objects which define the line items of the invoice
+	LineItems []InvoiceItem `json:"line_items,omitempty"`
+	// An array of objects which define the invitations of the invoice
+	Invitations []InvoiceInvitationRequest `json:"invitations,omitempty"`
 }
 
 type _InvoiceRequest InvoiceRequest

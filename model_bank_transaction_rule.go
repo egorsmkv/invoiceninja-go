@@ -15,8 +15,6 @@ type BankTransactionRule struct {
 	UserId *string `json:"user_id,omitempty"`
 	// The name of the transaction
 	Name *string `json:"name,omitempty"`
-	// A mapped collection of the sub rules for the BankTransactionRule
-	Rules []BTRules `json:"rules,omitempty"`
 	// Flags whether the rule converts the transaction automatically
 	AutoConvert *bool `json:"auto_convert,omitempty"`
 	// Flags whether all subrules are required for the match
@@ -29,6 +27,8 @@ type BankTransactionRule struct {
 	VendorId *string `json:"vendor_id,omitempty"`
 	// The category hashed id
 	CategoryId *string `json:"category_id,omitempty"`
+	// A mapped collection of the sub rules for the BankTransactionRule
+	Rules []BTRules `json:"rules,omitempty"`
 }
 
 // NewBankTransactionRule instantiates a new BankTransactionRule object

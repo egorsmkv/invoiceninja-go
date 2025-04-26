@@ -9,8 +9,8 @@ var _ MappedNullable = &GetBankTransactions200Response{}
 
 // GetBankTransactions200Response struct for GetBankTransactions200Response
 type GetBankTransactions200Response struct {
-	Data []BankTransaction `json:"data,omitempty"`
 	Meta Meta              `json:"meta,omitempty"`
+	Data []BankTransaction `json:"data,omitempty"`
 }
 
 // NewGetBankTransactions200Response instantiates a new GetBankTransactions200Response object

@@ -9,8 +9,8 @@ var _ MappedNullable = &GetRecurringExpenses200Response{}
 
 // GetRecurringExpenses200Response struct for GetRecurringExpenses200Response
 type GetRecurringExpenses200Response struct {
-	Data []RecurringExpense `json:"data,omitempty"`
 	Meta Meta               `json:"meta,omitempty"`
+	Data []RecurringExpense `json:"data,omitempty"`
 }
 
 // NewGetRecurringExpenses200Response instantiates a new GetRecurringExpenses200Response object

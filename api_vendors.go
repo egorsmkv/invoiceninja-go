@@ -226,8 +226,8 @@ type ApiDeleteVendorRequest struct {
 	ApiService     *VendorsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -416,8 +416,8 @@ type ApiEditVendorRequest struct {
 	ApiService     *VendorsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1026,8 +1026,8 @@ type ApiShowVendorRequest struct {
 	ApiService     *VendorsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1426,8 +1426,8 @@ type ApiUpdateVendorRequest struct {
 	ApiService     *VendorsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

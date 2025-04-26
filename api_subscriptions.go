@@ -214,8 +214,8 @@ type ApiDeleteSubscriptionRequest struct {
 	ApiService     *SubscriptionsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -393,8 +393,8 @@ type ApiEditSubscriptionRequest struct {
 	ApiService     *SubscriptionsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -958,8 +958,8 @@ type ApiShowSubscriptionRequest struct {
 	ApiService     *SubscriptionsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication
@@ -1336,8 +1336,8 @@ type ApiUpdateSubscriptionRequest struct {
 	ApiService     *SubscriptionsAPIService
 	xAPITOKEN      *string
 	xRequestedWith *string
-	id             string
 	include        *string
+	id             string
 }
 
 // The API token to be used for authentication

@@ -11,11 +11,11 @@ var _ MappedNullable = &ProductBulkAction{}
 
 // ProductBulkAction struct for ProductBulkAction
 type ProductBulkAction struct {
+	// The tax rate id to set on the list of products  The following constants are available (default = '1')  ``` PRODUCT_TYPE_PHYSICAL = '1' PRODUCT_TYPE_SERVICE = '2' PRODUCT_TYPE_DIGITAL = '3' PRODUCT_TYPE_SHIPPING = '4' PRODUCT_TYPE_EXEMPT = '5' PRODUCT_TYPE_REDUCED_TAX = '6' PRODUCT_TYPE_OVERRIDE_TAX = '7' PRODUCT_TYPE_ZERO_RATED = '8' PRODUCT_TYPE_REVERSE_TAX = '9' ```
+	TaxId *string `json:"tax_id,omitempty"`
 	// The action to perform ie. archive / restore / delete / set_tax_id
 	Action string   `json:"action"`
 	Ids    []string `json:"ids"`
-	// The tax rate id to set on the list of products  The following constants are available (default = '1')  ``` PRODUCT_TYPE_PHYSICAL = '1' PRODUCT_TYPE_SERVICE = '2' PRODUCT_TYPE_DIGITAL = '3' PRODUCT_TYPE_SHIPPING = '4' PRODUCT_TYPE_EXEMPT = '5' PRODUCT_TYPE_REDUCED_TAX = '6' PRODUCT_TYPE_OVERRIDE_TAX = '7' PRODUCT_TYPE_ZERO_RATED = '8' PRODUCT_TYPE_REVERSE_TAX = '9' ```
-	TaxId *string `json:"tax_id,omitempty"`
 }
 
 type _ProductBulkAction ProductBulkAction

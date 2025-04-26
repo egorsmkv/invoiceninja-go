@@ -25,14 +25,6 @@ type Location struct {
 	PostalCode *string `json:"postal_code,omitempty"`
 	// The ID of the associated country
 	CountryId *string `json:"country_id,omitempty"`
-	// Custom field value 1
-	CustomValue1 NullableString `json:"custom_value1,omitempty"`
-	// Custom field value 2
-	CustomValue2 NullableString `json:"custom_value2,omitempty"`
-	// Custom field value 3
-	CustomValue3 NullableString `json:"custom_value3,omitempty"`
-	// Custom field value 4
-	CustomValue4 NullableString `json:"custom_value4,omitempty"`
 	// Indicates if the location has been deleted
 	IsDeleted *bool `json:"is_deleted,omitempty"`
 	// Indicates if this is a shipping location
@@ -49,6 +41,14 @@ type Location struct {
 	CreatedAt *int32 `json:"created_at,omitempty"`
 	// Timestamp of when the location was last updated
 	UpdatedAt *int32 `json:"updated_at,omitempty"`
+	// Custom field value 1
+	CustomValue1 NullableString `json:"custom_value1,omitempty"`
+	// Custom field value 2
+	CustomValue2 NullableString `json:"custom_value2,omitempty"`
+	// Custom field value 3
+	CustomValue3 NullableString `json:"custom_value3,omitempty"`
+	// Custom field value 4
+	CustomValue4 NullableString `json:"custom_value4,omitempty"`
 }
 
 // NewLocation instantiates a new Location object
