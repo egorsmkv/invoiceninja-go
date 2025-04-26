@@ -60,7 +60,7 @@ func (a *ImportsAPIService) Preimport(ctx context.Context) ApiPreimportRequest {
 func (a *ImportsAPIService) PreimportExecute(r ApiPreimportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 

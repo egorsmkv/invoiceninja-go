@@ -76,7 +76,7 @@ func (a *ConnectedAccountAPIService) ConnectedAccount(ctx context.Context) ApiCo
 func (a *ConnectedAccountAPIService) ConnectedAccountExecute(r ApiConnectedAccountRequest) (*User, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *User
 	)

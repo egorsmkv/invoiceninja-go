@@ -68,7 +68,7 @@ func (a *TaxRatesAPIService) BulkTaxRates(ctx context.Context) ApiBulkTaxRatesRe
 func (a *TaxRatesAPIService) BulkTaxRatesExecute(r ApiBulkTaxRatesRequest) (*Webhook, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Webhook
 	)
@@ -254,7 +254,7 @@ func (a *TaxRatesAPIService) DeleteTaxRate(ctx context.Context, id string) ApiDe
 func (a *TaxRatesAPIService) DeleteTaxRateExecute(r ApiDeleteTaxRateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -425,7 +425,7 @@ func (a *TaxRatesAPIService) EditTaxRate(ctx context.Context, id string) ApiEdit
 func (a *TaxRatesAPIService) EditTaxRateExecute(r ApiEditTaxRateRequest) (*TaxRate, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *TaxRate
 	)
@@ -603,7 +603,7 @@ func (a *TaxRatesAPIService) GetTaxRateCreate(ctx context.Context) ApiGetTaxRate
 func (a *TaxRatesAPIService) GetTaxRateCreateExecute(r ApiGetTaxRateCreateRequest) (*TaxRate, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *TaxRate
 	)
@@ -773,7 +773,7 @@ func (a *TaxRatesAPIService) GetTaxRates(ctx context.Context) ApiGetTaxRatesRequ
 func (a *TaxRatesAPIService) GetTaxRatesExecute(r ApiGetTaxRatesRequest) (*GetTaxRates200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetTaxRates200Response
 	)
@@ -948,7 +948,7 @@ func (a *TaxRatesAPIService) ShowTaxRate(ctx context.Context, id string) ApiShow
 func (a *TaxRatesAPIService) ShowTaxRateExecute(r ApiShowTaxRateRequest) (*TaxRate, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *TaxRate
 	)
@@ -1129,7 +1129,7 @@ func (a *TaxRatesAPIService) UpdateTaxRate(ctx context.Context, id string) ApiUp
 func (a *TaxRatesAPIService) UpdateTaxRateExecute(r ApiUpdateTaxRateRequest) (*TaxRate, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *TaxRate
 	)

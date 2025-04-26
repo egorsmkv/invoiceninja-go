@@ -46,7 +46,7 @@ func (a *WebcronAPIService) Webcron(ctx context.Context) ApiWebcronRequest {
 func (a *WebcronAPIService) WebcronExecute(r ApiWebcronRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 

@@ -205,8 +205,8 @@ func (o GenericReportSchema) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o GenericReportSchema) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o GenericReportSchema) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.DateRange) {
 		toSerialize["date_range"] = o.DateRange
 	}

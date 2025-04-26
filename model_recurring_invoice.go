@@ -58,7 +58,7 @@ type RecurringInvoice struct {
 	// The total taxes for the invoice
 	TotalTaxes *float32 `json:"total_taxes,omitempty"`
 	// An array of objects which define the line items of the invoice
-	LineItems map[string]interface{} `json:"line_items,omitempty"`
+	LineItems map[string]any `json:"line_items,omitempty"`
 	// The invoice amount
 	Amount *float32 `json:"amount,omitempty"`
 	// The invoice balance
@@ -898,9 +898,9 @@ func (o *RecurringInvoice) SetTotalTaxes(v float32) {
 }
 
 // GetLineItems returns the LineItems field value if set, zero value otherwise.
-func (o *RecurringInvoice) GetLineItems() map[string]interface{} {
+func (o *RecurringInvoice) GetLineItems() map[string]any {
 	if o == nil || IsNil(o.LineItems) {
-		var ret map[string]interface{}
+		var ret map[string]any
 		return ret
 	}
 	return o.LineItems
@@ -908,9 +908,9 @@ func (o *RecurringInvoice) GetLineItems() map[string]interface{} {
 
 // GetLineItemsOk returns a tuple with the LineItems field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RecurringInvoice) GetLineItemsOk() (map[string]interface{}, bool) {
+func (o *RecurringInvoice) GetLineItemsOk() (map[string]any, bool) {
 	if o == nil || IsNil(o.LineItems) {
-		return map[string]interface{}{}, false
+		return map[string]any{}, false
 	}
 	return o.LineItems, true
 }
@@ -925,7 +925,7 @@ func (o *RecurringInvoice) HasLineItems() bool {
 }
 
 // SetLineItems gets a reference to the given map[string]interface{} and assigns it to the LineItems field.
-func (o *RecurringInvoice) SetLineItems(v map[string]interface{}) {
+func (o *RecurringInvoice) SetLineItems(v map[string]any) {
 	o.LineItems = v
 }
 
@@ -1769,8 +1769,8 @@ func (o RecurringInvoice) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o RecurringInvoice) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o RecurringInvoice) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}

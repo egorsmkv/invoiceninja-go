@@ -58,7 +58,7 @@ type RecurringQuote struct {
 	// The total taxes for the quote
 	TotalTaxes *float32 `json:"total_taxes,omitempty"`
 	// An array of objects which define the line items of the quote
-	LineItems map[string]interface{} `json:"line_items,omitempty"`
+	LineItems map[string]any `json:"line_items,omitempty"`
 	// The quote amount
 	Amount *float32 `json:"amount,omitempty"`
 	// The quote balance
@@ -896,9 +896,9 @@ func (o *RecurringQuote) SetTotalTaxes(v float32) {
 }
 
 // GetLineItems returns the LineItems field value if set, zero value otherwise.
-func (o *RecurringQuote) GetLineItems() map[string]interface{} {
+func (o *RecurringQuote) GetLineItems() map[string]any {
 	if o == nil || IsNil(o.LineItems) {
-		var ret map[string]interface{}
+		var ret map[string]any
 		return ret
 	}
 	return o.LineItems
@@ -906,9 +906,9 @@ func (o *RecurringQuote) GetLineItems() map[string]interface{} {
 
 // GetLineItemsOk returns a tuple with the LineItems field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RecurringQuote) GetLineItemsOk() (map[string]interface{}, bool) {
+func (o *RecurringQuote) GetLineItemsOk() (map[string]any, bool) {
 	if o == nil || IsNil(o.LineItems) {
-		return map[string]interface{}{}, false
+		return map[string]any{}, false
 	}
 	return o.LineItems, true
 }
@@ -923,7 +923,7 @@ func (o *RecurringQuote) HasLineItems() bool {
 }
 
 // SetLineItems gets a reference to the given map[string]interface{} and assigns it to the LineItems field.
-func (o *RecurringQuote) SetLineItems(v map[string]interface{}) {
+func (o *RecurringQuote) SetLineItems(v map[string]any) {
 	o.LineItems = v
 }
 
@@ -1735,8 +1735,8 @@ func (o RecurringQuote) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o RecurringQuote) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o RecurringQuote) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}

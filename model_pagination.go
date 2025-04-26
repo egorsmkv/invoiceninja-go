@@ -20,7 +20,7 @@ type Pagination struct {
 	// The total number of pages
 	TotalPages *int32 `json:"total_pages,omitempty"`
 	// The pagination links
-	Links map[string]interface{} `json:"links,omitempty"`
+	Links map[string]any `json:"links,omitempty"`
 }
 
 // NewPagination instantiates a new Pagination object
@@ -201,9 +201,9 @@ func (o *Pagination) SetTotalPages(v int32) {
 }
 
 // GetLinks returns the Links field value if set, zero value otherwise.
-func (o *Pagination) GetLinks() map[string]interface{} {
+func (o *Pagination) GetLinks() map[string]any {
 	if o == nil || IsNil(o.Links) {
-		var ret map[string]interface{}
+		var ret map[string]any
 		return ret
 	}
 	return o.Links
@@ -211,9 +211,9 @@ func (o *Pagination) GetLinks() map[string]interface{} {
 
 // GetLinksOk returns a tuple with the Links field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Pagination) GetLinksOk() (map[string]interface{}, bool) {
+func (o *Pagination) GetLinksOk() (map[string]any, bool) {
 	if o == nil || IsNil(o.Links) {
-		return map[string]interface{}{}, false
+		return map[string]any{}, false
 	}
 	return o.Links, true
 }
@@ -228,7 +228,7 @@ func (o *Pagination) HasLinks() bool {
 }
 
 // SetLinks gets a reference to the given map[string]interface{} and assigns it to the Links field.
-func (o *Pagination) SetLinks(v map[string]interface{}) {
+func (o *Pagination) SetLinks(v map[string]any) {
 	o.Links = v
 }
 
@@ -240,8 +240,8 @@ func (o Pagination) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o Pagination) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o Pagination) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Total) {
 		toSerialize["total"] = o.Total
 	}

@@ -57,7 +57,7 @@ func (a *MigrationAPIService) PostPurgeCompany(ctx context.Context, company stri
 func (a *MigrationAPIService) PostPurgeCompanyExecute(r ApiPostPurgeCompanyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -226,7 +226,7 @@ func (a *MigrationAPIService) PostPurgeCompanySaveSettings(ctx context.Context, 
 func (a *MigrationAPIService) PostPurgeCompanySaveSettingsExecute(r ApiPostPurgeCompanySaveSettingsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -356,7 +356,7 @@ type ApiPostStartMigrationRequest struct {
 	xAPITOKEN      *string
 	xRequestedWith *string
 	xAPIPASSWORD   *string
-	migration      *map[string]interface{}
+	migration      *map[string]any
 }
 
 // The API token to be used for authentication
@@ -378,7 +378,7 @@ func (r ApiPostStartMigrationRequest) XAPIPASSWORD(xAPIPASSWORD string) ApiPostS
 }
 
 // The migraton file
-func (r ApiPostStartMigrationRequest) Migration(migration map[string]interface{}) ApiPostStartMigrationRequest {
+func (r ApiPostStartMigrationRequest) Migration(migration map[string]any) ApiPostStartMigrationRequest {
 	r.migration = &migration
 	return r
 }
@@ -406,7 +406,7 @@ func (a *MigrationAPIService) PostStartMigration(ctx context.Context) ApiPostSta
 func (a *MigrationAPIService) PostStartMigrationExecute(r ApiPostStartMigrationRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 

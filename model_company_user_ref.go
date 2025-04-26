@@ -12,9 +12,9 @@ type CompanyUserRef struct {
 	// The user permissions for this company in a comma separated list
 	Permissions *string `json:"permissions,omitempty"`
 	// Settings that are used for the flutter applications to store user preferences / metadata
-	Settings map[string]interface{} `json:"settings,omitempty"`
+	Settings map[string]any `json:"settings,omitempty"`
 	// Dedicated settings object for the react web application
-	ReactSettings map[string]interface{} `json:"react_settings,omitempty"`
+	ReactSettings map[string]any `json:"react_settings,omitempty"`
 	// Determines whether the user owns this company
 	IsOwner *bool `json:"is_owner,omitempty"`
 	// Determines whether the user is the admin of this company
@@ -81,9 +81,9 @@ func (o *CompanyUserRef) SetPermissions(v string) {
 }
 
 // GetSettings returns the Settings field value if set, zero value otherwise.
-func (o *CompanyUserRef) GetSettings() map[string]interface{} {
+func (o *CompanyUserRef) GetSettings() map[string]any {
 	if o == nil || IsNil(o.Settings) {
-		var ret map[string]interface{}
+		var ret map[string]any
 		return ret
 	}
 	return o.Settings
@@ -91,9 +91,9 @@ func (o *CompanyUserRef) GetSettings() map[string]interface{} {
 
 // GetSettingsOk returns a tuple with the Settings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CompanyUserRef) GetSettingsOk() (map[string]interface{}, bool) {
+func (o *CompanyUserRef) GetSettingsOk() (map[string]any, bool) {
 	if o == nil || IsNil(o.Settings) {
-		return map[string]interface{}{}, false
+		return map[string]any{}, false
 	}
 	return o.Settings, true
 }
@@ -108,14 +108,14 @@ func (o *CompanyUserRef) HasSettings() bool {
 }
 
 // SetSettings gets a reference to the given map[string]interface{} and assigns it to the Settings field.
-func (o *CompanyUserRef) SetSettings(v map[string]interface{}) {
+func (o *CompanyUserRef) SetSettings(v map[string]any) {
 	o.Settings = v
 }
 
 // GetReactSettings returns the ReactSettings field value if set, zero value otherwise.
-func (o *CompanyUserRef) GetReactSettings() map[string]interface{} {
+func (o *CompanyUserRef) GetReactSettings() map[string]any {
 	if o == nil || IsNil(o.ReactSettings) {
-		var ret map[string]interface{}
+		var ret map[string]any
 		return ret
 	}
 	return o.ReactSettings
@@ -123,9 +123,9 @@ func (o *CompanyUserRef) GetReactSettings() map[string]interface{} {
 
 // GetReactSettingsOk returns a tuple with the ReactSettings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CompanyUserRef) GetReactSettingsOk() (map[string]interface{}, bool) {
+func (o *CompanyUserRef) GetReactSettingsOk() (map[string]any, bool) {
 	if o == nil || IsNil(o.ReactSettings) {
-		return map[string]interface{}{}, false
+		return map[string]any{}, false
 	}
 	return o.ReactSettings, true
 }
@@ -140,7 +140,7 @@ func (o *CompanyUserRef) HasReactSettings() bool {
 }
 
 // SetReactSettings gets a reference to the given map[string]interface{} and assigns it to the ReactSettings field.
-func (o *CompanyUserRef) SetReactSettings(v map[string]interface{}) {
+func (o *CompanyUserRef) SetReactSettings(v map[string]any) {
 	o.ReactSettings = v
 }
 
@@ -440,8 +440,8 @@ func (o CompanyUserRef) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o CompanyUserRef) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o CompanyUserRef) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Permissions) {
 		toSerialize["permissions"] = o.Permissions
 	}

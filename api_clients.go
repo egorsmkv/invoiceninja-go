@@ -114,7 +114,7 @@ func (a *ClientsAPIService) BulkClients(ctx context.Context) ApiBulkClientsReque
 func (a *ClientsAPIService) BulkClientsExecute(r ApiBulkClientsRequest) (*Client, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Client
 	)
@@ -336,7 +336,7 @@ func (a *ClientsAPIService) ClientStatement(ctx context.Context) ApiClientStatem
 func (a *ClientsAPIService) ClientStatementExecute(r ApiClientStatementRequest) (*Client, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Client
 	)
@@ -560,7 +560,7 @@ func (a *ClientsAPIService) DeleteClient(ctx context.Context, id string) ApiDele
 func (a *ClientsAPIService) DeleteClientExecute(r ApiDeleteClientRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -763,7 +763,7 @@ func (a *ClientsAPIService) EditClient(ctx context.Context, id string) ApiEditCl
 func (a *ClientsAPIService) EditClientExecute(r ApiEditClientRequest) (*Client, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Client
 	)
@@ -1108,7 +1108,7 @@ func (a *ClientsAPIService) GetClients(ctx context.Context) ApiGetClientsRequest
 func (a *ClientsAPIService) GetClientsExecute(r ApiGetClientsRequest) (*Client, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Client
 	)
@@ -1363,7 +1363,7 @@ func (a *ClientsAPIService) GetClientsCreate(ctx context.Context) ApiGetClientsC
 func (a *ClientsAPIService) GetClientsCreateExecute(r ApiGetClientsCreateRequest) (*Client, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Client
 	)
@@ -1591,7 +1591,7 @@ func (a *ClientsAPIService) MergeClient(ctx context.Context, id string, mergeabl
 func (a *ClientsAPIService) MergeClientExecute(r ApiMergeClientRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -1795,7 +1795,7 @@ func (a *ClientsAPIService) PurgeClient(ctx context.Context, id string) ApiPurge
 func (a *ClientsAPIService) PurgeClientExecute(r ApiPurgeClientRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -1995,7 +1995,7 @@ func (a *ClientsAPIService) ReactivateEmail(ctx context.Context, bounceId string
 func (a *ClientsAPIService) ReactivateEmailExecute(r ApiReactivateEmailRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -2199,7 +2199,7 @@ func (a *ClientsAPIService) ShowClient(ctx context.Context, id string) ApiShowCl
 func (a *ClientsAPIService) ShowClientExecute(r ApiShowClientRequest) (*Client, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Client
 	)
@@ -2418,7 +2418,7 @@ func (a *ClientsAPIService) StoreClient(ctx context.Context) ApiStoreClientReque
 func (a *ClientsAPIService) StoreClientExecute(r ApiStoreClientRequest) (*Client, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Client
 	)
@@ -2646,7 +2646,7 @@ func (a *ClientsAPIService) UpdateClient(ctx context.Context, id string) ApiUpda
 func (a *ClientsAPIService) UpdateClientExecute(r ApiUpdateClientRequest) (*Client, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Client
 	)
@@ -2863,7 +2863,7 @@ func (a *ClientsAPIService) UpdateClientTaxData(ctx context.Context, client stri
 func (a *ClientsAPIService) UpdateClientTaxDataExecute(r ApiUpdateClientTaxDataRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -3080,7 +3080,7 @@ func (a *ClientsAPIService) UploadClient(ctx context.Context, id string) ApiUplo
 func (a *ClientsAPIService) UploadClientExecute(r ApiUploadClientRequest) (*Client, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Client
 	)

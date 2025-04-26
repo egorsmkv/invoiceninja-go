@@ -69,7 +69,7 @@ func (a *TasksAPIService) BulkTasks(ctx context.Context) ApiBulkTasksRequest {
 func (a *TasksAPIService) BulkTasksExecute(r ApiBulkTasksRequest) (*Task, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Task
 	)
@@ -273,7 +273,7 @@ func (a *TasksAPIService) DeleteTask(ctx context.Context, id string) ApiDeleteTa
 func (a *TasksAPIService) DeleteTaskExecute(r ApiDeleteTaskRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -465,7 +465,7 @@ func (a *TasksAPIService) EditTask(ctx context.Context, id string) ApiEditTaskRe
 func (a *TasksAPIService) EditTaskExecute(r ApiEditTaskRequest) (*Task, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Task
 	)
@@ -674,7 +674,7 @@ func (a *TasksAPIService) GetTasks(ctx context.Context) ApiGetTasksRequest {
 func (a *TasksAPIService) GetTasksExecute(r ApiGetTasksRequest) (*GetTasks200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetTasks200Response
 	)
@@ -875,7 +875,7 @@ func (a *TasksAPIService) GetTasksCreate(ctx context.Context) ApiGetTasksCreateR
 func (a *TasksAPIService) GetTasksCreateExecute(r ApiGetTasksCreateRequest) (*Task, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Task
 	)
@@ -1076,7 +1076,7 @@ func (a *TasksAPIService) ShowTask(ctx context.Context, id string) ApiShowTaskRe
 func (a *TasksAPIService) ShowTaskExecute(r ApiShowTaskRequest) (*Task, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Task
 	)
@@ -1273,7 +1273,7 @@ func (a *TasksAPIService) SortTasks(ctx context.Context) ApiSortTasksRequest {
 func (a *TasksAPIService) SortTasksExecute(r ApiSortTasksRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -1461,7 +1461,7 @@ func (a *TasksAPIService) StoreTask(ctx context.Context) ApiStoreTaskRequest {
 func (a *TasksAPIService) StoreTaskExecute(r ApiStoreTaskRequest) (*Task, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Task
 	)
@@ -1662,7 +1662,7 @@ func (a *TasksAPIService) UpdateTask(ctx context.Context, id string) ApiUpdateTa
 func (a *TasksAPIService) UpdateTaskExecute(r ApiUpdateTaskRequest) (*Task, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Task
 	)
@@ -1876,7 +1876,7 @@ func (a *TasksAPIService) UploadTask(ctx context.Context, id string) ApiUploadTa
 func (a *TasksAPIService) UploadTaskExecute(r ApiUploadTaskRequest) (*Task, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Task
 	)

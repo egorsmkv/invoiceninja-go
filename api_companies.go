@@ -65,7 +65,7 @@ func (a *CompaniesAPIService) DeleteCompany(ctx context.Context, id string) ApiD
 func (a *CompaniesAPIService) DeleteCompanyExecute(r ApiDeleteCompanyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -257,7 +257,7 @@ func (a *CompaniesAPIService) EditCompany(ctx context.Context, id string) ApiEdi
 func (a *CompaniesAPIService) EditCompanyExecute(r ApiEditCompanyRequest) (*Company, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Company
 	)
@@ -458,7 +458,7 @@ func (a *CompaniesAPIService) GetCompanies(ctx context.Context) ApiGetCompaniesR
 func (a *CompaniesAPIService) GetCompaniesExecute(r ApiGetCompaniesRequest) (*GetCompanies200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetCompanies200Response
 	)
@@ -656,7 +656,7 @@ func (a *CompaniesAPIService) GetCompaniesCreate(ctx context.Context) ApiGetComp
 func (a *CompaniesAPIService) GetCompaniesCreateExecute(r ApiGetCompaniesCreateRequest) (*Company, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Company
 	)
@@ -857,7 +857,7 @@ func (a *CompaniesAPIService) SetDefaultCompany(ctx context.Context, company str
 func (a *CompaniesAPIService) SetDefaultCompanyExecute(r ApiSetDefaultCompanyRequest) (*Company, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Company
 	)
@@ -1059,7 +1059,7 @@ func (a *CompaniesAPIService) ShowCompany(ctx context.Context, id string) ApiSho
 func (a *CompaniesAPIService) ShowCompanyExecute(r ApiShowCompanyRequest) (*Company, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Company
 	)
@@ -1258,7 +1258,7 @@ func (a *CompaniesAPIService) ShowCurrentCompany(ctx context.Context) ApiShowCur
 func (a *CompaniesAPIService) ShowCurrentCompanyExecute(r ApiShowCurrentCompanyRequest) (*Company, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Company
 	)
@@ -1456,7 +1456,7 @@ func (a *CompaniesAPIService) StoreCompany(ctx context.Context) ApiStoreCompanyR
 func (a *CompaniesAPIService) StoreCompanyExecute(r ApiStoreCompanyRequest) (*Company, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Company
 	)
@@ -1657,7 +1657,7 @@ func (a *CompaniesAPIService) UpdateCompany(ctx context.Context, id string) ApiU
 func (a *CompaniesAPIService) UpdateCompanyExecute(r ApiUpdateCompanyRequest) (*Company, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Company
 	)
@@ -1871,7 +1871,7 @@ func (a *CompaniesAPIService) UploadCompanies(ctx context.Context, id string) Ap
 func (a *CompaniesAPIService) UploadCompaniesExecute(r ApiUploadCompaniesRequest) (*Company, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Company
 	)

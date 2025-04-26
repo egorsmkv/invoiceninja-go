@@ -39,7 +39,7 @@ type Company struct {
 	// A flag determining whether to display product cost is shown in the user interface
 	ShowProductCost *bool `json:"show_product_cost,omitempty"`
 	// A mapping of custom fields for various objects within the company  **note**  The custom fields object is formatted as follows    key : value   entity(integer) : label|type    for example:   \"company1\": \"Number|single_line_text\",    This defines the first company custom field, with label Number which has a custom field type of a single text line    Supported entity types    invoice   product   client   contact   task   user   project   vendor    expense   payment         Supported input types values    single_line_text   date   switch    For text areas, you only need to supply the label ie \"TextArea\", the | and type values are not required.   For the dropdown the data format is as follows:    label|your,drop,down,values,in,comma,separated,format
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	CustomFields map[string]any `json:"custom_fields,omitempty"`
 	// A flag determining whether to show or hide the product cost field in the user interface
 	EnableProductCost *bool `json:"enable_product_cost,omitempty"`
 	// A flag determining whether to show or hide the product quantity field in the user interface
@@ -53,7 +53,7 @@ type Company struct {
 	// A flag determining whether to apply taxes on custom surcharge amounts for the third custom surcharge field
 	CustomSurchargeTaxes3 *bool `json:"custom_surcharge_taxes3,omitempty"`
 	// A flag determining whether to apply taxes on custom surcharge amounts for the fourth custom
-	CustomSurchargeTaxes4 interface{} `json:"custom_surcharge_taxes4,omitempty"`
+	CustomSurchargeTaxes4 any `json:"custom_surcharge_taxes4,omitempty"`
 	// The company logo file in binary format
 	Logo **os.File `json:"logo,omitempty"`
 	// The static company key hash used to identify the Company
@@ -112,7 +112,7 @@ type Company struct {
 	// A flag determining whether to include draft invoices in reports
 	ReportIncludeDrafts *bool `json:"report_include_drafts,omitempty"`
 	// The client registration fields for the company
-	ClientRegistrationFields map[string]interface{} `json:"client_registration_fields,omitempty"`
+	ClientRegistrationFields map[string]any `json:"client_registration_fields,omitempty"`
 	// A flag determining whether to stop recurring invoices when they are unpaid
 	StopOnUnpaidRecurring *bool `json:"stop_on_unpaid_recurring,omitempty"`
 	// A flag determining whether to use quote terms on conversion to an invoice
@@ -148,13 +148,13 @@ type Company struct {
 	// A flag determining whether to calculate taxes for the company
 	CalculateTaxes *bool `json:"calculate_taxes,omitempty"`
 	// The tax data for the company
-	TaxData map[string]interface{} `json:"tax_data,omitempty"`
+	TaxData map[string]any `json:"tax_data,omitempty"`
 	// The e-invoice certificate for the company
 	EInvoiceCertificate *string `json:"e_invoice_certificate,omitempty"`
 	// The e-invoice certificate passphrase for the company
 	EInvoiceCertificatePassphrase *string `json:"e_invoice_certificate_passphrase,omitempty"`
 	// The origin tax data for the company
-	OriginTaxData map[string]interface{} `json:"origin_tax_data,omitempty"`
+	OriginTaxData map[string]any `json:"origin_tax_data,omitempty"`
 	// A flag determining whether to include the project header on invoices by default
 	InvoiceTaskProjectHeader *bool `json:"invoice_task_project_header,omitempty"`
 	// A flag determining whether to include the item description on invoices by default
@@ -186,7 +186,7 @@ type Company struct {
 	// Whether to verify the SMTP peer
 	SmtpVerifyPeer *bool `json:"smtp_verify_peer,omitempty"`
 	// E-invoice settings for the company
-	EInvoice map[string]interface{} `json:"e_invoice,omitempty"`
+	EInvoice map[string]any `json:"e_invoice,omitempty"`
 	// The ID of the legal entity associated with the company
 	LegalEntityId *int32           `json:"legal_entity_id,omitempty"`
 	Settings      *CompanySettings `json:"settings,omitempty"`
@@ -658,9 +658,9 @@ func (o *Company) SetShowProductCost(v bool) {
 }
 
 // GetCustomFields returns the CustomFields field value if set, zero value otherwise.
-func (o *Company) GetCustomFields() map[string]interface{} {
+func (o *Company) GetCustomFields() map[string]any {
 	if o == nil || IsNil(o.CustomFields) {
-		var ret map[string]interface{}
+		var ret map[string]any
 		return ret
 	}
 	return o.CustomFields
@@ -668,9 +668,9 @@ func (o *Company) GetCustomFields() map[string]interface{} {
 
 // GetCustomFieldsOk returns a tuple with the CustomFields field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Company) GetCustomFieldsOk() (map[string]interface{}, bool) {
+func (o *Company) GetCustomFieldsOk() (map[string]any, bool) {
 	if o == nil || IsNil(o.CustomFields) {
-		return map[string]interface{}{}, false
+		return map[string]any{}, false
 	}
 	return o.CustomFields, true
 }
@@ -685,7 +685,7 @@ func (o *Company) HasCustomFields() bool {
 }
 
 // SetCustomFields gets a reference to the given map[string]interface{} and assigns it to the CustomFields field.
-func (o *Company) SetCustomFields(v map[string]interface{}) {
+func (o *Company) SetCustomFields(v map[string]any) {
 	o.CustomFields = v
 }
 
@@ -882,9 +882,9 @@ func (o *Company) SetCustomSurchargeTaxes3(v bool) {
 }
 
 // GetCustomSurchargeTaxes4 returns the CustomSurchargeTaxes4 field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Company) GetCustomSurchargeTaxes4() interface{} {
+func (o *Company) GetCustomSurchargeTaxes4() any {
 	if o == nil {
-		var ret interface{}
+		var ret any
 		return ret
 	}
 	return o.CustomSurchargeTaxes4
@@ -893,7 +893,7 @@ func (o *Company) GetCustomSurchargeTaxes4() interface{} {
 // GetCustomSurchargeTaxes4Ok returns a tuple with the CustomSurchargeTaxes4 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Company) GetCustomSurchargeTaxes4Ok() (*interface{}, bool) {
+func (o *Company) GetCustomSurchargeTaxes4Ok() (*any, bool) {
 	if o == nil || IsNil(o.CustomSurchargeTaxes4) {
 		return nil, false
 	}
@@ -910,7 +910,7 @@ func (o *Company) HasCustomSurchargeTaxes4() bool {
 }
 
 // SetCustomSurchargeTaxes4 gets a reference to the given interface{} and assigns it to the CustomSurchargeTaxes4 field.
-func (o *Company) SetCustomSurchargeTaxes4(v interface{}) {
+func (o *Company) SetCustomSurchargeTaxes4(v any) {
 	o.CustomSurchargeTaxes4 = v
 }
 
@@ -1843,9 +1843,9 @@ func (o *Company) SetReportIncludeDrafts(v bool) {
 }
 
 // GetClientRegistrationFields returns the ClientRegistrationFields field value if set, zero value otherwise.
-func (o *Company) GetClientRegistrationFields() map[string]interface{} {
+func (o *Company) GetClientRegistrationFields() map[string]any {
 	if o == nil || IsNil(o.ClientRegistrationFields) {
-		var ret map[string]interface{}
+		var ret map[string]any
 		return ret
 	}
 	return o.ClientRegistrationFields
@@ -1853,9 +1853,9 @@ func (o *Company) GetClientRegistrationFields() map[string]interface{} {
 
 // GetClientRegistrationFieldsOk returns a tuple with the ClientRegistrationFields field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Company) GetClientRegistrationFieldsOk() (map[string]interface{}, bool) {
+func (o *Company) GetClientRegistrationFieldsOk() (map[string]any, bool) {
 	if o == nil || IsNil(o.ClientRegistrationFields) {
-		return map[string]interface{}{}, false
+		return map[string]any{}, false
 	}
 	return o.ClientRegistrationFields, true
 }
@@ -1870,7 +1870,7 @@ func (o *Company) HasClientRegistrationFields() bool {
 }
 
 // SetClientRegistrationFields gets a reference to the given map[string]interface{} and assigns it to the ClientRegistrationFields field.
-func (o *Company) SetClientRegistrationFields(v map[string]interface{}) {
+func (o *Company) SetClientRegistrationFields(v map[string]any) {
 	o.ClientRegistrationFields = v
 }
 
@@ -2419,9 +2419,9 @@ func (o *Company) SetCalculateTaxes(v bool) {
 }
 
 // GetTaxData returns the TaxData field value if set, zero value otherwise.
-func (o *Company) GetTaxData() map[string]interface{} {
+func (o *Company) GetTaxData() map[string]any {
 	if o == nil || IsNil(o.TaxData) {
-		var ret map[string]interface{}
+		var ret map[string]any
 		return ret
 	}
 	return o.TaxData
@@ -2429,9 +2429,9 @@ func (o *Company) GetTaxData() map[string]interface{} {
 
 // GetTaxDataOk returns a tuple with the TaxData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Company) GetTaxDataOk() (map[string]interface{}, bool) {
+func (o *Company) GetTaxDataOk() (map[string]any, bool) {
 	if o == nil || IsNil(o.TaxData) {
-		return map[string]interface{}{}, false
+		return map[string]any{}, false
 	}
 	return o.TaxData, true
 }
@@ -2446,7 +2446,7 @@ func (o *Company) HasTaxData() bool {
 }
 
 // SetTaxData gets a reference to the given map[string]interface{} and assigns it to the TaxData field.
-func (o *Company) SetTaxData(v map[string]interface{}) {
+func (o *Company) SetTaxData(v map[string]any) {
 	o.TaxData = v
 }
 
@@ -2515,9 +2515,9 @@ func (o *Company) SetEInvoiceCertificatePassphrase(v string) {
 }
 
 // GetOriginTaxData returns the OriginTaxData field value if set, zero value otherwise.
-func (o *Company) GetOriginTaxData() map[string]interface{} {
+func (o *Company) GetOriginTaxData() map[string]any {
 	if o == nil || IsNil(o.OriginTaxData) {
-		var ret map[string]interface{}
+		var ret map[string]any
 		return ret
 	}
 	return o.OriginTaxData
@@ -2525,9 +2525,9 @@ func (o *Company) GetOriginTaxData() map[string]interface{} {
 
 // GetOriginTaxDataOk returns a tuple with the OriginTaxData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Company) GetOriginTaxDataOk() (map[string]interface{}, bool) {
+func (o *Company) GetOriginTaxDataOk() (map[string]any, bool) {
 	if o == nil || IsNil(o.OriginTaxData) {
-		return map[string]interface{}{}, false
+		return map[string]any{}, false
 	}
 	return o.OriginTaxData, true
 }
@@ -2542,7 +2542,7 @@ func (o *Company) HasOriginTaxData() bool {
 }
 
 // SetOriginTaxData gets a reference to the given map[string]interface{} and assigns it to the OriginTaxData field.
-func (o *Company) SetOriginTaxData(v map[string]interface{}) {
+func (o *Company) SetOriginTaxData(v map[string]any) {
 	o.OriginTaxData = v
 }
 
@@ -3038,9 +3038,9 @@ func (o *Company) SetSmtpVerifyPeer(v bool) {
 }
 
 // GetEInvoice returns the EInvoice field value if set, zero value otherwise.
-func (o *Company) GetEInvoice() map[string]interface{} {
+func (o *Company) GetEInvoice() map[string]any {
 	if o == nil || IsNil(o.EInvoice) {
-		var ret map[string]interface{}
+		var ret map[string]any
 		return ret
 	}
 	return o.EInvoice
@@ -3048,9 +3048,9 @@ func (o *Company) GetEInvoice() map[string]interface{} {
 
 // GetEInvoiceOk returns a tuple with the EInvoice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Company) GetEInvoiceOk() (map[string]interface{}, bool) {
+func (o *Company) GetEInvoiceOk() (map[string]any, bool) {
 	if o == nil || IsNil(o.EInvoice) {
-		return map[string]interface{}{}, false
+		return map[string]any{}, false
 	}
 	return o.EInvoice, true
 }
@@ -3065,7 +3065,7 @@ func (o *Company) HasEInvoice() bool {
 }
 
 // SetEInvoice gets a reference to the given map[string]interface{} and assigns it to the EInvoice field.
-func (o *Company) SetEInvoice(v map[string]interface{}) {
+func (o *Company) SetEInvoice(v map[string]any) {
 	o.EInvoice = v
 }
 
@@ -3141,8 +3141,8 @@ func (o Company) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o Company) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o Company) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}

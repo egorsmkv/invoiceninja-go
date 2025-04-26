@@ -68,7 +68,7 @@ func (a *RecurringExpensesAPIService) BulkRecurringExpenses(ctx context.Context)
 func (a *RecurringExpensesAPIService) BulkRecurringExpensesExecute(r ApiBulkRecurringExpensesRequest) (*RecurringExpense, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringExpense
 	)
@@ -261,7 +261,7 @@ func (a *RecurringExpensesAPIService) DeleteRecurringExpense(ctx context.Context
 func (a *RecurringExpensesAPIService) DeleteRecurringExpenseExecute(r ApiDeleteRecurringExpenseRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -442,7 +442,7 @@ func (a *RecurringExpensesAPIService) EditRecurringExpense(ctx context.Context, 
 func (a *RecurringExpensesAPIService) EditRecurringExpenseExecute(r ApiEditRecurringExpenseRequest) (*RecurringExpense, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringExpense
 	)
@@ -639,7 +639,7 @@ func (a *RecurringExpensesAPIService) GetRecurringExpenses(ctx context.Context) 
 func (a *RecurringExpensesAPIService) GetRecurringExpensesExecute(r ApiGetRecurringExpensesRequest) (*GetRecurringExpenses200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetRecurringExpenses200Response
 	)
@@ -829,7 +829,7 @@ func (a *RecurringExpensesAPIService) GetRecurringExpensesCreate(ctx context.Con
 func (a *RecurringExpensesAPIService) GetRecurringExpensesCreateExecute(r ApiGetRecurringExpensesCreateRequest) (*RecurringExpense, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringExpense
 	)
@@ -1019,7 +1019,7 @@ func (a *RecurringExpensesAPIService) ShowRecurringExpense(ctx context.Context, 
 func (a *RecurringExpensesAPIService) ShowRecurringExpenseExecute(r ApiShowRecurringExpenseRequest) (*RecurringExpense, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringExpense
 	)
@@ -1207,7 +1207,7 @@ func (a *RecurringExpensesAPIService) StoreRecurringExpense(ctx context.Context)
 func (a *RecurringExpensesAPIService) StoreRecurringExpenseExecute(r ApiStoreRecurringExpenseRequest) (*RecurringExpense, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringExpense
 	)
@@ -1397,7 +1397,7 @@ func (a *RecurringExpensesAPIService) UpdateRecurringExpense(ctx context.Context
 func (a *RecurringExpensesAPIService) UpdateRecurringExpenseExecute(r ApiUpdateRecurringExpenseRequest) (*RecurringExpense, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringExpense
 	)

@@ -67,7 +67,7 @@ func (a *GroupSettingsAPIService) BulkGroupSettings(ctx context.Context) ApiBulk
 func (a *GroupSettingsAPIService) BulkGroupSettingsExecute(r ApiBulkGroupSettingsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -250,7 +250,7 @@ func (a *GroupSettingsAPIService) DeleteGroupSetting(ctx context.Context, id str
 func (a *GroupSettingsAPIService) DeleteGroupSettingExecute(r ApiDeleteGroupSettingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -431,7 +431,7 @@ func (a *GroupSettingsAPIService) EditGroupSetting(ctx context.Context, id strin
 func (a *GroupSettingsAPIService) EditGroupSettingExecute(r ApiEditGroupSettingRequest) (*GroupSetting, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GroupSetting
 	)
@@ -621,7 +621,7 @@ func (a *GroupSettingsAPIService) GetGroupSettings(ctx context.Context) ApiGetGr
 func (a *GroupSettingsAPIService) GetGroupSettingsExecute(r ApiGetGroupSettingsRequest) (*GetGroupSettings200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetGroupSettings200Response
 	)
@@ -808,7 +808,7 @@ func (a *GroupSettingsAPIService) GetGroupSettingsCreate(ctx context.Context) Ap
 func (a *GroupSettingsAPIService) GetGroupSettingsCreateExecute(r ApiGetGroupSettingsCreateRequest) (*GroupSetting, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GroupSetting
 	)
@@ -998,7 +998,7 @@ func (a *GroupSettingsAPIService) ShowGroupSetting(ctx context.Context, id strin
 func (a *GroupSettingsAPIService) ShowGroupSettingExecute(r ApiShowGroupSettingRequest) (*GroupSetting, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GroupSetting
 	)
@@ -1186,7 +1186,7 @@ func (a *GroupSettingsAPIService) StoreGroupSetting(ctx context.Context) ApiStor
 func (a *GroupSettingsAPIService) StoreGroupSettingExecute(r ApiStoreGroupSettingRequest) (*GroupSetting, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GroupSetting
 	)
@@ -1376,7 +1376,7 @@ func (a *GroupSettingsAPIService) UpdateGroupSetting(ctx context.Context, id str
 func (a *GroupSettingsAPIService) UpdateGroupSettingExecute(r ApiUpdateGroupSettingRequest) (*GroupSetting, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GroupSetting
 	)
@@ -1579,7 +1579,7 @@ func (a *GroupSettingsAPIService) UploadGroupSetting(ctx context.Context, id str
 func (a *GroupSettingsAPIService) UploadGroupSettingExecute(r ApiUploadGroupSettingRequest) (*Invoice, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Invoice
 	)

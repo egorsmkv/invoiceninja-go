@@ -66,7 +66,7 @@ func (a *SystemLogsAPIService) GetSystemLogs(ctx context.Context) ApiGetSystemLo
 func (a *SystemLogsAPIService) GetSystemLogsExecute(r ApiGetSystemLogsRequest) (*GetSystemLogs200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetSystemLogs200Response
 	)
@@ -256,7 +256,7 @@ func (a *SystemLogsAPIService) ShowSystemLogs(ctx context.Context, id string) Ap
 func (a *SystemLogsAPIService) ShowSystemLogsExecute(r ApiShowSystemLogsRequest) (*SystemLog, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *SystemLog
 	)

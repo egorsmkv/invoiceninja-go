@@ -68,7 +68,7 @@ func (a *TokensAPIService) BulkTokens(ctx context.Context) ApiBulkTokensRequest 
 func (a *TokensAPIService) BulkTokensExecute(r ApiBulkTokensRequest) (*CompanyToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *CompanyToken
 	)
@@ -261,7 +261,7 @@ func (a *TokensAPIService) DeleteToken(ctx context.Context, id string) ApiDelete
 func (a *TokensAPIService) DeleteTokenExecute(r ApiDeleteTokenRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -442,7 +442,7 @@ func (a *TokensAPIService) EditToken(ctx context.Context, id string) ApiEditToke
 func (a *TokensAPIService) EditTokenExecute(r ApiEditTokenRequest) (*CompanyToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *CompanyToken
 	)
@@ -640,7 +640,7 @@ func (a *TokensAPIService) GetTokens(ctx context.Context) ApiGetTokensRequest {
 func (a *TokensAPIService) GetTokensExecute(r ApiGetTokensRequest) (*GetTokens200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetTokens200Response
 	)
@@ -830,7 +830,7 @@ func (a *TokensAPIService) GetTokensCreate(ctx context.Context) ApiGetTokensCrea
 func (a *TokensAPIService) GetTokensCreateExecute(r ApiGetTokensCreateRequest) (*CompanyToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *CompanyToken
 	)
@@ -1020,7 +1020,7 @@ func (a *TokensAPIService) ShowToken(ctx context.Context, id string) ApiShowToke
 func (a *TokensAPIService) ShowTokenExecute(r ApiShowTokenRequest) (*CompanyToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *CompanyToken
 	)
@@ -1208,7 +1208,7 @@ func (a *TokensAPIService) StoreToken(ctx context.Context) ApiStoreTokenRequest 
 func (a *TokensAPIService) StoreTokenExecute(r ApiStoreTokenRequest) (*CompanyToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *CompanyToken
 	)
@@ -1398,7 +1398,7 @@ func (a *TokensAPIService) UpdateToken(ctx context.Context, id string) ApiUpdate
 func (a *TokensAPIService) UpdateTokenExecute(r ApiUpdateTokenRequest) (*CompanyToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *CompanyToken
 	)

@@ -64,7 +64,7 @@ func (a *PaymentTermssAPIService) DeletePaymentTerm(ctx context.Context, id stri
 func (a *PaymentTermssAPIService) DeletePaymentTermExecute(r ApiDeletePaymentTermRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 

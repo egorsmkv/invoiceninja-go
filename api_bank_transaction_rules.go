@@ -66,7 +66,7 @@ func (a *BankTransactionRulesAPIService) BulkBankTransactionRules(ctx context.Co
 func (a *BankTransactionRulesAPIService) BulkBankTransactionRulesExecute(r ApiBulkBankTransactionRulesRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -260,7 +260,7 @@ func (a *BankTransactionRulesAPIService) DeleteBankTransactionRule(ctx context.C
 func (a *BankTransactionRulesAPIService) DeleteBankTransactionRuleExecute(r ApiDeleteBankTransactionRuleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -452,7 +452,7 @@ func (a *BankTransactionRulesAPIService) EditBankTransactionRule(ctx context.Con
 func (a *BankTransactionRulesAPIService) EditBankTransactionRuleExecute(r ApiEditBankTransactionRuleRequest) (*BankTransactionRule, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *BankTransactionRule
 	)
@@ -665,7 +665,7 @@ func (a *BankTransactionRulesAPIService) GetBankTransactionRules(ctx context.Con
 func (a *BankTransactionRulesAPIService) GetBankTransactionRulesExecute(r ApiGetBankTransactionRulesRequest) (*GetBankTransactionRules200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetBankTransactionRules200Response
 	)
@@ -869,7 +869,7 @@ func (a *BankTransactionRulesAPIService) GetBankTransactionRulesCreate(ctx conte
 func (a *BankTransactionRulesAPIService) GetBankTransactionRulesCreateExecute(r ApiGetBankTransactionRulesCreateRequest) (*BankTransactionRule, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *BankTransactionRule
 	)
@@ -1070,7 +1070,7 @@ func (a *BankTransactionRulesAPIService) ShowBankTransactionRule(ctx context.Con
 func (a *BankTransactionRulesAPIService) ShowBankTransactionRuleExecute(r ApiShowBankTransactionRuleRequest) (*BankTransactionRule, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *BankTransactionRule
 	)
@@ -1269,7 +1269,7 @@ func (a *BankTransactionRulesAPIService) StoreBankTransactionRule(ctx context.Co
 func (a *BankTransactionRulesAPIService) StoreBankTransactionRuleExecute(r ApiStoreBankTransactionRuleRequest) (*BankTransactionRule, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *BankTransactionRule
 	)
@@ -1470,7 +1470,7 @@ func (a *BankTransactionRulesAPIService) UpdateBankTransactionRule(ctx context.C
 func (a *BankTransactionRulesAPIService) UpdateBankTransactionRuleExecute(r ApiUpdateBankTransactionRuleRequest) (*BankTransactionRule, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *BankTransactionRule
 	)

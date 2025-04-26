@@ -671,8 +671,8 @@ func (o Project) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o Project) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o Project) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	toSerialize["id"] = o.Id
 	toSerialize["user_id"] = o.UserId
 	if !IsNil(o.AssignedUserId) {
@@ -736,7 +736,7 @@ func (o *Project) UnmarshalJSON(data []byte) (err error) {
 		"color",
 	}
 
-	allProperties := make(map[string]interface{})
+	allProperties := make(map[string]any)
 
 	err = json.Unmarshal(data, &allProperties)
 	if err != nil {

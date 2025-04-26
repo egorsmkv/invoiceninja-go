@@ -68,7 +68,7 @@ func (a *ExpensesAPIService) BulkExpenses(ctx context.Context) ApiBulkExpensesRe
 func (a *ExpensesAPIService) BulkExpensesExecute(r ApiBulkExpensesRequest) (*Expense, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Expense
 	)
@@ -261,7 +261,7 @@ func (a *ExpensesAPIService) DeleteExpense(ctx context.Context, id string) ApiDe
 func (a *ExpensesAPIService) DeleteExpenseExecute(r ApiDeleteExpenseRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -442,7 +442,7 @@ func (a *ExpensesAPIService) EditExpense(ctx context.Context, id string) ApiEdit
 func (a *ExpensesAPIService) EditExpenseExecute(r ApiEditExpenseRequest) (*Expense, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Expense
 	)
@@ -639,7 +639,7 @@ func (a *ExpensesAPIService) GetExpenses(ctx context.Context) ApiGetExpensesRequ
 func (a *ExpensesAPIService) GetExpensesExecute(r ApiGetExpensesRequest) (*GetExpenses200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetExpenses200Response
 	)
@@ -829,7 +829,7 @@ func (a *ExpensesAPIService) GetExpensesCreate(ctx context.Context) ApiGetExpens
 func (a *ExpensesAPIService) GetExpensesCreateExecute(r ApiGetExpensesCreateRequest) (*Expense, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Expense
 	)
@@ -1019,7 +1019,7 @@ func (a *ExpensesAPIService) ShowExpense(ctx context.Context, id string) ApiShow
 func (a *ExpensesAPIService) ShowExpenseExecute(r ApiShowExpenseRequest) (*Expense, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Expense
 	)
@@ -1207,7 +1207,7 @@ func (a *ExpensesAPIService) StoreExpense(ctx context.Context) ApiStoreExpenseRe
 func (a *ExpensesAPIService) StoreExpenseExecute(r ApiStoreExpenseRequest) (*Expense, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Expense
 	)
@@ -1397,7 +1397,7 @@ func (a *ExpensesAPIService) UpdateExpense(ctx context.Context, id string) ApiUp
 func (a *ExpensesAPIService) UpdateExpenseExecute(r ApiUpdateExpenseRequest) (*Expense, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Expense
 	)

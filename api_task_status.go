@@ -68,7 +68,7 @@ func (a *TaskStatusAPIService) BulkTaskStatuss(ctx context.Context) ApiBulkTaskS
 func (a *TaskStatusAPIService) BulkTaskStatussExecute(r ApiBulkTaskStatussRequest) (*TaskStatus, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *TaskStatus
 	)
@@ -263,7 +263,7 @@ func (a *TaskStatusAPIService) EditTaskStatuss(ctx context.Context, id string) A
 func (a *TaskStatusAPIService) EditTaskStatussExecute(r ApiEditTaskStatussRequest) (*TaskStatus, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *TaskStatus
 	)
@@ -458,7 +458,7 @@ func (a *TaskStatusAPIService) GetTaskStatuses(ctx context.Context) ApiGetTaskSt
 func (a *TaskStatusAPIService) GetTaskStatusesExecute(r ApiGetTaskStatusesRequest) (*GetTaskStatuses200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetTaskStatuses200Response
 	)
@@ -648,7 +648,7 @@ func (a *TaskStatusAPIService) GetTaskStatussCreate(ctx context.Context) ApiGetT
 func (a *TaskStatusAPIService) GetTaskStatussCreateExecute(r ApiGetTaskStatussCreateRequest) (*TaskStatus, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *TaskStatus
 	)
@@ -838,7 +838,7 @@ func (a *TaskStatusAPIService) ShowTaskStatus(ctx context.Context, id string) Ap
 func (a *TaskStatusAPIService) ShowTaskStatusExecute(r ApiShowTaskStatusRequest) (*TaskStatus, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *TaskStatus
 	)
@@ -1033,7 +1033,7 @@ func (a *TaskStatusAPIService) StoreTaskStatus(ctx context.Context) ApiStoreTask
 func (a *TaskStatusAPIService) StoreTaskStatusExecute(r ApiStoreTaskStatusRequest) (*TaskStatus, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *TaskStatus
 	)
@@ -1228,7 +1228,7 @@ func (a *TaskStatusAPIService) UpdateTaskStatus(ctx context.Context, id string) 
 func (a *TaskStatusAPIService) UpdateTaskStatusExecute(r ApiUpdateTaskStatusRequest) (*TaskStatus, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *TaskStatus
 	)

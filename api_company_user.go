@@ -48,7 +48,7 @@ func (a *CompanyUserAPIService) UpdateCompanyUser(ctx context.Context) ApiUpdate
 func (a *CompanyUserAPIService) UpdateCompanyUserExecute(r ApiUpdateCompanyUserRequest) (*CompanyUser, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *CompanyUser
 	)

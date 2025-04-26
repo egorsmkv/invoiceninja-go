@@ -60,7 +60,7 @@ func (a *ClaimLicenseAPIService) GetClaimLicense(ctx context.Context) ApiGetClai
 func (a *ClaimLicenseAPIService) GetClaimLicenseExecute(r ApiGetClaimLicenseRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 

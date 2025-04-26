@@ -872,8 +872,8 @@ func (o ProductRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ProductRequest) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o ProductRequest) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.AssignedUserId) {
 		toSerialize["assigned_user_id"] = o.AssignedUserId
 	}

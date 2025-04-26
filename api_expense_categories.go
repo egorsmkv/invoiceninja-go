@@ -68,7 +68,7 @@ func (a *ExpenseCategoriesAPIService) BulkExpenseCategorys(ctx context.Context) 
 func (a *ExpenseCategoriesAPIService) BulkExpenseCategorysExecute(r ApiBulkExpenseCategorysRequest) (*Webhook, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Webhook
 	)
@@ -254,7 +254,7 @@ func (a *ExpenseCategoriesAPIService) DeleteExpenseCategory(ctx context.Context,
 func (a *ExpenseCategoriesAPIService) DeleteExpenseCategoryExecute(r ApiDeleteExpenseCategoryRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -425,7 +425,7 @@ func (a *ExpenseCategoriesAPIService) EditExpenseCategory(ctx context.Context, i
 func (a *ExpenseCategoriesAPIService) EditExpenseCategoryExecute(r ApiEditExpenseCategoryRequest) (*ExpenseCategory, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *ExpenseCategory
 	)
@@ -603,7 +603,7 @@ func (a *ExpenseCategoriesAPIService) GetExpenseCategoryCreate(ctx context.Conte
 func (a *ExpenseCategoriesAPIService) GetExpenseCategoryCreateExecute(r ApiGetExpenseCategoryCreateRequest) (*ExpenseCategory, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *ExpenseCategory
 	)
@@ -773,7 +773,7 @@ func (a *ExpenseCategoriesAPIService) GetExpenseCategorys(ctx context.Context) A
 func (a *ExpenseCategoriesAPIService) GetExpenseCategorysExecute(r ApiGetExpenseCategorysRequest) (*GetExpenseCategorys200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetExpenseCategorys200Response
 	)
@@ -948,7 +948,7 @@ func (a *ExpenseCategoriesAPIService) ShowExpenseCategory(ctx context.Context, i
 func (a *ExpenseCategoriesAPIService) ShowExpenseCategoryExecute(r ApiShowExpenseCategoryRequest) (*ExpenseCategory, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *ExpenseCategory
 	)
@@ -1133,7 +1133,7 @@ func (a *ExpenseCategoriesAPIService) StoreExpenseCategory(ctx context.Context) 
 func (a *ExpenseCategoriesAPIService) StoreExpenseCategoryExecute(r ApiStoreExpenseCategoryRequest) (*ExpenseCategory, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *ExpenseCategory
 	)
@@ -1316,7 +1316,7 @@ func (a *ExpenseCategoriesAPIService) UpdateExpenseCategory(ctx context.Context,
 func (a *ExpenseCategoriesAPIService) UpdateExpenseCategoryExecute(r ApiUpdateExpenseCategoryRequest) (*ExpenseCategory, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *ExpenseCategory
 	)

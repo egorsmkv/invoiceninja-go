@@ -60,7 +60,7 @@ func (a *PostmarkAPIService) ConfirmApplePurchase(ctx context.Context) ApiConfir
 func (a *PostmarkAPIService) ConfirmApplePurchaseExecute(r ApiConfirmApplePurchaseRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -237,7 +237,7 @@ func (a *PostmarkAPIService) PostmarkWebhook(ctx context.Context) ApiPostmarkWeb
 func (a *PostmarkAPIService) PostmarkWebhookExecute(r ApiPostmarkWebhookRequest) (*Credit, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Credit
 	)
@@ -422,7 +422,7 @@ func (a *PostmarkAPIService) ProcessAppleWebhook(ctx context.Context) ApiProcess
 func (a *PostmarkAPIService) ProcessAppleWebhookExecute(r ApiProcessAppleWebhookRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 

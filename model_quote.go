@@ -1701,8 +1701,8 @@ func (o Quote) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o Quote) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o Quote) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}

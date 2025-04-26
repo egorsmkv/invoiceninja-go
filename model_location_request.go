@@ -590,8 +590,8 @@ func (o LocationRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o LocationRequest) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o LocationRequest) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}

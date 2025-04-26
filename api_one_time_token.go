@@ -46,7 +46,7 @@ func (a *OneTimeTokenAPIService) OneTimeToken(ctx context.Context) ApiOneTimeTok
 func (a *OneTimeTokenAPIService) OneTimeTokenExecute(r ApiOneTimeTokenRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 

@@ -240,8 +240,8 @@ func (o CompanyLedger) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o CompanyLedger) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o CompanyLedger) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.EntityId) {
 		toSerialize["entity_id"] = o.EntityId
 	}

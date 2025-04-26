@@ -62,7 +62,7 @@ func (a *CompanyLedgerAPIService) GetCompanyLedger(ctx context.Context) ApiGetCo
 func (a *CompanyLedgerAPIService) GetCompanyLedgerExecute(r ApiGetCompanyLedgerRequest) (*GetCompanyLedger200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetCompanyLedger200Response
 	)

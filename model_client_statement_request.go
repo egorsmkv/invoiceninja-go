@@ -240,8 +240,8 @@ func (o ClientStatementRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ClientStatementRequest) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o ClientStatementRequest) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.StartDate) {
 		toSerialize["start_date"] = o.StartDate
 	}

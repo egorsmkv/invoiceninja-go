@@ -1291,8 +1291,8 @@ func (o InvoiceRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o InvoiceRequest) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o InvoiceRequest) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.UserId) {
 		toSerialize["user_id"] = o.UserId
 	}
@@ -1413,7 +1413,7 @@ func (o *InvoiceRequest) UnmarshalJSON(data []byte) (err error) {
 		"client_id",
 	}
 
-	allProperties := make(map[string]interface{})
+	allProperties := make(map[string]any)
 
 	err = json.Unmarshal(data, &allProperties)
 	if err != nil {

@@ -68,7 +68,7 @@ func (a *TaskSchedulersAPIService) BulkTaskSchedulerActions(ctx context.Context)
 func (a *TaskSchedulersAPIService) BulkTaskSchedulerActionsExecute(r ApiBulkTaskSchedulerActionsRequest) (*TaskSchedulerSchema, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *TaskSchedulerSchema
 	)
@@ -259,7 +259,7 @@ func (a *TaskSchedulersAPIService) CreateTaskScheduler(ctx context.Context) ApiC
 func (a *TaskSchedulersAPIService) CreateTaskSchedulerExecute(r ApiCreateTaskSchedulerRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -424,7 +424,7 @@ func (a *TaskSchedulersAPIService) DestroyTaskScheduler(ctx context.Context, id 
 func (a *TaskSchedulersAPIService) DestroyTaskSchedulerExecute(r ApiDestroyTaskSchedulerRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -562,7 +562,7 @@ func (a *TaskSchedulersAPIService) GetTaskScheduler(ctx context.Context) ApiGetT
 func (a *TaskSchedulersAPIService) GetTaskSchedulerExecute(r ApiGetTaskSchedulerRequest) (*TaskSchedulerSchema, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *TaskSchedulerSchema
 	)
@@ -733,7 +733,7 @@ func (a *TaskSchedulersAPIService) GetTaskSchedulers(ctx context.Context) ApiGet
 func (a *TaskSchedulersAPIService) GetTaskSchedulersExecute(r ApiGetTaskSchedulersRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -857,7 +857,7 @@ func (a *TaskSchedulersAPIService) ShowTaskScheduler(ctx context.Context, id str
 func (a *TaskSchedulersAPIService) ShowTaskSchedulerExecute(r ApiShowTaskSchedulerRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -995,7 +995,7 @@ func (a *TaskSchedulersAPIService) UpdateTaskScheduler(ctx context.Context, id s
 func (a *TaskSchedulersAPIService) UpdateTaskSchedulerExecute(r ApiUpdateTaskSchedulerRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 

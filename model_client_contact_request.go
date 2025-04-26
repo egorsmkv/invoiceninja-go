@@ -376,8 +376,8 @@ func (o ClientContactRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ClientContactRequest) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o ClientContactRequest) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.FirstName) {
 		toSerialize["first_name"] = o.FirstName
 	}

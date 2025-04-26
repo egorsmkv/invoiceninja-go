@@ -443,8 +443,8 @@ func (o PaymentRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o PaymentRequest) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o PaymentRequest) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.ClientId) {
 		toSerialize["client_id"] = o.ClientId
 	}

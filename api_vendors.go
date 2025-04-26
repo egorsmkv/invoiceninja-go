@@ -69,7 +69,7 @@ func (a *VendorsAPIService) BulkVendors(ctx context.Context) ApiBulkVendorsReque
 func (a *VendorsAPIService) BulkVendorsExecute(r ApiBulkVendorsRequest) (*Vendor, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Vendor
 	)
@@ -273,7 +273,7 @@ func (a *VendorsAPIService) DeleteVendor(ctx context.Context, id string) ApiDele
 func (a *VendorsAPIService) DeleteVendorExecute(r ApiDeleteVendorRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -465,7 +465,7 @@ func (a *VendorsAPIService) EditVendor(ctx context.Context, id string) ApiEditVe
 func (a *VendorsAPIService) EditVendorExecute(r ApiEditVendorRequest) (*Vendor, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Vendor
 	)
@@ -673,7 +673,7 @@ func (a *VendorsAPIService) GetVendors(ctx context.Context) ApiGetVendorsRequest
 func (a *VendorsAPIService) GetVendorsExecute(r ApiGetVendorsRequest) (*GetVendors200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetVendors200Response
 	)
@@ -874,7 +874,7 @@ func (a *VendorsAPIService) GetVendorsCreate(ctx context.Context) ApiGetVendorsC
 func (a *VendorsAPIService) GetVendorsCreateExecute(r ApiGetVendorsCreateRequest) (*Vendor, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Vendor
 	)
@@ -1075,7 +1075,7 @@ func (a *VendorsAPIService) ShowVendor(ctx context.Context, id string) ApiShowVe
 func (a *VendorsAPIService) ShowVendorExecute(r ApiShowVendorRequest) (*Vendor, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Vendor
 	)
@@ -1274,7 +1274,7 @@ func (a *VendorsAPIService) StoreVendor(ctx context.Context) ApiStoreVendorReque
 func (a *VendorsAPIService) StoreVendorExecute(r ApiStoreVendorRequest) (*Vendor, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Vendor
 	)
@@ -1475,7 +1475,7 @@ func (a *VendorsAPIService) UpdateVendor(ctx context.Context, id string) ApiUpda
 func (a *VendorsAPIService) UpdateVendorExecute(r ApiUpdateVendorRequest) (*Vendor, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Vendor
 	)
@@ -1689,7 +1689,7 @@ func (a *VendorsAPIService) UploadVendor(ctx context.Context, id string) ApiUplo
 func (a *VendorsAPIService) UploadVendorExecute(r ApiUploadVendorRequest) (*Vendor, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Vendor
 	)

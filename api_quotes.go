@@ -86,7 +86,7 @@ func (a *QuotesAPIService) ActionQuote(ctx context.Context, id string, action st
 func (a *QuotesAPIService) ActionQuoteExecute(r ApiActionQuoteRequest) (*Quote, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Quote
 	)
@@ -295,7 +295,7 @@ func (a *QuotesAPIService) BulkQuotes(ctx context.Context) ApiBulkQuotesRequest 
 func (a *QuotesAPIService) BulkQuotesExecute(r ApiBulkQuotesRequest) (*Quote, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Quote
 	)
@@ -501,7 +501,7 @@ func (a *QuotesAPIService) DeleteQuote(ctx context.Context, id string) ApiDelete
 func (a *QuotesAPIService) DeleteQuoteExecute(r ApiDeleteQuoteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -691,7 +691,7 @@ func (a *QuotesAPIService) DownloadCredit(ctx context.Context, invitationKey str
 func (a *QuotesAPIService) DownloadCreditExecute(r ApiDownloadCreditRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -881,7 +881,7 @@ func (a *QuotesAPIService) DownloadQuote(ctx context.Context, invitationKey stri
 func (a *QuotesAPIService) DownloadQuoteExecute(r ApiDownloadQuoteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -1075,7 +1075,7 @@ func (a *QuotesAPIService) EditQuote(ctx context.Context, id string) ApiEditQuot
 func (a *QuotesAPIService) EditQuoteExecute(r ApiEditQuoteRequest) (*Quote, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Quote
 	)
@@ -1348,7 +1348,7 @@ func (a *QuotesAPIService) GetQuotes(ctx context.Context) ApiGetQuotesRequest {
 func (a *QuotesAPIService) GetQuotesExecute(r ApiGetQuotesRequest) (*GetQuotes200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetQuotes200Response
 	)
@@ -1577,7 +1577,7 @@ func (a *QuotesAPIService) GetQuotesCreate(ctx context.Context) ApiGetQuotesCrea
 func (a *QuotesAPIService) GetQuotesCreateExecute(r ApiGetQuotesCreateRequest) (*Quote, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Quote
 	)
@@ -1780,7 +1780,7 @@ func (a *QuotesAPIService) ShowQuote(ctx context.Context, id string) ApiShowQuot
 func (a *QuotesAPIService) ShowQuoteExecute(r ApiShowQuoteRequest) (*Quote, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Quote
 	)
@@ -1994,7 +1994,7 @@ func (a *QuotesAPIService) StoreQuote(ctx context.Context) ApiStoreQuoteRequest 
 func (a *QuotesAPIService) StoreQuoteExecute(r ApiStoreQuoteRequest) (*Quote, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Quote
 	)
@@ -2211,7 +2211,7 @@ func (a *QuotesAPIService) UpdateQuote(ctx context.Context, id string) ApiUpdate
 func (a *QuotesAPIService) UpdateQuoteExecute(r ApiUpdateQuoteRequest) (*Quote, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Quote
 	)
@@ -2425,7 +2425,7 @@ func (a *QuotesAPIService) UploadQuote(ctx context.Context, id string) ApiUpload
 func (a *QuotesAPIService) UploadQuoteExecute(r ApiUploadQuoteRequest) (*Quote, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Quote
 	)

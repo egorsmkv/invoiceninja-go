@@ -46,7 +46,7 @@ func (a *ExportAPIService) GetExport(ctx context.Context) ApiGetExportRequest {
 func (a *ExportAPIService) GetExportExecute(r ApiGetExportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 

@@ -274,8 +274,8 @@ func (o Paymentable) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o Paymentable) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o Paymentable) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}

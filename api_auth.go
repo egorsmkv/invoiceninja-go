@@ -88,7 +88,7 @@ func (a *AuthAPIService) PostLogin(ctx context.Context) ApiPostLoginRequest {
 func (a *AuthAPIService) PostLoginExecute(r ApiPostLoginRequest) (*CompanyUser, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *CompanyUser
 	)

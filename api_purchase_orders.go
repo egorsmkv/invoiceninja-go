@@ -82,7 +82,7 @@ func (a *PurchaseOrdersAPIService) ActionPurchaseOrder(ctx context.Context, id s
 func (a *PurchaseOrdersAPIService) ActionPurchaseOrderExecute(r ApiActionPurchaseOrderRequest) (*PurchaseOrder, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *PurchaseOrder
 	)
@@ -285,7 +285,7 @@ func (a *PurchaseOrdersAPIService) BulkPurchaseOrderss(ctx context.Context) ApiB
 func (a *PurchaseOrdersAPIService) BulkPurchaseOrderssExecute(r ApiBulkPurchaseOrderssRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -479,7 +479,7 @@ func (a *PurchaseOrdersAPIService) DeletePurchaseOrder(ctx context.Context, id s
 func (a *PurchaseOrdersAPIService) DeletePurchaseOrderExecute(r ApiDeletePurchaseOrderRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -669,7 +669,7 @@ func (a *PurchaseOrdersAPIService) DownloadPurchaseOrder(ctx context.Context, in
 func (a *PurchaseOrdersAPIService) DownloadPurchaseOrderExecute(r ApiDownloadPurchaseOrderRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -861,7 +861,7 @@ func (a *PurchaseOrdersAPIService) EditPurchaseOrder(ctx context.Context, id str
 func (a *PurchaseOrdersAPIService) EditPurchaseOrderExecute(r ApiEditPurchaseOrderRequest) (*PurchaseOrder, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *PurchaseOrder
 	)
@@ -1060,7 +1060,7 @@ func (a *PurchaseOrdersAPIService) GetPurchaseOrderCreate(ctx context.Context) A
 func (a *PurchaseOrdersAPIService) GetPurchaseOrderCreateExecute(r ApiGetPurchaseOrderCreateRequest) (*PurchaseOrder, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *PurchaseOrder
 	)
@@ -1261,7 +1261,7 @@ func (a *PurchaseOrdersAPIService) GetPurchaseOrders(ctx context.Context) ApiGet
 func (a *PurchaseOrdersAPIService) GetPurchaseOrdersExecute(r ApiGetPurchaseOrdersRequest) (*GetPurchaseOrders200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetPurchaseOrders200Response
 	)
@@ -1462,7 +1462,7 @@ func (a *PurchaseOrdersAPIService) ShowPurchaseOrder(ctx context.Context, id str
 func (a *PurchaseOrdersAPIService) ShowPurchaseOrderExecute(r ApiShowPurchaseOrderRequest) (*PurchaseOrder, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *PurchaseOrder
 	)
@@ -1661,7 +1661,7 @@ func (a *PurchaseOrdersAPIService) StorePurchaseOrder(ctx context.Context) ApiSt
 func (a *PurchaseOrdersAPIService) StorePurchaseOrderExecute(r ApiStorePurchaseOrderRequest) (*PurchaseOrder, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *PurchaseOrder
 	)
@@ -1862,7 +1862,7 @@ func (a *PurchaseOrdersAPIService) UpdatePurchaseOrder(ctx context.Context, id s
 func (a *PurchaseOrdersAPIService) UpdatePurchaseOrderExecute(r ApiUpdatePurchaseOrderRequest) (*PurchaseOrder, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *PurchaseOrder
 	)
@@ -2076,7 +2076,7 @@ func (a *PurchaseOrdersAPIService) UploadPurchaseOrder(ctx context.Context, id s
 func (a *PurchaseOrdersAPIService) UploadPurchaseOrderExecute(r ApiUploadPurchaseOrderRequest) (*PurchaseOrder, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *PurchaseOrder
 	)

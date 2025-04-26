@@ -84,7 +84,7 @@ func (a *InvoicesAPIService) ActionInvoice(ctx context.Context, id string, actio
 func (a *InvoicesAPIService) ActionInvoiceExecute(r ApiActionInvoiceRequest) (*Invoice, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Invoice
 	)
@@ -287,7 +287,7 @@ func (a *InvoicesAPIService) ApiV1InvoiceInvitationKeyDownloadGet(ctx context.Co
 func (a *InvoicesAPIService) ApiV1InvoiceInvitationKeyDownloadGetExecute(r ApiApiV1InvoiceInvitationKeyDownloadGetRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -457,7 +457,7 @@ func (a *InvoicesAPIService) ApiV1InvoicesCreateGet(ctx context.Context) ApiApiV
 func (a *InvoicesAPIService) ApiV1InvoicesCreateGetExecute(r ApiApiV1InvoicesCreateGetRequest) (*Invoice, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Invoice
 	)
@@ -647,7 +647,7 @@ func (a *InvoicesAPIService) ApiV1InvoicesIdDeliveryNoteGet(ctx context.Context,
 func (a *InvoicesAPIService) ApiV1InvoicesIdDeliveryNoteGetExecute(r ApiApiV1InvoicesIdDeliveryNoteGetRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -853,7 +853,7 @@ func (a *InvoicesAPIService) ApiV1InvoicesIdUploadPost(ctx context.Context, id s
 func (a *InvoicesAPIService) ApiV1InvoicesIdUploadPostExecute(r ApiApiV1InvoicesIdUploadPostRequest) (*Invoice, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Invoice
 	)
@@ -1080,7 +1080,7 @@ func (a *InvoicesAPIService) BulkInvoices(ctx context.Context) ApiBulkInvoicesRe
 func (a *InvoicesAPIService) BulkInvoicesExecute(r ApiBulkInvoicesRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -1276,7 +1276,7 @@ func (a *InvoicesAPIService) DeleteInvoice(ctx context.Context, id string) ApiDe
 func (a *InvoicesAPIService) DeleteInvoiceExecute(r ApiDeleteInvoiceRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -1470,7 +1470,7 @@ func (a *InvoicesAPIService) EditInvoice(ctx context.Context, id string) ApiEdit
 func (a *InvoicesAPIService) EditInvoiceExecute(r ApiEditInvoiceRequest) (*Invoice, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Invoice
 	)
@@ -1797,7 +1797,7 @@ func (a *InvoicesAPIService) GetInvoices(ctx context.Context) ApiGetInvoicesRequ
 func (a *InvoicesAPIService) GetInvoicesExecute(r ApiGetInvoicesRequest) (*GetInvoices200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetInvoices200Response
 	)
@@ -2054,7 +2054,7 @@ func (a *InvoicesAPIService) ShowInvoice(ctx context.Context, id string) ApiShow
 func (a *InvoicesAPIService) ShowInvoiceExecute(r ApiShowInvoiceRequest) (*Invoice, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Invoice
 	)
@@ -2277,7 +2277,7 @@ func (a *InvoicesAPIService) StoreInvoice(ctx context.Context) ApiStoreInvoiceRe
 func (a *InvoicesAPIService) StoreInvoiceExecute(r ApiStoreInvoiceRequest) (*Invoice, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Invoice
 	)
@@ -2500,7 +2500,7 @@ func (a *InvoicesAPIService) UpdateInvoice(ctx context.Context, id string) ApiUp
 func (a *InvoicesAPIService) UpdateInvoiceExecute(r ApiUpdateInvoiceRequest) (*Invoice, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Invoice
 	)

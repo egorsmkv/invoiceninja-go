@@ -68,7 +68,7 @@ func (a *WebhooksAPIService) BulkWebhooks(ctx context.Context) ApiBulkWebhooksRe
 func (a *WebhooksAPIService) BulkWebhooksExecute(r ApiBulkWebhooksRequest) (*Webhook, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Webhook
 	)
@@ -261,7 +261,7 @@ func (a *WebhooksAPIService) DeleteWebhook(ctx context.Context, id string) ApiDe
 func (a *WebhooksAPIService) DeleteWebhookExecute(r ApiDeleteWebhookRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -442,7 +442,7 @@ func (a *WebhooksAPIService) EditWebhook(ctx context.Context, id string) ApiEdit
 func (a *WebhooksAPIService) EditWebhookExecute(r ApiEditWebhookRequest) (*Webhook, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Webhook
 	)
@@ -640,7 +640,7 @@ func (a *WebhooksAPIService) GetWebhooks(ctx context.Context) ApiGetWebhooksRequ
 func (a *WebhooksAPIService) GetWebhooksExecute(r ApiGetWebhooksRequest) (*GetWebhooks200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetWebhooks200Response
 	)
@@ -830,7 +830,7 @@ func (a *WebhooksAPIService) GetWebhooksCreate(ctx context.Context) ApiGetWebhoo
 func (a *WebhooksAPIService) GetWebhooksCreateExecute(r ApiGetWebhooksCreateRequest) (*Webhook, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Webhook
 	)
@@ -1020,7 +1020,7 @@ func (a *WebhooksAPIService) ShowWebhook(ctx context.Context, id string) ApiShow
 func (a *WebhooksAPIService) ShowWebhookExecute(r ApiShowWebhookRequest) (*Webhook, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Webhook
 	)
@@ -1208,7 +1208,7 @@ func (a *WebhooksAPIService) StoreWebhook(ctx context.Context) ApiStoreWebhookRe
 func (a *WebhooksAPIService) StoreWebhookExecute(r ApiStoreWebhookRequest) (*Webhook, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Webhook
 	)
@@ -1398,7 +1398,7 @@ func (a *WebhooksAPIService) UpdateWebhook(ctx context.Context, id string) ApiUp
 func (a *WebhooksAPIService) UpdateWebhookExecute(r ApiUpdateWebhookRequest) (*Webhook, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Webhook
 	)

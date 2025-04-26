@@ -67,7 +67,7 @@ func (a *CreditsAPIService) BulkCredits(ctx context.Context) ApiBulkCreditsReque
 func (a *CreditsAPIService) BulkCreditsExecute(r ApiBulkCreditsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -261,7 +261,7 @@ func (a *CreditsAPIService) DeleteCredit(ctx context.Context, id string) ApiDele
 func (a *CreditsAPIService) DeleteCreditExecute(r ApiDeleteCreditRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -453,7 +453,7 @@ func (a *CreditsAPIService) EditCredit(ctx context.Context, id string) ApiEditCr
 func (a *CreditsAPIService) EditCreditExecute(r ApiEditCreditRequest) (*Invoice, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Invoice
 	)
@@ -655,7 +655,7 @@ func (a *CreditsAPIService) GetCredits(ctx context.Context) ApiGetCreditsRequest
 func (a *CreditsAPIService) GetCreditsExecute(r ApiGetCreditsRequest) (*GetCredits200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetCredits200Response
 	)
@@ -853,7 +853,7 @@ func (a *CreditsAPIService) GetCreditsCreate(ctx context.Context) ApiGetCreditsC
 func (a *CreditsAPIService) GetCreditsCreateExecute(r ApiGetCreditsCreateRequest) (*Credit, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Credit
 	)
@@ -1054,7 +1054,7 @@ func (a *CreditsAPIService) ShowCredit(ctx context.Context, id string) ApiShowCr
 func (a *CreditsAPIService) ShowCreditExecute(r ApiShowCreditRequest) (*Credit, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Credit
 	)
@@ -1253,7 +1253,7 @@ func (a *CreditsAPIService) StoreCredit(ctx context.Context) ApiStoreCreditReque
 func (a *CreditsAPIService) StoreCreditExecute(r ApiStoreCreditRequest) (*Credit, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Credit
 	)
@@ -1454,7 +1454,7 @@ func (a *CreditsAPIService) UpdateCredit(ctx context.Context, id string) ApiUpda
 func (a *CreditsAPIService) UpdateCreditExecute(r ApiUpdateCreditRequest) (*Credit, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Credit
 	)
@@ -1668,7 +1668,7 @@ func (a *CreditsAPIService) UploadCredits(ctx context.Context, id string) ApiUpl
 func (a *CreditsAPIService) UploadCreditsExecute(r ApiUploadCreditsRequest) (*Credit, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Credit
 	)

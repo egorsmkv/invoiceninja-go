@@ -86,7 +86,7 @@ func (a *RefreshAPIService) Refresh(ctx context.Context) ApiRefreshRequest {
 func (a *RefreshAPIService) RefreshExecute(r ApiRefreshRequest) (*CompanyUser, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *CompanyUser
 	)

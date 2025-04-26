@@ -62,7 +62,7 @@ func (a *SupportAPIService) SupportMessage(ctx context.Context) ApiSupportMessag
 func (a *SupportAPIService) SupportMessageExecute(r ApiSupportMessageRequest) ([]string, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue []string
 	)

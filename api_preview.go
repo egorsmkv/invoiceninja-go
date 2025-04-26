@@ -46,7 +46,7 @@ func (a *PreviewAPIService) GetPreview(ctx context.Context) ApiGetPreviewRequest
 func (a *PreviewAPIService) GetPreviewExecute(r ApiGetPreviewRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -200,7 +200,7 @@ func (a *PreviewAPIService) GetPreviewPurchaseOrder(ctx context.Context) ApiGetP
 func (a *PreviewAPIService) GetPreviewPurchaseOrderExecute(r ApiGetPreviewPurchaseOrderRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 

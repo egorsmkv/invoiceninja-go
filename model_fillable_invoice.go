@@ -1056,8 +1056,8 @@ func (o FillableInvoice) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o FillableInvoice) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o FillableInvoice) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.AssignedUserId) {
 		toSerialize["assigned_user_id"] = o.AssignedUserId
 	}

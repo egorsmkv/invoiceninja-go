@@ -68,7 +68,7 @@ func (a *UsersAPIService) BulkUsers(ctx context.Context) ApiBulkUsersRequest {
 func (a *UsersAPIService) BulkUsersExecute(r ApiBulkUsersRequest) (*User, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *User
 	)
@@ -268,7 +268,7 @@ func (a *UsersAPIService) DeleteUser(ctx context.Context, id string) ApiDeleteUs
 func (a *UsersAPIService) DeleteUserExecute(r ApiDeleteUserRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -450,7 +450,7 @@ func (a *UsersAPIService) DetachUser(ctx context.Context, user string) ApiDetach
 func (a *UsersAPIService) DetachUserExecute(r ApiDetachUserRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -631,7 +631,7 @@ func (a *UsersAPIService) EditUser(ctx context.Context, id string) ApiEditUserRe
 func (a *UsersAPIService) EditUserExecute(r ApiEditUserRequest) (*User, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *User
 	)
@@ -821,7 +821,7 @@ func (a *UsersAPIService) GetUsers(ctx context.Context) ApiGetUsersRequest {
 func (a *UsersAPIService) GetUsersExecute(r ApiGetUsersRequest) (*GetUsers200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetUsers200Response
 	)
@@ -1008,7 +1008,7 @@ func (a *UsersAPIService) GetUsersCreate(ctx context.Context) ApiGetUsersCreateR
 func (a *UsersAPIService) GetUsersCreateExecute(r ApiGetUsersCreateRequest) (*User, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *User
 	)
@@ -1196,7 +1196,7 @@ func (a *UsersAPIService) InviteUser(ctx context.Context, user string) ApiInvite
 func (a *UsersAPIService) InviteUserExecute(r ApiInviteUserRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -1375,7 +1375,7 @@ func (a *UsersAPIService) InviteUserReconfirm(ctx context.Context, user string) 
 func (a *UsersAPIService) InviteUserReconfirmExecute(r ApiInviteUserReconfirmRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -1556,7 +1556,7 @@ func (a *UsersAPIService) ShowUser(ctx context.Context, id string) ApiShowUserRe
 func (a *UsersAPIService) ShowUserExecute(r ApiShowUserRequest) (*User, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *User
 	)
@@ -1744,7 +1744,7 @@ func (a *UsersAPIService) StoreUser(ctx context.Context) ApiStoreUserRequest {
 func (a *UsersAPIService) StoreUserExecute(r ApiStoreUserRequest) (*User, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *User
 	)
@@ -1934,7 +1934,7 @@ func (a *UsersAPIService) UpdateUser(ctx context.Context, id string) ApiUpdateUs
 func (a *UsersAPIService) UpdateUserExecute(r ApiUpdateUserRequest) (*User, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *User
 	)

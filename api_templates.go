@@ -55,7 +55,7 @@ func (a *TemplatesAPIService) GetShowTemplate(ctx context.Context) ApiGetShowTem
 func (a *TemplatesAPIService) GetShowTemplateExecute(r ApiGetShowTemplateRequest) (*Template, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Template
 	)

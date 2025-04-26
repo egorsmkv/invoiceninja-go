@@ -76,7 +76,7 @@ type CompanySettings struct {
 	// Boolean flag determining whether inclusive or exclusive taxes are used
 	InclusiveTaxes *bool `json:"inclusive_taxes,omitempty"`
 	// JSON payload of customized translations
-	Translations map[string]interface{} `json:"translations,omitempty"`
+	Translations map[string]any `json:"translations,omitempty"`
 	// Allows customisation of the task number pattern
 	TaskNumberPattern *string `json:"task_number_pattern,omitempty"`
 	// The incrementing counter for tasks
@@ -1474,9 +1474,9 @@ func (o *CompanySettings) SetInclusiveTaxes(v bool) {
 }
 
 // GetTranslations returns the Translations field value if set, zero value otherwise.
-func (o *CompanySettings) GetTranslations() map[string]interface{} {
+func (o *CompanySettings) GetTranslations() map[string]any {
 	if o == nil || IsNil(o.Translations) {
-		var ret map[string]interface{}
+		var ret map[string]any
 		return ret
 	}
 	return o.Translations
@@ -1484,9 +1484,9 @@ func (o *CompanySettings) GetTranslations() map[string]interface{} {
 
 // GetTranslationsOk returns a tuple with the Translations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CompanySettings) GetTranslationsOk() (map[string]interface{}, bool) {
+func (o *CompanySettings) GetTranslationsOk() (map[string]any, bool) {
 	if o == nil || IsNil(o.Translations) {
-		return map[string]interface{}{}, false
+		return map[string]any{}, false
 	}
 	return o.Translations, true
 }
@@ -1501,7 +1501,7 @@ func (o *CompanySettings) HasTranslations() bool {
 }
 
 // SetTranslations gets a reference to the given map[string]interface{} and assigns it to the Translations field.
-func (o *CompanySettings) SetTranslations(v map[string]interface{}) {
+func (o *CompanySettings) SetTranslations(v map[string]any) {
 	o.Translations = v
 }
 
@@ -7241,8 +7241,8 @@ func (o CompanySettings) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o CompanySettings) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o CompanySettings) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	toSerialize["currency_id"] = o.CurrencyId
 	if !IsNil(o.TimezoneId) {
 		toSerialize["timezone_id"] = o.TimezoneId
@@ -7888,7 +7888,7 @@ func (o *CompanySettings) UnmarshalJSON(data []byte) (err error) {
 		"currency_id",
 	}
 
-	allProperties := make(map[string]interface{})
+	allProperties := make(map[string]any)
 
 	err = json.Unmarshal(data, &allProperties)
 	if err != nil {

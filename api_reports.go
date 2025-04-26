@@ -52,7 +52,7 @@ func (a *ReportsAPIService) GetClientReport(ctx context.Context) ApiGetClientRep
 func (a *ReportsAPIService) GetClientReportExecute(r ApiGetClientReportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -217,7 +217,7 @@ func (a *ReportsAPIService) GetContactReport(ctx context.Context) ApiGetContactR
 func (a *ReportsAPIService) GetContactReportExecute(r ApiGetContactReportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -382,7 +382,7 @@ func (a *ReportsAPIService) GetCreditReport(ctx context.Context) ApiGetCreditRep
 func (a *ReportsAPIService) GetCreditReportExecute(r ApiGetCreditReportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -547,7 +547,7 @@ func (a *ReportsAPIService) GetDocumentReport(ctx context.Context) ApiGetDocumen
 func (a *ReportsAPIService) GetDocumentReportExecute(r ApiGetDocumentReportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -712,7 +712,7 @@ func (a *ReportsAPIService) GetExpenseReport(ctx context.Context) ApiGetExpenseR
 func (a *ReportsAPIService) GetExpenseReportExecute(r ApiGetExpenseReportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -877,7 +877,7 @@ func (a *ReportsAPIService) GetInvoiceItemReport(ctx context.Context) ApiGetInvo
 func (a *ReportsAPIService) GetInvoiceItemReportExecute(r ApiGetInvoiceItemReportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -1042,7 +1042,7 @@ func (a *ReportsAPIService) GetInvoiceReport(ctx context.Context) ApiGetInvoiceR
 func (a *ReportsAPIService) GetInvoiceReportExecute(r ApiGetInvoiceReportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -1207,7 +1207,7 @@ func (a *ReportsAPIService) GetPaymentReport(ctx context.Context) ApiGetPaymentR
 func (a *ReportsAPIService) GetPaymentReportExecute(r ApiGetPaymentReportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -1372,7 +1372,7 @@ func (a *ReportsAPIService) GetProductReport(ctx context.Context) ApiGetProductR
 func (a *ReportsAPIService) GetProductReportExecute(r ApiGetProductReportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -1537,7 +1537,7 @@ func (a *ReportsAPIService) GetProductSalesReport(ctx context.Context) ApiGetPro
 func (a *ReportsAPIService) GetProductSalesReportExecute(r ApiGetProductSalesReportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -1702,7 +1702,7 @@ func (a *ReportsAPIService) GetProfitLossReport(ctx context.Context) ApiGetProfi
 func (a *ReportsAPIService) GetProfitLossReportExecute(r ApiGetProfitLossReportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -1867,7 +1867,7 @@ func (a *ReportsAPIService) GetQuoteItemReport(ctx context.Context) ApiGetQuoteI
 func (a *ReportsAPIService) GetQuoteItemReportExecute(r ApiGetQuoteItemReportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -2032,7 +2032,7 @@ func (a *ReportsAPIService) GetQuoteReport(ctx context.Context) ApiGetQuoteRepor
 func (a *ReportsAPIService) GetQuoteReportExecute(r ApiGetQuoteReportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -2197,7 +2197,7 @@ func (a *ReportsAPIService) GetRecurringInvoiceReport(ctx context.Context) ApiGe
 func (a *ReportsAPIService) GetRecurringInvoiceReportExecute(r ApiGetRecurringInvoiceReportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -2362,7 +2362,7 @@ func (a *ReportsAPIService) GetTaskReport(ctx context.Context) ApiGetTaskReportR
 func (a *ReportsAPIService) GetTaskReportExecute(r ApiGetTaskReportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 

@@ -68,7 +68,7 @@ func (a *PaymentTermsAPIService) BulkPaymentTerms(ctx context.Context) ApiBulkPa
 func (a *PaymentTermsAPIService) BulkPaymentTermsExecute(r ApiBulkPaymentTermsRequest) (*PaymentTerm, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *PaymentTerm
 	)
@@ -263,7 +263,7 @@ func (a *PaymentTermsAPIService) EditPaymentTerms(ctx context.Context, id string
 func (a *PaymentTermsAPIService) EditPaymentTermsExecute(r ApiEditPaymentTermsRequest) (*PaymentTerm, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *PaymentTerm
 	)
@@ -458,7 +458,7 @@ func (a *PaymentTermsAPIService) GetPaymentTerms(ctx context.Context) ApiGetPaym
 func (a *PaymentTermsAPIService) GetPaymentTermsExecute(r ApiGetPaymentTermsRequest) (*GetPaymentTerms200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetPaymentTerms200Response
 	)
@@ -648,7 +648,7 @@ func (a *PaymentTermsAPIService) GetPaymentTermsCreate(ctx context.Context) ApiG
 func (a *PaymentTermsAPIService) GetPaymentTermsCreateExecute(r ApiGetPaymentTermsCreateRequest) (*Payment, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Payment
 	)
@@ -838,7 +838,7 @@ func (a *PaymentTermsAPIService) ShowPaymentTerm(ctx context.Context, id string)
 func (a *PaymentTermsAPIService) ShowPaymentTermExecute(r ApiShowPaymentTermRequest) (*PaymentTerm, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *PaymentTerm
 	)
@@ -1033,7 +1033,7 @@ func (a *PaymentTermsAPIService) StorePaymentTerm(ctx context.Context) ApiStoreP
 func (a *PaymentTermsAPIService) StorePaymentTermExecute(r ApiStorePaymentTermRequest) (*PaymentTerm, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *PaymentTerm
 	)
@@ -1228,7 +1228,7 @@ func (a *PaymentTermsAPIService) UpdatePaymentTerm(ctx context.Context, id strin
 func (a *PaymentTermsAPIService) UpdatePaymentTermExecute(r ApiUpdatePaymentTermRequest) (*PaymentTerm, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *PaymentTerm
 	)

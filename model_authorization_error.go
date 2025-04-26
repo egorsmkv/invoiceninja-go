@@ -103,8 +103,8 @@ func (o AuthorizationError) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o AuthorizationError) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o AuthorizationError) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
 	}

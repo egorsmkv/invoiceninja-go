@@ -104,8 +104,8 @@ func (o InvoicePaymentable) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o InvoicePaymentable) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o InvoicePaymentable) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.InvoiceId) {
 		toSerialize["invoice_id"] = o.InvoiceId
 	}

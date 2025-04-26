@@ -85,7 +85,7 @@ func (a *PaymentsAPIService) ActionPayment(ctx context.Context, id string, actio
 func (a *PaymentsAPIService) ActionPaymentExecute(r ApiActionPaymentRequest) (*Payment, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Payment
 	)
@@ -290,7 +290,7 @@ func (a *PaymentsAPIService) BulkPayments(ctx context.Context) ApiBulkPaymentsRe
 func (a *PaymentsAPIService) BulkPaymentsExecute(r ApiBulkPaymentsRequest) (*Payment, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Payment
 	)
@@ -494,7 +494,7 @@ func (a *PaymentsAPIService) DeletePayment(ctx context.Context, id string) ApiDe
 func (a *PaymentsAPIService) DeletePaymentExecute(r ApiDeletePaymentRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -686,7 +686,7 @@ func (a *PaymentsAPIService) EditPayment(ctx context.Context, id string) ApiEdit
 func (a *PaymentsAPIService) EditPaymentExecute(r ApiEditPaymentRequest) (*Payment, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Payment
 	)
@@ -957,7 +957,7 @@ func (a *PaymentsAPIService) GetPayments(ctx context.Context) ApiGetPaymentsRequ
 func (a *PaymentsAPIService) GetPaymentsExecute(r ApiGetPaymentsRequest) (*GetPayments200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetPayments200Response
 	)
@@ -1185,7 +1185,7 @@ func (a *PaymentsAPIService) GetPaymentsCreate(ctx context.Context) ApiGetPaymen
 func (a *PaymentsAPIService) GetPaymentsCreateExecute(r ApiGetPaymentsCreateRequest) (*Payment, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Payment
 	)
@@ -1386,7 +1386,7 @@ func (a *PaymentsAPIService) ShowPayment(ctx context.Context, id string) ApiShow
 func (a *PaymentsAPIService) ShowPaymentExecute(r ApiShowPaymentRequest) (*Payment, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Payment
 	)
@@ -1599,7 +1599,7 @@ func (a *PaymentsAPIService) StorePayment(ctx context.Context) ApiStorePaymentRe
 func (a *PaymentsAPIService) StorePaymentExecute(r ApiStorePaymentRequest) (*Payment, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Payment
 	)
@@ -1812,7 +1812,7 @@ func (a *PaymentsAPIService) StoreRefund(ctx context.Context) ApiStoreRefundRequ
 func (a *PaymentsAPIService) StoreRefundExecute(r ApiStoreRefundRequest) (*Payment, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Payment
 	)
@@ -2018,7 +2018,7 @@ func (a *PaymentsAPIService) UpdatePayment(ctx context.Context, id string) ApiUp
 func (a *PaymentsAPIService) UpdatePaymentExecute(r ApiUpdatePaymentRequest) (*Payment, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Payment
 	)
@@ -2232,7 +2232,7 @@ func (a *PaymentsAPIService) UploadPayment(ctx context.Context, id string) ApiUp
 func (a *PaymentsAPIService) UploadPaymentExecute(r ApiUploadPaymentRequest) (*Payment, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Payment
 	)

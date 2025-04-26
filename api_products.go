@@ -71,7 +71,7 @@ func (a *ProductsAPIService) BulkProducts(ctx context.Context) ApiBulkProductsRe
 func (a *ProductsAPIService) BulkProductsExecute(r ApiBulkProductsRequest) (*Product, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Product
 	)
@@ -276,7 +276,7 @@ func (a *ProductsAPIService) DeleteProduct(ctx context.Context, id string) ApiDe
 func (a *ProductsAPIService) DeleteProductExecute(r ApiDeleteProductRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -469,7 +469,7 @@ func (a *ProductsAPIService) EditProduct(ctx context.Context, id string) ApiEdit
 func (a *ProductsAPIService) EditProductExecute(r ApiEditProductRequest) (*Product, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Product
 	)
@@ -741,7 +741,7 @@ func (a *ProductsAPIService) GetProducts(ctx context.Context) ApiGetProductsRequ
 func (a *ProductsAPIService) GetProductsExecute(r ApiGetProductsRequest) (*GetProducts200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetProducts200Response
 	)
@@ -970,7 +970,7 @@ func (a *ProductsAPIService) GetProductsCreate(ctx context.Context) ApiGetProduc
 func (a *ProductsAPIService) GetProductsCreateExecute(r ApiGetProductsCreateRequest) (*Product, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Product
 	)
@@ -1172,7 +1172,7 @@ func (a *ProductsAPIService) ShowProduct(ctx context.Context, id string) ApiShow
 func (a *ProductsAPIService) ShowProductExecute(r ApiShowProductRequest) (*Product, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Product
 	)
@@ -1379,7 +1379,7 @@ func (a *ProductsAPIService) StoreProduct(ctx context.Context) ApiStoreProductRe
 func (a *ProductsAPIService) StoreProductExecute(r ApiStoreProductRequest) (*Product, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Product
 	)
@@ -1593,7 +1593,7 @@ func (a *ProductsAPIService) UpdateProduct(ctx context.Context, id string) ApiUp
 func (a *ProductsAPIService) UpdateProductExecute(r ApiUpdateProductRequest) (*Product, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Product
 	)
@@ -1754,7 +1754,7 @@ type ApiUploadProductRequest struct {
 	id             string
 	include        *string
 	method         *string
-	documents      *[]interface{}
+	documents      *[]any
 }
 
 // The API token to be used for authentication
@@ -1780,7 +1780,7 @@ func (r ApiUploadProductRequest) Method(method string) ApiUploadProductRequest {
 	return r
 }
 
-func (r ApiUploadProductRequest) Documents(documents []interface{}) ApiUploadProductRequest {
+func (r ApiUploadProductRequest) Documents(documents []any) ApiUploadProductRequest {
 	r.documents = &documents
 	return r
 }
@@ -1813,7 +1813,7 @@ func (a *ProductsAPIService) UploadProduct(ctx context.Context, id string) ApiUp
 func (a *ProductsAPIService) UploadProductExecute(r ApiUploadProductRequest) (*Product, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Product
 	)

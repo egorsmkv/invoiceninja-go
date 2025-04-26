@@ -79,7 +79,7 @@ func (a *RecurringExpenseAPIService) UploadRecurringExpense(ctx context.Context,
 func (a *RecurringExpenseAPIService) UploadRecurringExpenseExecute(r ApiUploadRecurringExpenseRequest) (*RecurringExpense, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringExpense
 	)

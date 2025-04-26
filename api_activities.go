@@ -84,7 +84,7 @@ func (a *ActivitiesAPIService) GetActivities(ctx context.Context) ApiGetActiviti
 func (a *ActivitiesAPIService) GetActivitiesExecute(r ApiGetActivitiesRequest) (*GetActivities200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetActivities200Response
 	)
@@ -281,7 +281,7 @@ func (a *ActivitiesAPIService) GetActivityHistoricalEntityPdf(ctx context.Contex
 func (a *ActivitiesAPIService) GetActivityHistoricalEntityPdfExecute(r ApiGetActivityHistoricalEntityPdfRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 

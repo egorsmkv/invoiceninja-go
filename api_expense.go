@@ -79,7 +79,7 @@ func (a *ExpenseAPIService) UploadExpense(ctx context.Context, id string) ApiUpl
 func (a *ExpenseAPIService) UploadExpenseExecute(r ApiUploadExpenseRequest) (*Expense, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Expense
 	)

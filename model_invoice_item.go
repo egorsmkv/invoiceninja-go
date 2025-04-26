@@ -869,8 +869,8 @@ func (o InvoiceItem) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o InvoiceItem) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o InvoiceItem) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Quantity) {
 		toSerialize["quantity"] = o.Quantity
 	}

@@ -70,8 +70,8 @@ func (o UpdateJobForASchedulerSchema) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o UpdateJobForASchedulerSchema) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o UpdateJobForASchedulerSchema) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Job) {
 		toSerialize["job"] = o.Job
 	}

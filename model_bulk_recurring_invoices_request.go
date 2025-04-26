@@ -103,8 +103,8 @@ func (o BulkRecurringInvoicesRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o BulkRecurringInvoicesRequest) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o BulkRecurringInvoicesRequest) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Action) {
 		toSerialize["action"] = o.Action
 	}

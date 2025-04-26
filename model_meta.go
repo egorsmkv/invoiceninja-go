@@ -69,8 +69,8 @@ func (o Meta) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o Meta) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o Meta) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Pagination) {
 		toSerialize["pagination"] = o.Pagination
 	}

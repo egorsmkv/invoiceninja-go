@@ -69,7 +69,7 @@ func (a *ProjectsAPIService) BulkProjects(ctx context.Context) ApiBulkProjectsRe
 func (a *ProjectsAPIService) BulkProjectsExecute(r ApiBulkProjectsRequest) (*Project, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Project
 	)
@@ -273,7 +273,7 @@ func (a *ProjectsAPIService) DeleteProject(ctx context.Context, id string) ApiDe
 func (a *ProjectsAPIService) DeleteProjectExecute(r ApiDeleteProjectRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -465,7 +465,7 @@ func (a *ProjectsAPIService) EditProject(ctx context.Context, id string) ApiEdit
 func (a *ProjectsAPIService) EditProjectExecute(r ApiEditProjectRequest) (*Project, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Project
 	)
@@ -671,7 +671,7 @@ func (a *ProjectsAPIService) GetProjects(ctx context.Context) ApiGetProjectsRequ
 func (a *ProjectsAPIService) GetProjectsExecute(r ApiGetProjectsRequest) (*GetProjects200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetProjects200Response
 	)
@@ -872,7 +872,7 @@ func (a *ProjectsAPIService) GetProjectsCreate(ctx context.Context) ApiGetProjec
 func (a *ProjectsAPIService) GetProjectsCreateExecute(r ApiGetProjectsCreateRequest) (*Project, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Project
 	)
@@ -1073,7 +1073,7 @@ func (a *ProjectsAPIService) ShowProject(ctx context.Context, id string) ApiShow
 func (a *ProjectsAPIService) ShowProjectExecute(r ApiShowProjectRequest) (*Project, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Project
 	)
@@ -1272,7 +1272,7 @@ func (a *ProjectsAPIService) StoreProject(ctx context.Context) ApiStoreProjectRe
 func (a *ProjectsAPIService) StoreProjectExecute(r ApiStoreProjectRequest) (*Project, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Project
 	)
@@ -1473,7 +1473,7 @@ func (a *ProjectsAPIService) UpdateProject(ctx context.Context, id string) ApiUp
 func (a *ProjectsAPIService) UpdateProjectExecute(r ApiUpdateProjectRequest) (*Project, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Project
 	)
@@ -1687,7 +1687,7 @@ func (a *ProjectsAPIService) UploadProject(ctx context.Context, id string) ApiUp
 func (a *ProjectsAPIService) UploadProjectExecute(r ApiUploadProjectRequest) (*Project, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Project
 	)

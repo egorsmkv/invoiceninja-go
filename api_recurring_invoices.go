@@ -85,7 +85,7 @@ func (a *RecurringInvoicesAPIService) ActionRecurringInvoice(ctx context.Context
 func (a *RecurringInvoicesAPIService) ActionRecurringInvoiceExecute(r ApiActionRecurringInvoiceRequest) (*RecurringInvoice, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringInvoice
 	)
@@ -292,7 +292,7 @@ func (a *RecurringInvoicesAPIService) BulkRecurringInvoices(ctx context.Context)
 func (a *RecurringInvoicesAPIService) BulkRecurringInvoicesExecute(r ApiBulkRecurringInvoicesRequest) (*RecurringInvoice, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringInvoice
 	)
@@ -496,7 +496,7 @@ func (a *RecurringInvoicesAPIService) DeleteRecurringInvoice(ctx context.Context
 func (a *RecurringInvoicesAPIService) DeleteRecurringInvoiceExecute(r ApiDeleteRecurringInvoiceRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -686,7 +686,7 @@ func (a *RecurringInvoicesAPIService) DownloadRecurringInvoice(ctx context.Conte
 func (a *RecurringInvoicesAPIService) DownloadRecurringInvoiceExecute(r ApiDownloadRecurringInvoiceRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -878,7 +878,7 @@ func (a *RecurringInvoicesAPIService) EditRecurringInvoice(ctx context.Context, 
 func (a *RecurringInvoicesAPIService) EditRecurringInvoiceExecute(r ApiEditRecurringInvoiceRequest) (*RecurringInvoice, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringInvoice
 	)
@@ -1170,7 +1170,7 @@ func (a *RecurringInvoicesAPIService) GetRecurringInvoices(ctx context.Context) 
 func (a *RecurringInvoicesAPIService) GetRecurringInvoicesExecute(r ApiGetRecurringInvoicesRequest) (*GetRecurringInvoices200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetRecurringInvoices200Response
 	)
@@ -1407,7 +1407,7 @@ func (a *RecurringInvoicesAPIService) GetRecurringInvoicesCreate(ctx context.Con
 func (a *RecurringInvoicesAPIService) GetRecurringInvoicesCreateExecute(r ApiGetRecurringInvoicesCreateRequest) (*RecurringInvoice, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringInvoice
 	)
@@ -1608,7 +1608,7 @@ func (a *RecurringInvoicesAPIService) ShowRecurringInvoice(ctx context.Context, 
 func (a *RecurringInvoicesAPIService) ShowRecurringInvoiceExecute(r ApiShowRecurringInvoiceRequest) (*RecurringInvoice, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringInvoice
 	)
@@ -1815,7 +1815,7 @@ func (a *RecurringInvoicesAPIService) StoreRecurringInvoice(ctx context.Context)
 func (a *RecurringInvoicesAPIService) StoreRecurringInvoiceExecute(r ApiStoreRecurringInvoiceRequest) (*RecurringInvoice, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringInvoice
 	)
@@ -2021,7 +2021,7 @@ func (a *RecurringInvoicesAPIService) UpdateRecurringInvoice(ctx context.Context
 func (a *RecurringInvoicesAPIService) UpdateRecurringInvoiceExecute(r ApiUpdateRecurringInvoiceRequest) (*RecurringInvoice, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringInvoice
 	)
@@ -2235,7 +2235,7 @@ func (a *RecurringInvoicesAPIService) UploadRecurringInvoice(ctx context.Context
 func (a *RecurringInvoicesAPIService) UploadRecurringInvoiceExecute(r ApiUploadRecurringInvoiceRequest) (*RecurringInvoice, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringInvoice
 	)

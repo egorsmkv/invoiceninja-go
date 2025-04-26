@@ -128,8 +128,8 @@ func (o PostLoginRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o PostLoginRequest) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o PostLoginRequest) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	toSerialize["email"] = o.Email
 	toSerialize["password"] = o.Password
 	if !IsNil(o.OneTimePassword) {
@@ -147,7 +147,7 @@ func (o *PostLoginRequest) UnmarshalJSON(data []byte) (err error) {
 		"password",
 	}
 
-	allProperties := make(map[string]interface{})
+	allProperties := make(map[string]any)
 
 	err = json.Unmarshal(data, &allProperties)
 	if err != nil {

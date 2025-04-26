@@ -74,7 +74,7 @@ func (a *ChartsAPIService) GetChartTotals(ctx context.Context) ApiGetChartTotals
 func (a *ChartsAPIService) GetChartTotalsExecute(r ApiGetChartTotalsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 

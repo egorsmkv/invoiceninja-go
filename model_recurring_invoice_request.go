@@ -52,7 +52,7 @@ type RecurringInvoiceRequest struct {
 	// The tax rate
 	TaxRate3 *float32 `json:"tax_rate3,omitempty"`
 	// An array of objects which define the line items of the invoice
-	LineItems map[string]interface{} `json:"line_items,omitempty"`
+	LineItems map[string]any `json:"line_items,omitempty"`
 	// The invoice discount, can be an amount or a percentage
 	Discount *float32 `json:"discount,omitempty"`
 	// The deposit/partial amount
@@ -777,9 +777,9 @@ func (o *RecurringInvoiceRequest) SetTaxRate3(v float32) {
 }
 
 // GetLineItems returns the LineItems field value if set, zero value otherwise.
-func (o *RecurringInvoiceRequest) GetLineItems() map[string]interface{} {
+func (o *RecurringInvoiceRequest) GetLineItems() map[string]any {
 	if o == nil || IsNil(o.LineItems) {
-		var ret map[string]interface{}
+		var ret map[string]any
 		return ret
 	}
 	return o.LineItems
@@ -787,9 +787,9 @@ func (o *RecurringInvoiceRequest) GetLineItems() map[string]interface{} {
 
 // GetLineItemsOk returns a tuple with the LineItems field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RecurringInvoiceRequest) GetLineItemsOk() (map[string]interface{}, bool) {
+func (o *RecurringInvoiceRequest) GetLineItemsOk() (map[string]any, bool) {
 	if o == nil || IsNil(o.LineItems) {
-		return map[string]interface{}{}, false
+		return map[string]any{}, false
 	}
 	return o.LineItems, true
 }
@@ -804,7 +804,7 @@ func (o *RecurringInvoiceRequest) HasLineItems() bool {
 }
 
 // SetLineItems gets a reference to the given map[string]interface{} and assigns it to the LineItems field.
-func (o *RecurringInvoiceRequest) SetLineItems(v map[string]interface{}) {
+func (o *RecurringInvoiceRequest) SetLineItems(v map[string]any) {
 	o.LineItems = v
 }
 
@@ -1328,8 +1328,8 @@ func (o RecurringInvoiceRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o RecurringInvoiceRequest) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o RecurringInvoiceRequest) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.UserId) {
 		toSerialize["user_id"] = o.UserId
 	}

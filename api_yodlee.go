@@ -55,7 +55,7 @@ func (a *YodleeAPIService) YodleeRefreshWebhook(ctx context.Context) ApiYodleeRe
 func (a *YodleeAPIService) YodleeRefreshWebhookExecute(r ApiYodleeRefreshWebhookRequest) (*Credit, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Credit
 	)

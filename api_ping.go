@@ -46,7 +46,7 @@ func (a *PingAPIService) GetPing(ctx context.Context) ApiGetPingRequest {
 func (a *PingAPIService) GetPingExecute(r ApiGetPingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 

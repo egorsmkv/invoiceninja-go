@@ -68,7 +68,7 @@ func (a *CompanyGatewaysAPIService) BulkCompanyGateways(ctx context.Context) Api
 func (a *CompanyGatewaysAPIService) BulkCompanyGatewaysExecute(r ApiBulkCompanyGatewaysRequest) (*CompanyGateway, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *CompanyGateway
 	)
@@ -261,7 +261,7 @@ func (a *CompanyGatewaysAPIService) DeleteCompanyGateway(ctx context.Context, id
 func (a *CompanyGatewaysAPIService) DeleteCompanyGatewayExecute(r ApiDeleteCompanyGatewayRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -442,7 +442,7 @@ func (a *CompanyGatewaysAPIService) EditCompanyGateway(ctx context.Context, id s
 func (a *CompanyGatewaysAPIService) EditCompanyGatewayExecute(r ApiEditCompanyGatewayRequest) (*CompanyGateway, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *CompanyGateway
 	)
@@ -632,7 +632,7 @@ func (a *CompanyGatewaysAPIService) GetCompanyGateways(ctx context.Context) ApiG
 func (a *CompanyGatewaysAPIService) GetCompanyGatewaysExecute(r ApiGetCompanyGatewaysRequest) (*GetCompanyGateways200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetCompanyGateways200Response
 	)
@@ -830,7 +830,7 @@ func (a *CompanyGatewaysAPIService) GetCompanyGatewaysCreate(ctx context.Context
 func (a *CompanyGatewaysAPIService) GetCompanyGatewaysCreateExecute(r ApiGetCompanyGatewaysCreateRequest) (*CompanyGateway, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *CompanyGateway
 	)
@@ -1020,7 +1020,7 @@ func (a *CompanyGatewaysAPIService) ShowCompanyGateway(ctx context.Context, id s
 func (a *CompanyGatewaysAPIService) ShowCompanyGatewayExecute(r ApiShowCompanyGatewayRequest) (*CompanyGateway, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *CompanyGateway
 	)
@@ -1208,7 +1208,7 @@ func (a *CompanyGatewaysAPIService) StoreCompanyGateway(ctx context.Context) Api
 func (a *CompanyGatewaysAPIService) StoreCompanyGatewayExecute(r ApiStoreCompanyGatewayRequest) (*CompanyGateway, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *CompanyGateway
 	)
@@ -1409,7 +1409,7 @@ func (a *CompanyGatewaysAPIService) UpdateCompanyGateway(ctx context.Context, id
 func (a *CompanyGatewaysAPIService) UpdateCompanyGatewayExecute(r ApiUpdateCompanyGatewayRequest) (*CompanyGateway, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *CompanyGateway
 	)

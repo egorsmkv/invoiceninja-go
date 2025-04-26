@@ -127,8 +127,8 @@ func (o ProductBulkAction) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ProductBulkAction) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o ProductBulkAction) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	toSerialize["action"] = o.Action
 	toSerialize["ids"] = o.Ids
 	if !IsNil(o.TaxId) {
@@ -146,7 +146,7 @@ func (o *ProductBulkAction) UnmarshalJSON(data []byte) (err error) {
 		"ids",
 	}
 
-	allProperties := make(map[string]interface{})
+	allProperties := make(map[string]any)
 
 	err = json.Unmarshal(data, &allProperties)
 	if err != nil {

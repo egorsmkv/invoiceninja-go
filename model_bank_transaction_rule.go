@@ -376,8 +376,8 @@ func (o BankTransactionRule) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o BankTransactionRule) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o BankTransactionRule) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}

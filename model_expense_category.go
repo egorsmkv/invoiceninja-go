@@ -240,8 +240,8 @@ func (o ExpenseCategory) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ExpenseCategory) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o ExpenseCategory) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}

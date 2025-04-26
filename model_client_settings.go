@@ -206,7 +206,7 @@ type ClientSettings struct {
 	// The company name
 	Name *string `json:"name,omitempty"`
 	// The company logo file
-	CompanyLogo map[string]interface{} `json:"company_logo,omitempty"`
+	CompanyLogo map[string]any `json:"company_logo,omitempty"`
 	// The company website URL
 	Website *string `json:"website,omitempty"`
 	// The company address line 1
@@ -3544,9 +3544,9 @@ func (o *ClientSettings) SetName(v string) {
 }
 
 // GetCompanyLogo returns the CompanyLogo field value if set, zero value otherwise.
-func (o *ClientSettings) GetCompanyLogo() map[string]interface{} {
+func (o *ClientSettings) GetCompanyLogo() map[string]any {
 	if o == nil || IsNil(o.CompanyLogo) {
-		var ret map[string]interface{}
+		var ret map[string]any
 		return ret
 	}
 	return o.CompanyLogo
@@ -3554,9 +3554,9 @@ func (o *ClientSettings) GetCompanyLogo() map[string]interface{} {
 
 // GetCompanyLogoOk returns a tuple with the CompanyLogo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ClientSettings) GetCompanyLogoOk() (map[string]interface{}, bool) {
+func (o *ClientSettings) GetCompanyLogoOk() (map[string]any, bool) {
 	if o == nil || IsNil(o.CompanyLogo) {
-		return map[string]interface{}{}, false
+		return map[string]any{}, false
 	}
 	return o.CompanyLogo, true
 }
@@ -3571,7 +3571,7 @@ func (o *ClientSettings) HasCompanyLogo() bool {
 }
 
 // SetCompanyLogo gets a reference to the given map[string]interface{} and assigns it to the CompanyLogo field.
-func (o *ClientSettings) SetCompanyLogo(v map[string]interface{}) {
+func (o *ClientSettings) SetCompanyLogo(v map[string]any) {
 	o.CompanyLogo = v
 }
 
@@ -7071,8 +7071,8 @@ func (o ClientSettings) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ClientSettings) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o ClientSettings) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	toSerialize["currency_id"] = o.CurrencyId
 	if !IsNil(o.TimezoneId) {
 		toSerialize["timezone_id"] = o.TimezoneId
@@ -7703,7 +7703,7 @@ func (o *ClientSettings) UnmarshalJSON(data []byte) (err error) {
 		"currency_id",
 	}
 
-	allProperties := make(map[string]interface{})
+	allProperties := make(map[string]any)
 
 	err = json.Unmarshal(data, &allProperties)
 	if err != nil {

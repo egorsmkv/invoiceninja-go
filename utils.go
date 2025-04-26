@@ -321,7 +321,7 @@ func (v *NullableTime) UnmarshalJSON(src []byte) error {
 }
 
 // IsNil checks if an input is nil
-func IsNil(i interface{}) bool {
+func IsNil(i any) bool {
 	if i == nil {
 		return true
 	}
@@ -335,7 +335,7 @@ func IsNil(i interface{}) bool {
 }
 
 type MappedNullable interface {
-	ToMap() (map[string]interface{}, error)
+	ToMap() (map[string]any, error)
 }
 
 // A wrapper for strict JSON decoding
@@ -346,6 +346,6 @@ func newStrictDecoder(data []byte) *json.Decoder {
 }
 
 // Prevent trying to import "fmt"
-func reportError(format string, a ...interface{}) error {
+func reportError(format string, a ...any) error {
 	return fmt.Errorf(format, a...)
 }

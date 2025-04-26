@@ -64,7 +64,7 @@ func (a *ClientGatewayTokensAPIService) DeleteClientGatewayToken(ctx context.Con
 func (a *ClientGatewayTokensAPIService) DeleteClientGatewayTokenExecute(r ApiDeleteClientGatewayTokenRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -256,7 +256,7 @@ func (a *ClientGatewayTokensAPIService) EditClientGatewayToken(ctx context.Conte
 func (a *ClientGatewayTokensAPIService) EditClientGatewayTokenExecute(r ApiEditClientGatewayTokenRequest) (*ClientGatewayToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *ClientGatewayToken
 	)
@@ -464,7 +464,7 @@ func (a *ClientGatewayTokensAPIService) GetClientGatewayTokens(ctx context.Conte
 func (a *ClientGatewayTokensAPIService) GetClientGatewayTokensExecute(r ApiGetClientGatewayTokensRequest) (*GetClientGatewayTokens200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetClientGatewayTokens200Response
 	)
@@ -665,7 +665,7 @@ func (a *ClientGatewayTokensAPIService) GetClientGatewayTokensCreate(ctx context
 func (a *ClientGatewayTokensAPIService) GetClientGatewayTokensCreateExecute(r ApiGetClientGatewayTokensCreateRequest) (*ClientGatewayToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *ClientGatewayToken
 	)
@@ -866,7 +866,7 @@ func (a *ClientGatewayTokensAPIService) ShowClientGatewayToken(ctx context.Conte
 func (a *ClientGatewayTokensAPIService) ShowClientGatewayTokenExecute(r ApiShowClientGatewayTokenRequest) (*ClientGatewayToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *ClientGatewayToken
 	)
@@ -1065,7 +1065,7 @@ func (a *ClientGatewayTokensAPIService) StoreClientGatewayToken(ctx context.Cont
 func (a *ClientGatewayTokensAPIService) StoreClientGatewayTokenExecute(r ApiStoreClientGatewayTokenRequest) (*ClientGatewayToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *ClientGatewayToken
 	)
@@ -1266,7 +1266,7 @@ func (a *ClientGatewayTokensAPIService) UpdateClientGatewayToken(ctx context.Con
 func (a *ClientGatewayTokensAPIService) UpdateClientGatewayTokenExecute(r ApiUpdateClientGatewayTokenRequest) (*ClientGatewayToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *ClientGatewayToken
 	)

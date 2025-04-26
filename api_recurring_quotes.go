@@ -80,7 +80,7 @@ func (a *RecurringQuotesAPIService) ActionRecurringQuote(ctx context.Context, id
 func (a *RecurringQuotesAPIService) ActionRecurringQuoteExecute(r ApiActionRecurringQuoteRequest) (*RecurringQuote, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringQuote
 	)
@@ -274,7 +274,7 @@ func (a *RecurringQuotesAPIService) BulkRecurringQuotes(ctx context.Context) Api
 func (a *RecurringQuotesAPIService) BulkRecurringQuotesExecute(r ApiBulkRecurringQuotesRequest) (*RecurringQuote, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringQuote
 	)
@@ -467,7 +467,7 @@ func (a *RecurringQuotesAPIService) DeleteRecurringQuote(ctx context.Context, id
 func (a *RecurringQuotesAPIService) DeleteRecurringQuoteExecute(r ApiDeleteRecurringQuoteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -648,7 +648,7 @@ func (a *RecurringQuotesAPIService) EditRecurringQuote(ctx context.Context, id s
 func (a *RecurringQuotesAPIService) EditRecurringQuoteExecute(r ApiEditRecurringQuoteRequest) (*RecurringQuote, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringQuote
 	)
@@ -838,7 +838,7 @@ func (a *RecurringQuotesAPIService) GetRecurringQuotes(ctx context.Context) ApiG
 func (a *RecurringQuotesAPIService) GetRecurringQuotesExecute(r ApiGetRecurringQuotesRequest) (*GetRecurringQuotes200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetRecurringQuotes200Response
 	)
@@ -1025,7 +1025,7 @@ func (a *RecurringQuotesAPIService) GetRecurringQuotesCreate(ctx context.Context
 func (a *RecurringQuotesAPIService) GetRecurringQuotesCreateExecute(r ApiGetRecurringQuotesCreateRequest) (*RecurringQuote, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringQuote
 	)
@@ -1215,7 +1215,7 @@ func (a *RecurringQuotesAPIService) ShowRecurringQuote(ctx context.Context, id s
 func (a *RecurringQuotesAPIService) ShowRecurringQuoteExecute(r ApiShowRecurringQuoteRequest) (*RecurringQuote, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringQuote
 	)
@@ -1403,7 +1403,7 @@ func (a *RecurringQuotesAPIService) StoreRecurringQuote(ctx context.Context) Api
 func (a *RecurringQuotesAPIService) StoreRecurringQuoteExecute(r ApiStoreRecurringQuoteRequest) (*RecurringQuote, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringQuote
 	)
@@ -1593,7 +1593,7 @@ func (a *RecurringQuotesAPIService) UpdateRecurringQuote(ctx context.Context, id
 func (a *RecurringQuotesAPIService) UpdateRecurringQuoteExecute(r ApiUpdateRecurringQuoteRequest) (*RecurringQuote, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *RecurringQuote
 	)

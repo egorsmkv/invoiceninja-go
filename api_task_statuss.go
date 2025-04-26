@@ -64,7 +64,7 @@ func (a *TaskStatussAPIService) DeleteTaskStatus(ctx context.Context, id string)
 func (a *TaskStatussAPIService) DeleteTaskStatusExecute(r ApiDeleteTaskStatusRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 

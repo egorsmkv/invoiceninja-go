@@ -138,8 +138,8 @@ func (o BTRules) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o BTRules) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o BTRules) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.DataKey) {
 		toSerialize["data_key"] = o.DataKey
 	}

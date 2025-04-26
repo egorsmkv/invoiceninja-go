@@ -55,7 +55,7 @@ func (a *EmailsAPIService) SendEmailTemplate(ctx context.Context) ApiSendEmailTe
 func (a *EmailsAPIService) SendEmailTemplateExecute(r ApiSendEmailTemplateRequest) (*Template, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Template
 	)

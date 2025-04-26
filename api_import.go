@@ -46,7 +46,7 @@ func (a *ImportAPIService) GetImportJson(ctx context.Context) ApiGetImportJsonRe
 func (a *ImportAPIService) GetImportJsonExecute(r ApiGetImportJsonRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 

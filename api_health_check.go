@@ -46,7 +46,7 @@ func (a *HealthCheckAPIService) GetHealthCheck(ctx context.Context) ApiGetHealth
 func (a *HealthCheckAPIService) GetHealthCheckExecute(r ApiGetHealthCheckRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 

@@ -16,7 +16,7 @@ type GroupSetting struct {
 	// The name of the group
 	Name *string `json:"name,omitempty"`
 	// The settings object
-	Settings map[string]interface{} `json:"settings,omitempty"`
+	Settings map[string]any `json:"settings,omitempty"`
 }
 
 // NewGroupSetting instantiates a new GroupSetting object
@@ -133,9 +133,9 @@ func (o *GroupSetting) SetName(v string) {
 }
 
 // GetSettings returns the Settings field value if set, zero value otherwise.
-func (o *GroupSetting) GetSettings() map[string]interface{} {
+func (o *GroupSetting) GetSettings() map[string]any {
 	if o == nil || IsNil(o.Settings) {
-		var ret map[string]interface{}
+		var ret map[string]any
 		return ret
 	}
 	return o.Settings
@@ -143,9 +143,9 @@ func (o *GroupSetting) GetSettings() map[string]interface{} {
 
 // GetSettingsOk returns a tuple with the Settings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GroupSetting) GetSettingsOk() (map[string]interface{}, bool) {
+func (o *GroupSetting) GetSettingsOk() (map[string]any, bool) {
 	if o == nil || IsNil(o.Settings) {
-		return map[string]interface{}{}, false
+		return map[string]any{}, false
 	}
 	return o.Settings, true
 }
@@ -160,7 +160,7 @@ func (o *GroupSetting) HasSettings() bool {
 }
 
 // SetSettings gets a reference to the given map[string]interface{} and assigns it to the Settings field.
-func (o *GroupSetting) SetSettings(v map[string]interface{}) {
+func (o *GroupSetting) SetSettings(v map[string]any) {
 	o.Settings = v
 }
 
@@ -172,8 +172,8 @@ func (o GroupSetting) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o GroupSetting) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o GroupSetting) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}

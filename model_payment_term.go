@@ -206,8 +206,8 @@ func (o PaymentTerm) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o PaymentTerm) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o PaymentTerm) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.NumDays) {
 		toSerialize["num_days"] = o.NumDays
 	}

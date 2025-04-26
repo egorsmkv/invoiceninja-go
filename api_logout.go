@@ -67,7 +67,7 @@ func (a *LogoutAPIService) GetLogout(ctx context.Context) ApiGetLogoutRequest {
 func (a *LogoutAPIService) GetLogoutExecute(r ApiGetLogoutRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 

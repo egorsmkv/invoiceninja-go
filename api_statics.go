@@ -60,7 +60,7 @@ func (a *StaticsAPIService) GetStatics(ctx context.Context) ApiGetStaticsRequest
 func (a *StaticsAPIService) GetStaticsExecute(r ApiGetStaticsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 

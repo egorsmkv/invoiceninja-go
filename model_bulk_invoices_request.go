@@ -137,8 +137,8 @@ func (o BulkInvoicesRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o BulkInvoicesRequest) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o BulkInvoicesRequest) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.EmailType) {
 		toSerialize["email_type"] = o.EmailType
 	}

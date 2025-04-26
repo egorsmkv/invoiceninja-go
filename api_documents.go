@@ -71,7 +71,7 @@ func (a *DocumentsAPIService) GetDocuments(ctx context.Context) ApiGetDocumentsR
 func (a *DocumentsAPIService) GetDocumentsExecute(r ApiGetDocumentsRequest) (*GetDocuments200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetDocuments200Response
 	)

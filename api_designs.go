@@ -68,7 +68,7 @@ func (a *DesignsAPIService) BulkDesigns(ctx context.Context) ApiBulkDesignsReque
 func (a *DesignsAPIService) BulkDesignsExecute(r ApiBulkDesignsRequest) (*Design, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Design
 	)
@@ -261,7 +261,7 @@ func (a *DesignsAPIService) DeleteDesign(ctx context.Context, id string) ApiDele
 func (a *DesignsAPIService) DeleteDesignExecute(r ApiDeleteDesignRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -442,7 +442,7 @@ func (a *DesignsAPIService) EditDesign(ctx context.Context, id string) ApiEditDe
 func (a *DesignsAPIService) EditDesignExecute(r ApiEditDesignRequest) (*Design, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Design
 	)
@@ -637,7 +637,7 @@ func (a *DesignsAPIService) GetDesigns(ctx context.Context) ApiGetDesignsRequest
 func (a *DesignsAPIService) GetDesignsExecute(r ApiGetDesignsRequest) (*GetDesigns200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetDesigns200Response
 	)
@@ -827,7 +827,7 @@ func (a *DesignsAPIService) GetDesignsCreate(ctx context.Context) ApiGetDesignsC
 func (a *DesignsAPIService) GetDesignsCreateExecute(r ApiGetDesignsCreateRequest) (*Design, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Design
 	)
@@ -1017,7 +1017,7 @@ func (a *DesignsAPIService) ShowDesign(ctx context.Context, id string) ApiShowDe
 func (a *DesignsAPIService) ShowDesignExecute(r ApiShowDesignRequest) (*Design, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Design
 	)
@@ -1205,7 +1205,7 @@ func (a *DesignsAPIService) StoreDesign(ctx context.Context) ApiStoreDesignReque
 func (a *DesignsAPIService) StoreDesignExecute(r ApiStoreDesignRequest) (*Design, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Design
 	)
@@ -1395,7 +1395,7 @@ func (a *DesignsAPIService) UpdateDesign(ctx context.Context, id string) ApiUpda
 func (a *DesignsAPIService) UpdateDesignExecute(r ApiUpdateDesignRequest) (*Design, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Design
 	)

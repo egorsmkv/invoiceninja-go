@@ -68,7 +68,7 @@ func (a *SubscriptionsAPIService) BulkSubscriptions(ctx context.Context) ApiBulk
 func (a *SubscriptionsAPIService) BulkSubscriptionsExecute(r ApiBulkSubscriptionsRequest) (*Subscription, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Subscription
 	)
@@ -261,7 +261,7 @@ func (a *SubscriptionsAPIService) DeleteSubscription(ctx context.Context, id str
 func (a *SubscriptionsAPIService) DeleteSubscriptionExecute(r ApiDeleteSubscriptionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -442,7 +442,7 @@ func (a *SubscriptionsAPIService) EditSubscription(ctx context.Context, id strin
 func (a *SubscriptionsAPIService) EditSubscriptionExecute(r ApiEditSubscriptionRequest) (*Subscription, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Subscription
 	)
@@ -630,7 +630,7 @@ func (a *SubscriptionsAPIService) GetSubscriptions(ctx context.Context) ApiGetSu
 func (a *SubscriptionsAPIService) GetSubscriptionsExecute(r ApiGetSubscriptionsRequest) (*GetSubscriptions200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetSubscriptions200Response
 	)
@@ -817,7 +817,7 @@ func (a *SubscriptionsAPIService) GetSubscriptionsCreate(ctx context.Context) Ap
 func (a *SubscriptionsAPIService) GetSubscriptionsCreateExecute(r ApiGetSubscriptionsCreateRequest) (*Subscription, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Subscription
 	)
@@ -1007,7 +1007,7 @@ func (a *SubscriptionsAPIService) ShowSubscription(ctx context.Context, id strin
 func (a *SubscriptionsAPIService) ShowSubscriptionExecute(r ApiShowSubscriptionRequest) (*Subscription, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Subscription
 	)
@@ -1195,7 +1195,7 @@ func (a *SubscriptionsAPIService) StoreSubscription(ctx context.Context) ApiStor
 func (a *SubscriptionsAPIService) StoreSubscriptionExecute(r ApiStoreSubscriptionRequest) (*Subscription, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Subscription
 	)
@@ -1385,7 +1385,7 @@ func (a *SubscriptionsAPIService) UpdateSubscription(ctx context.Context, id str
 func (a *SubscriptionsAPIService) UpdateSubscriptionExecute(r ApiUpdateSubscriptionRequest) (*Subscription, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Subscription
 	)

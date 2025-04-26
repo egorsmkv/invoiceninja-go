@@ -138,8 +138,8 @@ func (o CompanyToken) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o CompanyToken) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o CompanyToken) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}

@@ -655,5 +655,21 @@ contact@invoiceninja.com
 ## Dev
 
 ```
+go install github.com/dkorunic/betteralign/cmd/betteralign@latest
+curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.1.5
+go install go.uber.org/nilaway/cmd/nilaway@latest
+go install golang.org/x/tools/cmd/deadcode@latest
+
+go install mvdan.cc/gofumpt@latest
+```
+
+```
+golangci-lint run -c .golangci.yml ./...
+betteralign -apply ./...
+nilaway ./...
+deadcode ./...
+
+gofmt -r 'interface{} -> any' -w .
+
 gofumpt -l -w .
 ```

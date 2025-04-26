@@ -69,8 +69,8 @@ func (o ValidationErrorErrors) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ValidationErrorErrors) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o ValidationErrorErrors) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Value) {
 		toSerialize["value"] = o.Value
 	}

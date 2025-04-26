@@ -102,8 +102,8 @@ func (o GetSubscriptions200Response) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o GetSubscriptions200Response) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o GetSubscriptions200Response) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Data) {
 		toSerialize["data"] = o.Data
 	}

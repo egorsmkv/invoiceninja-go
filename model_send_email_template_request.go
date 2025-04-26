@@ -223,8 +223,8 @@ func (o SendEmailTemplateRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o SendEmailTemplateRequest) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o SendEmailTemplateRequest) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Subject) {
 		toSerialize["subject"] = o.Subject
 	}
@@ -250,7 +250,7 @@ func (o *SendEmailTemplateRequest) UnmarshalJSON(data []byte) (err error) {
 		"template",
 	}
 
-	allProperties := make(map[string]interface{})
+	allProperties := make(map[string]any)
 
 	err = json.Unmarshal(data, &allProperties)
 	if err != nil {

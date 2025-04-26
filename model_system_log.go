@@ -22,7 +22,7 @@ type SystemLog struct {
 	// The Type Type ID
 	TypeId *int32 `json:"type_id,omitempty"`
 	// The json object of the error
-	Log map[string]interface{} `json:"log,omitempty"`
+	Log map[string]any `json:"log,omitempty"`
 	// Timestamp
 	UpdatedAt *string `json:"updated_at,omitempty"`
 	// Timestamp
@@ -239,9 +239,9 @@ func (o *SystemLog) SetTypeId(v int32) {
 }
 
 // GetLog returns the Log field value if set, zero value otherwise.
-func (o *SystemLog) GetLog() map[string]interface{} {
+func (o *SystemLog) GetLog() map[string]any {
 	if o == nil || IsNil(o.Log) {
-		var ret map[string]interface{}
+		var ret map[string]any
 		return ret
 	}
 	return o.Log
@@ -249,9 +249,9 @@ func (o *SystemLog) GetLog() map[string]interface{} {
 
 // GetLogOk returns a tuple with the Log field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SystemLog) GetLogOk() (map[string]interface{}, bool) {
+func (o *SystemLog) GetLogOk() (map[string]any, bool) {
 	if o == nil || IsNil(o.Log) {
-		return map[string]interface{}{}, false
+		return map[string]any{}, false
 	}
 	return o.Log, true
 }
@@ -266,7 +266,7 @@ func (o *SystemLog) HasLog() bool {
 }
 
 // SetLog gets a reference to the given map[string]interface{} and assigns it to the Log field.
-func (o *SystemLog) SetLog(v map[string]interface{}) {
+func (o *SystemLog) SetLog(v map[string]any) {
 	o.Log = v
 }
 
@@ -342,8 +342,8 @@ func (o SystemLog) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o SystemLog) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
+func (o SystemLog) ToMap() (map[string]any, error) {
+	toSerialize := map[string]any{}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}

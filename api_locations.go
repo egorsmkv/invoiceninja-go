@@ -80,7 +80,7 @@ func (a *LocationsAPIService) BulkLocations(ctx context.Context) ApiBulkLocation
 func (a *LocationsAPIService) BulkLocationsExecute(r ApiBulkLocationsRequest) (*Location, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Location
 	)
@@ -279,7 +279,7 @@ func (a *LocationsAPIService) DeleteLocation(ctx context.Context, id string) Api
 func (a *LocationsAPIService) DeleteLocationExecute(r ApiDeleteLocationRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
@@ -501,7 +501,7 @@ func (a *LocationsAPIService) GetLocations(ctx context.Context) ApiGetLocationsR
 func (a *LocationsAPIService) GetLocationsExecute(r ApiGetLocationsRequest) (*GetLocations200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *GetLocations200Response
 	)
@@ -707,7 +707,7 @@ func (a *LocationsAPIService) GetLocationsCreate(ctx context.Context) ApiGetLoca
 func (a *LocationsAPIService) GetLocationsCreateExecute(r ApiGetLocationsCreateRequest) (*Location, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Location
 	)
@@ -910,7 +910,7 @@ func (a *LocationsAPIService) ShowLocation(ctx context.Context, id string) ApiSh
 func (a *LocationsAPIService) ShowLocationExecute(r ApiShowLocationRequest) (*Location, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Location
 	)
@@ -1118,7 +1118,7 @@ func (a *LocationsAPIService) StoreLocation(ctx context.Context) ApiStoreLocatio
 func (a *LocationsAPIService) StoreLocationExecute(r ApiStoreLocationRequest) (*Location, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Location
 	)
@@ -1333,7 +1333,7 @@ func (a *LocationsAPIService) UpdateLocation(ctx context.Context, id string) Api
 func (a *LocationsAPIService) UpdateLocationExecute(r ApiUpdateLocationRequest) (*Location, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
+		localVarPostBody    any
 		formFiles           []formFile
 		localVarReturnValue *Location
 	)

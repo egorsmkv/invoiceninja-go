@@ -67,7 +67,7 @@ func (a *UpdateAPIService) SelfUpdate(ctx context.Context) ApiSelfUpdateRequest 
 func (a *UpdateAPIService) SelfUpdateExecute(r ApiSelfUpdateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
+		localVarPostBody   any
 		formFiles          []formFile
 	)
 
