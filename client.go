@@ -290,7 +290,7 @@ func contains(haystack []string, needle string) bool {
 }
 
 // Verify optional parameters are of the correct type.
-func typeCheckParameter(obj interface{}, expected string, name string) error {
+func typeCheckParameter(obj any, expected string, name string) error {
 	// Make sure there is an object.
 	if obj == nil {
 		return nil
@@ -303,9 +303,9 @@ func typeCheckParameter(obj interface{}, expected string, name string) error {
 	return nil
 }
 
-func parameterValueToString(obj interface{}, key string) string {
+func parameterValueToString(obj any, key string) string {
 	if reflect.TypeOf(obj).Kind() != reflect.Ptr {
-		if actualObj, ok := obj.(interface{ GetActualInstanceValue() interface{} }); ok {
+		if actualObj, ok := obj.(interface{ GetActualInstanceValue() any }); ok {
 			return fmt.Sprintf("%v", actualObj.GetActualInstanceValue())
 		}
 
@@ -324,7 +324,7 @@ func parameterValueToString(obj interface{}, key string) string {
 
 // parameterAddToHeaderOrQuery adds the provided object to the request header or url query
 // supporting deep object syntax
-func parameterAddToHeaderOrQuery(headerOrQueryParams interface{}, keyPrefix string, obj interface{}, style string, collectionType string) {
+func parameterAddToHeaderOrQuery(headerOrQueryParams any, keyPrefix string, obj any, style string, collectionType string) {
 	var v = reflect.ValueOf(obj)
 	var value = ""
 	if v == reflect.ValueOf(nil) {
@@ -406,20 +406,9 @@ func parameterAddToHeaderOrQuery(headerOrQueryParams interface{}, keyPrefix stri
 		} else {
 			valuesMap.Add(keyPrefix, value)
 		}
-		break
 	case map[string]string:
 		valuesMap[keyPrefix] = value
-		break
 	}
-}
-
-// helper for converting interface{} parameters to json strings
-func parameterToJson(obj interface{}) (string, error) {
-	jsonBuf, err := json.Marshal(obj)
-	if err != nil {
-		return "", err
-	}
-	return string(jsonBuf), err
 }
 
 // callAPI do the request.
@@ -463,7 +452,7 @@ type formFile struct {
 func (c *APIClient) prepareRequest(
 	ctx context.Context,
 	path string, method string,
-	postBody interface{},
+	postBody any,
 	headerParams map[string]string,
 	queryParams url.Values,
 	formParams url.Values,
@@ -488,7 +477,7 @@ func (c *APIClient) prepareRequest(
 	// add form parameters and file if available.
 	if strings.HasPrefix(headerParams["Content-Type"], "multipart/form-data") && len(formParams) > 0 || (len(formFiles) > 0) {
 		if body != nil {
-			return nil, errors.New("Cannot specify postBody and multipart form at the same time.")
+			return nil, errors.New("cannot specify postBody and multipart form at the same time")
 		}
 		body = &bytes.Buffer{}
 		w := multipart.NewWriter(body)
@@ -529,7 +518,7 @@ func (c *APIClient) prepareRequest(
 
 	if strings.HasPrefix(headerParams["Content-Type"], "application/x-www-form-urlencoded") && len(formParams) > 0 {
 		if body != nil {
-			return nil, errors.New("Cannot specify postBody and x-www-form-urlencoded form at the same time.")
+			return nil, errors.New("cannot specify postBody and x-www-form-urlencoded form at the same time")
 		}
 		body = &bytes.Buffer{}
 		body.WriteString(formParams.Encode())
@@ -604,7 +593,7 @@ func (c *APIClient) prepareRequest(
 	return localVarRequest, nil
 }
 
-func (c *APIClient) decode(v interface{}, b []byte, contentType string) (err error) {
+func (c *APIClient) decode(v any, b []byte, contentType string) (err error) {
 	if len(b) == 0 {
 		return nil
 	}
@@ -612,29 +601,18 @@ func (c *APIClient) decode(v interface{}, b []byte, contentType string) (err err
 		*s = string(b)
 		return nil
 	}
-	if f, ok := v.(*os.File); ok {
-		f, err = os.CreateTemp("", "HttpClientFile")
+	if _, ok := v.(*os.File); ok {
+		tempFile, err := os.CreateTemp("", "HttpClientFile")
 		if err != nil {
-			return
+			return err
 		}
-		_, err = f.Write(b)
+		defer tempFile.Close()
+		_, err = tempFile.Write(b)
 		if err != nil {
-			return
+			return err
 		}
-		_, err = f.Seek(0, io.SeekStart)
-		return
-	}
-	if f, ok := v.(**os.File); ok {
-		*f, err = os.CreateTemp("", "HttpClientFile")
-		if err != nil {
-			return
-		}
-		_, err = (*f).Write(b)
-		if err != nil {
-			return
-		}
-		_, err = (*f).Seek(0, io.SeekStart)
-		return
+		_, err = tempFile.Seek(0, io.SeekStart)
+		return err
 	}
 	if XmlCheck.MatchString(contentType) {
 		if err = xml.Unmarshal(b, v); err != nil {
@@ -643,13 +621,13 @@ func (c *APIClient) decode(v interface{}, b []byte, contentType string) (err err
 		return nil
 	}
 	if JsonCheck.MatchString(contentType) {
-		if actualObj, ok := v.(interface{ GetActualInstance() interface{} }); ok { // oneOf, anyOf schemas
+		if actualObj, ok := v.(interface{ GetActualInstance() any }); ok { // oneOf, anyOf schemas
 			if unmarshalObj, ok := actualObj.(interface{ UnmarshalJSON([]byte) error }); ok { // make sure it has UnmarshalJSON defined
 				if err = unmarshalObj.UnmarshalJSON(b); err != nil {
 					return err
 				}
 			} else {
-				return errors.New("Unknown type with GetActualInstance but no unmarshalObj.UnmarshalJSON defined")
+				return errors.New("unknown type with GetActualInstance but no unmarshalObj.UnmarshalJSON defined")
 			}
 		} else if err = json.Unmarshal(b, v); err != nil { // simple model
 			return err
@@ -679,11 +657,9 @@ func addFile(w *multipart.Writer, fieldName, path string) error {
 	return err
 }
 
-// Set request body from an interface{}
-func setBody(body interface{}, contentType string) (bodyBuf *bytes.Buffer, err error) {
-	if bodyBuf == nil {
-		bodyBuf = &bytes.Buffer{}
-	}
+// Set request body from an any
+func setBody(body any, contentType string) (bodyBuf *bytes.Buffer, err error) {
+	bodyBuf = &bytes.Buffer{}
 
 	if reader, ok := body.(io.Reader); ok {
 		_, err = bodyBuf.ReadFrom(reader)
@@ -710,14 +686,14 @@ func setBody(body interface{}, contentType string) (bodyBuf *bytes.Buffer, err e
 	}
 
 	if bodyBuf.Len() == 0 {
-		err = fmt.Errorf("invalid body type %s\n", contentType)
+		err = fmt.Errorf("invalid body type %s", contentType)
 		return nil, err
 	}
 	return bodyBuf, nil
 }
 
 // detectContentType method is used to figure out `Request.Body` content type for request header
-func detectContentType(body interface{}) string {
+func detectContentType(body any) string {
 	contentType := "text/plain; charset=utf-8"
 	kind := reflect.TypeOf(body).Kind()
 
@@ -795,7 +771,7 @@ func strlen(s string) int {
 type GenericOpenAPIError struct {
 	body  []byte
 	error string
-	model interface{}
+	model any
 }
 
 // Error returns non-empty string if there was an error.
@@ -809,12 +785,12 @@ func (e GenericOpenAPIError) Body() []byte {
 }
 
 // Model returns the unpacked model of the error
-func (e GenericOpenAPIError) Model() interface{} {
+func (e GenericOpenAPIError) Model() any {
 	return e.model
 }
 
 // format error message using title and detail when model implements rfc7807
-func formatErrorMessage(status string, v interface{}) string {
+func formatErrorMessage(status string, v any) string {
 	str := ""
 	metaValue := reflect.ValueOf(v).Elem()
 
